@@ -117,19 +117,19 @@ import { cssVars } from "@oxi-ui/theme";
 
 // Access raw color values
 console.log(lightColors.primary.base); // "#8558FF"
-console.log(darkColors.primary.base);  // "#B39AFF"
+console.log(darkColors.primary.base); // "#B39AFF"
 
 // Use CSS variable references in JS
 const styles = {
-  backgroundColor: cssVars.bgPrimary,    // "var(--oxi-bg-primary)"
-  color: cssVars.textPrimary,            // "var(--oxi-text-primary)"
-  borderColor: cssVars.borderPrimary,    // "var(--oxi-border-primary)"
+  backgroundColor: cssVars.bgPrimary, // "var(--oxi-bg-primary)"
+  color: cssVars.textPrimary, // "var(--oxi-text-primary)"
+  borderColor: cssVars.borderPrimary, // "var(--oxi-border-primary)"
 };
 
 // Access spacing, typography, and other tokens
-console.log(theme.spacing.md);      // "16px"
+console.log(theme.spacing.md); // "16px"
 console.log(theme.borderRadius.md); // "8px"
-console.log(theme.fontSize.base);   // "16px"
+console.log(theme.fontSize.base); // "16px"
 ```
 
 #### Theme Switching
@@ -153,11 +153,11 @@ console.log(theme.fontSize.base);   // "16px"
 
 #### Brand Colors
 
-| Token | Light | Dark | Inspired By |
-|-------|-------|------|-------------|
-| `--oxi-primary` | `#8558FF` | `#B39AFF` | Vite Purple |
-| `--oxi-secondary` | `#178390` | `#4CE5F1` | OXC Cyan |
-| `--oxi-accent` | `#EB8A1C` | `#FCD34D` | Bun Orange |
+| Token             | Light     | Dark      | Inspired By |
+| ----------------- | --------- | --------- | ----------- |
+| `--oxi-primary`   | `#8558FF` | `#B39AFF` | Vite Purple |
+| `--oxi-secondary` | `#178390` | `#4CE5F1` | OXC Cyan    |
+| `--oxi-accent`    | `#EB8A1C` | `#FCD34D` | Bun Orange  |
 
 ### @oxi-ui/web-components
 
@@ -413,6 +413,7 @@ bunx changeset
 ```
 
 Changesets will prompt you to:
+
 1. Select which packages are affected
 2. Choose the version bump type (major/minor/patch)
 3. Write a summary of the change
@@ -428,6 +429,7 @@ bun run release
 ```
 
 On CI (main branch), the pipeline automatically runs:
+
 ```bash
 bunx changeset version   # Apply changesets
 bunx turbo run build     # Build all packages
