@@ -232,6 +232,121 @@ canon/
 - ✅ Framework-agnostic web components
 - ✅ React and Angular wrapper components
 
+## Docker
+
+### Development with Docker
+
+Run the full CI pipeline locally:
+
+```bash
+# Run all checks (lint, test, build)
+./scripts/ci-local.sh all
+
+# Or run individual steps
+./scripts/ci-local.sh lint
+./scripts/ci-local.sh test
+./scripts/ci-local.sh build
+```
+
+### Docker Targets
+
+The Dockerfile supports multiple build targets:
+
+```bash
+# Development environment (default)
+docker build --target development -t canon-dev .
+
+# Run tests
+docker build --target test -t canon-test .
+
+# Run linting
+docker build --target lint -t canon-lint .
+
+# Full CI pipeline
+docker build --target ci -t canon-ci .
+
+# Production (built packages only)
+docker build --target production -t canon-prod .
+```
+
+### VS Code Dev Container
+
+Open this repository in VS Code and use the "Reopen in Container" command for a fully configured development environment with:
+
+- Bun runtime and package manager
+- All VS Code extensions pre-installed
+- Port forwarding for development servers
+- Persistent node_modules and Bun cache volumes
+
+## CI/CD with Jenkins
+
+### Pipeline Features
+
+The Jenkinsfile provides:
+
+- **Change Detection** - Only builds/tests/publishes packages with changes
+- **Parallel Execution** - Lint, test, and build run in parallel per package
+- **Conventional Commits** - Auto-detects version bump from commit messages
+- **Independent Semver** - Each package maintains its own version
+- **Dry Run Mode** - Test publishing without actually releasing
+
+### Pipeline Stages
+
+1. **Setup** - Install dependencies, detect changed packages
+2. **Quality Gates** - Lint and format check (parallel)
+3. **Test** - Run tests with coverage (parallel per package)
+4. **Build** - Build changed packages (parallel)
+5. **Version & Publish** - Bump versions and publish to npm (main branch only)
+
+### Manual Versioning
+
+```bash
+# Bump a specific package version
+./scripts/bump-version.sh core patch   # 0.1.0 -> 0.1.1
+./scripts/bump-version.sh core minor   # 0.1.0 -> 0.2.0
+./scripts/bump-version.sh core major   # 0.1.0 -> 1.0.0
+
+./scripts/bump-version.sh web-components patch
+```
+
+### Change Detection
+
+```bash
+# Detect which packages have changes
+./scripts/detect-changes.sh
+
+# Compare against a specific base ref
+./scripts/detect-changes.sh HEAD~5
+./scripts/detect-changes.sh main
+```
+
+### Publish Changed Packages
+
+```bash
+# Dry run (see what would be published)
+./scripts/publish-changed.sh --dry-run
+
+# Actually publish
+./scripts/publish-changed.sh
+```
+
+### Jenkins Configuration
+
+Required Jenkins credentials:
+- `npm-token` - NPM authentication token for publishing
+- `github-ssh-key` - SSH key for pushing tags and version commits
+
+### Conventional Commits
+
+The pipeline uses conventional commits to determine version bumps:
+
+| Commit Type | Version Bump |
+|-------------|--------------|
+| `feat:` or `feat(scope):` | Minor |
+| `fix:` or `fix(scope):` | Patch |
+| `BREAKING CHANGE` or `!:` | Major |
+| Other | Patch (default) |
+
 ## Documentation
 
 - [Workspace Recommendations](./prompts/WORKSPACE_RECOMMENDATIONS.md)

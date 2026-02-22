@@ -17,6 +17,16 @@ The packages need to be independently versionsed, build, tested and published.
 There needs caching so only the necessary task are run e.g. only build a single component rather than all packages.
 Task should run in parallel and dependent task run as required.
 
+Create a Dockerfile with bun so that any develop can run the packages via Docker.
+
+Create a .vscode devcontainer using the Dockerfile.
+
+Create a Jenkinspipeline using the Dockerfile to build, test, lint, and publish the packages.
+
+Only the packages that have changes should be built, tested, linted and published.
+
+Each package will have an indepent semver.
+
 ## Output
 
 Create the monorepo workspace at the root of this repository.

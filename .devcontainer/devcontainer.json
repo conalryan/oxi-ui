@@ -1,0 +1,97 @@
+{
+  "name": "Canon Monorepo",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    "target": "development"
+  },
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "oven.bun-vscode",
+        "runem.lit-plugin",
+        "angular.ng-template",
+        "ms-vscode.vscode-typescript-next",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "gruntfuggly.todo-tree",
+        "usernamehw.errorlens",
+        "christian-kohler.path-intellisense",
+        "yoavbls.pretty-ts-errors"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit"
+        },
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "files.watcherExclude": {
+          "**/node_modules/**": true,
+          "**/dist/**": true,
+          "**/coverage/**": true
+        },
+        "search.exclude": {
+          "**/node_modules": true,
+          "**/dist": true,
+          "**/coverage": true
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [3000, 5173, 8080],
+
+  "postCreateCommand": "bun install",
+
+  "postStartCommand": "git config --global --add safe.directory /app",
+
+  "remoteUser": "bun",
+
+  "mounts": [
+    "source=canon-node-modules,target=/app/node_modules,type=volume",
+    "source=canon-bun-cache,target=/home/bun/.bun,type=volume"
+  ],
+
+  "containerEnv": {
+    "NODE_ENV": "development",
+    "BUN_INSTALL": "/home/bun/.bun"
+  },
+
+  "portsAttributes": {
+    "3000": {
+      "label": "Development Server",
+      "onAutoForward": "notify"
+    },
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "Preview Server",
+      "onAutoForward": "notify"
+    }
+  }
+}

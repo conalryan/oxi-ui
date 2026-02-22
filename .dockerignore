@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.bun/
+
+# Build outputs (for dev container, we want fresh builds)
+dist/
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+Jenkinsfile
+.jenkins/
+
+# Documentation (not needed in container)
+*.md
+!README.md
+prompts/
