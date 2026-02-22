@@ -13,20 +13,20 @@ import type { ButtonVariant, ButtonSize } from './types';
 import './button.element';
 
 /**
- * Angular wrapper for the Piloting Button web component
+ * Angular wrapper for the OxiUI Button web component
  *
  * @example
  * ```typescript
- * import { PilotingButtonComponent } from '@piloting/web-components/button/angular';
+ * import { OxiUIButtonComponent } from '@oxi-ui/web-components/button/angular';
  *
  * @Component({
  *   selector: 'app-example',
  *   template: `
- *     <piloting-button-wrapper
+ *     <oxi-button-wrapper
  *       variant="primary"
- *       (pilotingClick)="handleClick($event)">
+ *       (oxi-uiClick)="handleClick($event)">
  *       Click me
- *     </piloting-button-wrapper>
+ *     </oxi-ui-button-wrapper>
  *   `
  * })
  * export class ExampleComponent {
@@ -37,19 +37,19 @@ import './button.element';
  * ```
  */
 @Component({
-  selector: 'piloting-button-wrapper',
+  selector: 'oxi-ui-button-wrapper',
   template: `
-    <piloting-button
+    <oxi-button
       [attr.variant]="variant"
       [attr.size]="size"
       [attr.disabled]="disabled || null"
       [attr.loading]="loading || null"
       [attr.type]="type"
       [attr.full-width]="fullWidth || null"
-      (piloting-click)="onPilotingClick($event)"
+      (oxi-ui-click)="onOxiUIClick($event)"
     >
       <ng-content></ng-content>
-    </piloting-button>
+    </oxi-ui-button>
   `,
   styles: [
     `
@@ -59,7 +59,7 @@ import './button.element';
     `,
   ],
 })
-export class PilotingButtonComponent {
+export class OxiUIButtonComponent {
   /** Button variant style */
   @Input() variant: ButtonVariant = 'primary';
 
@@ -79,23 +79,23 @@ export class PilotingButtonComponent {
   @Input() fullWidth = false;
 
   /** Click event emitter */
-  @Output() pilotingClick = new EventEmitter<CustomEvent>();
+  @Output() oxi-uiClick = new EventEmitter<CustomEvent>();
 
   constructor(private elementRef: ElementRef) {}
 
-  onPilotingClick(event: CustomEvent) {
-    this.pilotingClick.emit(event);
+  onOxiUIClick(event: CustomEvent) {
+    this.oxi-uiClick.emit(event);
   }
 }
 
 /**
- * Angular module for Piloting Button
+ * Angular module for OxiUI Button
  */
 @NgModule({
-  declarations: [PilotingButtonComponent],
-  exports: [PilotingButtonComponent],
+  declarations: [OxiUIButtonComponent],
+  exports: [OxiUIButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PilotingButtonModule {}
+export class OxiUIButtonModule {}
 
 export type { ButtonVariant, ButtonSize };

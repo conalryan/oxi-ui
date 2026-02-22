@@ -13,21 +13,21 @@ import type { TextFieldType, TextFieldSize } from './types';
 import './text-field.element';
 
 /**
- * Angular wrapper for the Piloting Text Field web component
+ * Angular wrapper for the OxiUI Text Field web component
  *
  * @example
  * ```typescript
- * import { PilotingTextFieldComponent } from '@piloting/web-components/text-field/angular';
+ * import { OxiUITextFieldComponent } from '@oxi-ui/web-components/text-field/angular';
  *
  * @Component({
  *   selector: 'app-example',
  *   template: `
- *     <piloting-text-field-wrapper
+ *     <oxi-text-field-wrapper
  *       label="Email"
  *       type="email"
  *       [value]="email"
- *       (pilotingInput)="onEmailInput($event)">
- *     </piloting-text-field-wrapper>
+ *       (oxi-uiInput)="onEmailInput($event)">
+ *     </oxi-ui-text-field-wrapper>
  *   `
  * })
  * export class ExampleComponent {
@@ -40,9 +40,9 @@ import './text-field.element';
  * ```
  */
 @Component({
-  selector: 'piloting-text-field-wrapper',
+  selector: 'oxi-ui-text-field-wrapper',
   template: `
-    <piloting-text-field
+    <oxi-text-field
       [attr.type]="type"
       [attr.name]="name"
       [attr.value]="value"
@@ -58,12 +58,12 @@ import './text-field.element';
       [attr.min-length]="minLength"
       [attr.pattern]="pattern"
       [attr.full-width]="fullWidth || null"
-      (piloting-input)="onPilotingInput($event)"
-      (piloting-change)="onPilotingChange($event)"
-      (piloting-focus)="onPilotingFocus($event)"
-      (piloting-blur)="onPilotingBlur($event)"
+      (oxi-ui-input)="onOxiUIInput($event)"
+      (oxi-ui-change)="onOxiUIChange($event)"
+      (oxi-ui-focus)="onOxiUIFocus($event)"
+      (oxi-ui-blur)="onOxiUIBlur($event)"
     >
-    </piloting-text-field>
+    </oxi-ui-text-field>
   `,
   styles: [
     `
@@ -73,7 +73,7 @@ import './text-field.element';
     `,
   ],
 })
-export class PilotingTextFieldComponent {
+export class OxiUITextFieldComponent {
   /** Input type */
   @Input() type: TextFieldType = 'text';
 
@@ -120,44 +120,44 @@ export class PilotingTextFieldComponent {
   @Input() fullWidth = false;
 
   /** Input event emitter */
-  @Output() pilotingInput = new EventEmitter<CustomEvent<{ value: string }>>();
+  @Output() oxi-uiInput = new EventEmitter<CustomEvent<{ value: string }>>();
 
   /** Change event emitter */
-  @Output() pilotingChange = new EventEmitter<CustomEvent<{ value: string }>>();
+  @Output() oxi-uiChange = new EventEmitter<CustomEvent<{ value: string }>>();
 
   /** Focus event emitter */
-  @Output() pilotingFocus = new EventEmitter<CustomEvent>();
+  @Output() oxi-uiFocus = new EventEmitter<CustomEvent>();
 
   /** Blur event emitter */
-  @Output() pilotingBlur = new EventEmitter<CustomEvent>();
+  @Output() oxi-uiBlur = new EventEmitter<CustomEvent>();
 
   constructor(private elementRef: ElementRef) {}
 
-  onPilotingInput(event: CustomEvent<{ value: string }>) {
-    this.pilotingInput.emit(event);
+  onOxiUIInput(event: CustomEvent<{ value: string }>) {
+    this.oxi-uiInput.emit(event);
   }
 
-  onPilotingChange(event: CustomEvent<{ value: string }>) {
-    this.pilotingChange.emit(event);
+  onOxiUIChange(event: CustomEvent<{ value: string }>) {
+    this.oxi-uiChange.emit(event);
   }
 
-  onPilotingFocus(event: CustomEvent) {
-    this.pilotingFocus.emit(event);
+  onOxiUIFocus(event: CustomEvent) {
+    this.oxi-uiFocus.emit(event);
   }
 
-  onPilotingBlur(event: CustomEvent) {
-    this.pilotingBlur.emit(event);
+  onOxiUIBlur(event: CustomEvent) {
+    this.oxi-uiBlur.emit(event);
   }
 }
 
 /**
- * Angular module for Piloting Text Field
+ * Angular module for OxiUI Text Field
  */
 @NgModule({
-  declarations: [PilotingTextFieldComponent],
-  exports: [PilotingTextFieldComponent],
+  declarations: [OxiUITextFieldComponent],
+  exports: [OxiUITextFieldComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PilotingTextFieldModule {}
+export class OxiUITextFieldModule {}
 
 export type { TextFieldType, TextFieldSize };

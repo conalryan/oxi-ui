@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, forwardRef, useCallback } from 'react';
-import type { TextFieldType, TextFieldSize, PilotingTextFieldProps } from './types';
+import type { TextFieldType, TextFieldSize, OxiUITextFieldProps } from './types';
 
 // Ensure the web component is imported for side effects
 import './text-field.element';
 
-export interface ReactPilotingTextFieldProps extends PilotingTextFieldProps {
+export interface ReactOxiUITextFieldProps extends OxiUITextFieldProps {
   /** Input handler */
   onInput?: (event: CustomEvent<{ value: string }>) => void;
   /** Change handler */
@@ -20,17 +20,17 @@ export interface ReactPilotingTextFieldProps extends PilotingTextFieldProps {
 }
 
 /**
- * React wrapper for the Piloting Text Field web component
+ * React wrapper for the OxiUI Text Field web component
  *
  * @example
  * ```tsx
- * import { PilotingTextField } from '@piloting/web-components/text-field/react';
+ * import { OxiUITextField } from '@oxi-ui/web-components/text-field/react';
  *
  * function App() {
  *   const [value, setValue] = useState('');
  *
  *   return (
- *     <PilotingTextField
+ *     <OxiUITextField
  *       label="Email"
  *       type="email"
  *       value={value}
@@ -40,7 +40,7 @@ export interface ReactPilotingTextFieldProps extends PilotingTextFieldProps {
  * }
  * ```
  */
-export const PilotingTextField = forwardRef<HTMLElement, ReactPilotingTextFieldProps>(
+export const OxiUITextField = forwardRef<HTMLElement, ReactOxiUITextFieldProps>(
   (
     {
       type = 'text',
@@ -102,20 +102,20 @@ export const PilotingTextField = forwardRef<HTMLElement, ReactPilotingTextFieldP
       const element = textFieldRef.current;
       if (!element) return;
 
-      if (onInput) element.addEventListener('piloting-input', handleInput);
-      if (onChange) element.addEventListener('piloting-change', handleChange);
-      if (onFocus) element.addEventListener('piloting-focus', handleFocus);
-      if (onBlur) element.addEventListener('piloting-blur', handleBlur);
+      if (onInput) element.addEventListener('oxi-ui-input', handleInput);
+      if (onChange) element.addEventListener('oxi-ui-change', handleChange);
+      if (onFocus) element.addEventListener('oxi-ui-focus', handleFocus);
+      if (onBlur) element.addEventListener('oxi-ui-blur', handleBlur);
 
       return () => {
-        if (onInput) element.removeEventListener('piloting-input', handleInput);
-        if (onChange) element.removeEventListener('piloting-change', handleChange);
-        if (onFocus) element.removeEventListener('piloting-focus', handleFocus);
-        if (onBlur) element.removeEventListener('piloting-blur', handleBlur);
+        if (onInput) element.removeEventListener('oxi-ui-input', handleInput);
+        if (onChange) element.removeEventListener('oxi-ui-change', handleChange);
+        if (onFocus) element.removeEventListener('oxi-ui-focus', handleFocus);
+        if (onBlur) element.removeEventListener('oxi-ui-blur', handleBlur);
       };
     }, [handleInput, handleChange, handleFocus, handleBlur, onInput, onChange, onFocus, onBlur, textFieldRef]);
 
-    return React.createElement('piloting-text-field', {
+    return React.createElement('oxi-ui-text-field', {
       ref: textFieldRef,
       type,
       name,
@@ -138,6 +138,6 @@ export const PilotingTextField = forwardRef<HTMLElement, ReactPilotingTextFieldP
   }
 );
 
-PilotingTextField.displayName = 'PilotingTextField';
+OxiUITextField.displayName = 'OxiUITextField';
 
 export type { TextFieldType, TextFieldSize };

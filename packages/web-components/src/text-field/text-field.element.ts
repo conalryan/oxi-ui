@@ -3,13 +3,13 @@ import { customElement, property, state } from 'lit/decorators.js';
 import type { TextFieldType, TextFieldSize } from './types';
 
 /**
- * Piloting Text Field Web Component
+ * OxiUI Text Field Web Component
  *
- * @element piloting-text-field
- * @fires piloting-input - Fired when the input value changes
- * @fires piloting-change - Fired when the input loses focus after value change
- * @fires piloting-focus - Fired when the input gains focus
- * @fires piloting-blur - Fired when the input loses focus
+ * @element oxi-ui-text-field
+ * @fires oxi-ui-input - Fired when the input value changes
+ * @fires oxi-ui-change - Fired when the input loses focus after value change
+ * @fires oxi-ui-focus - Fired when the input gains focus
+ * @fires oxi-ui-blur - Fired when the input loses focus
  *
  * @csspart container - The container element
  * @csspart label - The label element
@@ -19,16 +19,16 @@ import type { TextFieldType, TextFieldSize } from './types';
  *
  * @example
  * ```html
- * <piloting-text-field
+ * <oxi-text-field
  *   label="Email"
  *   type="email"
  *   placeholder="Enter your email"
  *   required
- * ></piloting-text-field>
+ * ></oxi-ui-text-field>
  * ```
  */
-@customElement('piloting-text-field')
-export class PilotingTextField extends LitElement {
+@customElement('oxi-ui-text-field')
+export class OxiUITextField extends LitElement {
   static override styles = css`
     :host {
       display: block;
@@ -194,7 +194,7 @@ export class PilotingTextField extends LitElement {
     this.value = input.value;
 
     this.dispatchEvent(
-      new CustomEvent('piloting-input', {
+      new CustomEvent('oxi-ui-input', {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
@@ -204,7 +204,7 @@ export class PilotingTextField extends LitElement {
 
   private _handleChange(e: Event) {
     this.dispatchEvent(
-      new CustomEvent('piloting-change', {
+      new CustomEvent('oxi-ui-change', {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
@@ -215,7 +215,7 @@ export class PilotingTextField extends LitElement {
   private _handleFocus(e: FocusEvent) {
     this._focused = true;
     this.dispatchEvent(
-      new CustomEvent('piloting-focus', {
+      new CustomEvent('oxi-ui-focus', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
@@ -226,7 +226,7 @@ export class PilotingTextField extends LitElement {
   private _handleBlur(e: FocusEvent) {
     this._focused = false;
     this.dispatchEvent(
-      new CustomEvent('piloting-blur', {
+      new CustomEvent('oxi-ui-blur', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
@@ -286,6 +286,6 @@ export class PilotingTextField extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'piloting-text-field': PilotingTextField;
+    'oxi-ui-text-field': OxiUITextField;
   }
 }

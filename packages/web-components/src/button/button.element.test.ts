@@ -1,22 +1,22 @@
 import { describe, expect, it, beforeAll } from 'bun:test';
-import { PilotingButton } from './button.element';
+import { OxiUIButton } from './button.element';
 
 // Register the custom element for testing
 beforeAll(() => {
-  if (!customElements.get('piloting-button')) {
-    customElements.define('piloting-button', PilotingButton);
+  if (!customElements.get('oxi-ui-button')) {
+    customElements.define('oxi-ui-button', OxiUIButton);
   }
 });
 
-describe('PilotingButton', () => {
-  const createElement = (props: Partial<PilotingButton> = {}): PilotingButton => {
-    const el = document.createElement('piloting-button') as PilotingButton;
+describe('OxiUIButton', () => {
+  const createElement = (props: Partial<OxiUIButton> = {}): OxiUIButton => {
+    const el = document.createElement('oxi-ui-button') as OxiUIButton;
     Object.assign(el, props);
     document.body.appendChild(el);
     return el;
   };
 
-  const cleanup = (el: PilotingButton) => {
+  const cleanup = (el: OxiUIButton) => {
     el.remove();
   };
 
@@ -141,13 +141,13 @@ describe('PilotingButton', () => {
   describe('rendering', () => {
     it('renders as custom element', () => {
       const el = createElement();
-      expect(el.tagName.toLowerCase()).toBe('piloting-button');
+      expect(el.tagName.toLowerCase()).toBe('oxi-ui-button');
       cleanup(el);
     });
 
-    it('is instance of PilotingButton', () => {
+    it('is instance of OxiUIButton', () => {
       const el = createElement();
-      expect(el instanceof PilotingButton).toBe(true);
+      expect(el instanceof OxiUIButton).toBe(true);
       cleanup(el);
     });
   });

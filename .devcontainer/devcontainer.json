@@ -1,5 +1,5 @@
 {
-  "name": "Piloting Monorepo",
+  "name": "OxiUI Monorepo",
   "build": {
     "dockerfile": "../Dockerfile",
     "context": "..",
@@ -71,8 +71,8 @@
   "remoteUser": "bun",
 
   "mounts": [
-    "source=piloting-node-modules,target=/app/node_modules,type=volume",
-    "source=piloting-bun-cache,target=/home/bun/.bun,type=volume"
+    "source=oxi-ui-node-modules,target=/app/node_modules,type=volume",
+    "source=oxi-ui-bun-cache,target=/home/bun/.bun,type=volume"
   ],
 
   "containerEnv": {

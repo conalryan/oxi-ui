@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, forwardRef } from 'react';
-import type { ButtonVariant, ButtonSize, PilotingButtonProps } from './types';
+import type { ButtonVariant, ButtonSize, OxiUIButtonProps } from './types';
 
 // Ensure the web component is imported for side effects
 import './button.element';
 
-export interface ReactPilotingButtonProps extends PilotingButtonProps {
+export interface ReactOxiUIButtonProps extends OxiUIButtonProps {
   /** Button content */
   children?: React.ReactNode;
   /** Click handler */
@@ -16,22 +16,22 @@ export interface ReactPilotingButtonProps extends PilotingButtonProps {
 }
 
 /**
- * React wrapper for the Piloting Button web component
+ * React wrapper for the OxiUI Button web component
  *
  * @example
  * ```tsx
- * import { PilotingButton } from '@piloting/web-components/button/react';
+ * import { OxiUIButton } from '@oxi-ui/web-components/button/react';
  *
  * function App() {
  *   return (
- *     <PilotingButton variant="primary" onClick={() => console.log('clicked')}>
+ *     <OxiUIButton variant="primary" onClick={() => console.log('clicked')}>
  *       Click me
- *     </PilotingButton>
+ *     </OxiUIButton>
  *   );
  * }
  * ```
  */
-export const PilotingButton = forwardRef<HTMLElement, ReactPilotingButtonProps>(
+export const OxiUIButton = forwardRef<HTMLElement, ReactOxiUIButtonProps>(
   (
     {
       variant = 'primary',
@@ -58,15 +58,15 @@ export const PilotingButton = forwardRef<HTMLElement, ReactPilotingButtonProps>(
         onClick(e as CustomEvent);
       };
 
-      element.addEventListener('piloting-click', handleClick);
+      element.addEventListener('oxi-ui-click', handleClick);
       return () => {
-        element.removeEventListener('piloting-click', handleClick);
+        element.removeEventListener('oxi-ui-click', handleClick);
       };
     }, [onClick, buttonRef]);
 
     // Using createElement to avoid JSX issues with custom elements
     return React.createElement(
-      'piloting-button',
+      'oxi-ui-button',
       {
         ref: buttonRef,
         variant,
@@ -83,6 +83,6 @@ export const PilotingButton = forwardRef<HTMLElement, ReactPilotingButtonProps>(
   }
 );
 
-PilotingButton.displayName = 'PilotingButton';
+OxiUIButton.displayName = 'OxiUIButton';
 
 export type { ButtonVariant, ButtonSize };

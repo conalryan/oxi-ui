@@ -8,9 +8,9 @@
       "declarations": [
         {
           "kind": "class",
-          "name": "PilotingButton",
-          "tagName": "piloting-button",
-          "description": "Piloting Button Web Component",
+          "name": "OxiUIButton",
+          "tagName": "oxi-ui-button",
+          "description": "OxiUI Button Web Component",
           "attributes": [
             {
               "name": "variant",
@@ -51,7 +51,7 @@
           ],
           "events": [
             {
-              "name": "piloting-click",
+              "name": "oxi-ui-click",
               "description": "Fired when the button is clicked"
             }
           ],
@@ -76,9 +76,9 @@
       "declarations": [
         {
           "kind": "class",
-          "name": "PilotingTextField",
-          "tagName": "piloting-text-field",
-          "description": "Piloting Text Field Web Component",
+          "name": "OxiUITextField",
+          "tagName": "oxi-ui-text-field",
+          "description": "OxiUI Text Field Web Component",
           "attributes": [
             {
               "name": "type",
@@ -165,19 +165,19 @@
           ],
           "events": [
             {
-              "name": "piloting-input",
+              "name": "oxi-ui-input",
               "description": "Fired when the input value changes"
             },
             {
-              "name": "piloting-change",
+              "name": "oxi-ui-change",
               "description": "Fired when the input loses focus after value change"
             },
             {
-              "name": "piloting-focus",
+              "name": "oxi-ui-focus",
               "description": "Fired when the input gains focus"
             },
             {
-              "name": "piloting-blur",
+              "name": "oxi-ui-blur",
               "description": "Fired when the input loses focus"
             }
           ],

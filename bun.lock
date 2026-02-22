@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "piloting-monorepo",
+      "name": "oxi-ui-monorepo",
       "devDependencies": {
         "@types/bun": "^1.1.0",
         "oxlint": "^0.9.0",
@@ -12,7 +12,7 @@
       },
     },
     "packages/core": {
-      "name": "@piloting/core",
+      "name": "@oxi-ui/core",
       "version": "0.1.0",
       "devDependencies": {
         "@types/bun": "^1.1.0",
@@ -22,7 +22,7 @@
       },
     },
     "packages/web-components": {
-      "name": "@piloting/web-components",
+      "name": "@oxi-ui/web-components",
       "version": "0.1.0",
       "dependencies": {
         "lit": "^3.1.0",
@@ -57,9 +57,9 @@
 
     "@babel/types": ["@babel/types@7.29.0", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.28.5" } }, "sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A=="],
 
-    "@piloting/core": ["@piloting/core@workspace:packages/core"],
+    "@oxi-ui/core": ["@oxi-ui/core@workspace:packages/core"],
 
-    "@piloting/web-components": ["@piloting/web-components@workspace:packages/web-components"],
+    "@oxi-ui/web-components": ["@oxi-ui/web-components@workspace:packages/web-components"],
 
     "@esbuild/aix-ppc64": ["@esbuild/aix-ppc64@0.21.5", "", { "os": "aix", "cpu": "ppc64" }, "sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ=="],
 

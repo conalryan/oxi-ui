@@ -1,22 +1,22 @@
 import { describe, expect, it, beforeAll } from 'bun:test';
-import { PilotingTextField } from './text-field.element';
+import { OxiUITextField } from './text-field.element';
 
 // Register the custom element for testing
 beforeAll(() => {
-  if (!customElements.get('piloting-text-field')) {
-    customElements.define('piloting-text-field', PilotingTextField);
+  if (!customElements.get('oxi-ui-text-field')) {
+    customElements.define('oxi-ui-text-field', OxiUITextField);
   }
 });
 
-describe('PilotingTextField', () => {
-  const createElement = (props: Partial<PilotingTextField> = {}): PilotingTextField => {
-    const el = document.createElement('piloting-text-field') as PilotingTextField;
+describe('OxiUITextField', () => {
+  const createElement = (props: Partial<OxiUITextField> = {}): OxiUITextField => {
+    const el = document.createElement('oxi-ui-text-field') as OxiUITextField;
     Object.assign(el, props);
     document.body.appendChild(el);
     return el;
   };
 
-  const cleanup = (el: PilotingTextField) => {
+  const cleanup = (el: OxiUITextField) => {
     el.remove();
   };
 
@@ -173,13 +173,13 @@ describe('PilotingTextField', () => {
   describe('rendering', () => {
     it('renders as custom element', () => {
       const el = createElement();
-      expect(el.tagName.toLowerCase()).toBe('piloting-text-field');
+      expect(el.tagName.toLowerCase()).toBe('oxi-ui-text-field');
       cleanup(el);
     });
 
-    it('is instance of PilotingTextField', () => {
+    it('is instance of OxiUITextField', () => {
       const el = createElement();
-      expect(el instanceof PilotingTextField).toBe(true);
+      expect(el instanceof OxiUITextField).toBe(true);
       cleanup(el);
     });
   });

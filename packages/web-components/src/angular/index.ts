@@ -1,32 +1,32 @@
-// Angular wrappers for all Piloting web components
+// Angular wrappers for all OxiUI web components
 // Import this module to use all components with Angular
 
-export { PilotingButtonComponent, PilotingButtonModule } from '../button/angular';
+export { OxiUIButtonComponent, OxiUIButtonModule } from '../button/angular';
 export type { ButtonVariant, ButtonSize } from '../button/types';
 
-export { PilotingTextFieldComponent, PilotingTextFieldModule } from '../text-field/angular';
+export { OxiUITextFieldComponent, OxiUITextFieldModule } from '../text-field/angular';
 export type { TextFieldType, TextFieldSize } from '../text-field/types';
 
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { PilotingButtonModule } from '../button/angular';
-import { PilotingTextFieldModule } from '../text-field/angular';
+import { OxiUIButtonModule } from '../button/angular';
+import { OxiUITextFieldModule } from '../text-field/angular';
 
 /**
- * Angular module that includes all Piloting web components
+ * Angular module that includes all OxiUI web components
  *
  * @example
  * ```typescript
- * import { PilotingComponentsModule } from '@piloting/web-components/angular';
+ * import { OxiUIComponentsModule } from '@oxi-ui/web-components/angular';
  *
  * @NgModule({
- *   imports: [PilotingComponentsModule],
+ *   imports: [OxiUIComponentsModule],
  * })
  * export class AppModule {}
  * ```
  */
 @NgModule({
-  imports: [PilotingButtonModule, PilotingTextFieldModule],
-  exports: [PilotingButtonModule, PilotingTextFieldModule],
+  imports: [OxiUIButtonModule, OxiUITextFieldModule],
+  exports: [OxiUIButtonModule, OxiUITextFieldModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PilotingComponentsModule {}
+export class OxiUIComponentsModule {}

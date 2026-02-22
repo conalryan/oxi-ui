@@ -1,4 +1,4 @@
-# Piloting Monorepo Development Container
+# OxiUI Monorepo Development Container
 # Multi-stage build for development and CI/CD
 
 # =============================================================================
@@ -106,8 +106,8 @@ COPY --from=builder /app/packages/web-components/package.json ./packages/web-com
 COPY package.json ./
 
 # Labels for container metadata
-LABEL org.opencontainers.image.title="Piloting Monorepo"
-LABEL org.opencontainers.image.description="Piloting frontend library packages"
-LABEL org.opencontainers.image.source="https://github.com/your-org/piloting"
+LABEL org.opencontainers.image.title="OxiUI Monorepo"
+LABEL org.opencontainers.image.description="OxiUI frontend library packages"
+LABEL org.opencontainers.image.source="https://github.com/your-org/oxi-ui"
 
-CMD ["echo", "Piloting packages ready for publishing"]
+CMD ["echo", "OxiUI packages ready for publishing"]

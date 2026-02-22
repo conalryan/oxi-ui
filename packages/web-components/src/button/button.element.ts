@@ -3,9 +3,9 @@ import { customElement, property } from 'lit/decorators.js';
 import type { ButtonVariant, ButtonSize } from './types';
 
 /**
- * Piloting Button Web Component
+ * OxiUI Button Web Component
  *
- * @element piloting-button
+ * @element oxi-ui-button
  * @slot - Default slot for button content
  * @fires click - Fired when the button is clicked
  *
@@ -13,11 +13,11 @@ import type { ButtonVariant, ButtonSize } from './types';
  *
  * @example
  * ```html
- * <piloting-button variant="primary" size="medium">Click me</piloting-button>
+ * <oxi-button variant="primary" size="medium">Click me</oxi-ui-button>
  * ```
  */
-@customElement('piloting-button')
-export class PilotingButton extends LitElement {
+@customElement('oxi-ui-button')
+export class OxiUIButton extends LitElement {
   static override styles = css`
     :host {
       display: inline-block;
@@ -181,7 +181,7 @@ export class PilotingButton extends LitElement {
     }
 
     this.dispatchEvent(
-      new CustomEvent('piloting-click', {
+      new CustomEvent('oxi-ui-click', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
@@ -216,6 +216,6 @@ export class PilotingButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'piloting-button': PilotingButton;
+    'oxi-ui-button': OxiUIButton;
   }
 }

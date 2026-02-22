@@ -24,7 +24,7 @@ publish_package() {
     local package_dir=$2
     
     echo ""
-    echo "Publishing @piloting/${package_name}..."
+    echo "Publishing @oxi-ui/${package_name}..."
     
     cd "$package_dir"
     
@@ -32,11 +32,11 @@ publish_package() {
     bun run build
     
     if [ "$DRY_RUN" = true ]; then
-        echo "[DRY-RUN] Would publish @piloting/${package_name}"
+        echo "[DRY-RUN] Would publish @oxi-ui/${package_name}"
         npm publish --dry-run --access public
     else
         npm publish --access public
-        echo "Successfully published @piloting/${package_name}"
+        echo "Successfully published @oxi-ui/${package_name}"
     fi
     
     cd - > /dev/null
