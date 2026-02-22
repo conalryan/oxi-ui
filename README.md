@@ -216,7 +216,9 @@ oxi-ui/
 ### Technology Stack
 
 - **Runtime**: [Bun](https://bun.sh) - Fast JavaScript runtime and package manager
+- **Build System**: [Turborepo](https://turbo.build) - Monorepo build orchestration with caching
 - **Bundler**: [Vite](https://vitejs.dev) - Next-generation frontend tooling
+- **Versioning**: [Changesets](https://github.com/changesets/changesets) - Version management and publishing
 - **Linting**: [OXLint](https://oxc-project.github.io/docs/guide/usage/linter.html) - Fast Rust-based linter
 - **Web Components**: [Lit](https://lit.dev) - Simple, fast web components
 - **Testing**: Bun test runner with built-in coverage
@@ -242,6 +244,9 @@ Run the full CI pipeline locally:
 ```bash
 # Run all checks (lint, test, build)
 ./scripts/ci-local.sh all
+
+# Run only on affected packages
+./scripts/ci-local.sh all --affected
 
 # Or run individual steps
 ./scripts/ci-local.sh lint
@@ -279,56 +284,73 @@ Open this repository in VS Code and use the "Reopen in Container" command for a 
 - Port forwarding for development servers
 - Persistent node_modules and Bun cache volumes
 
-## CI/CD with Jenkins
+## CI/CD
+
+### Tools
+
+- **[Turborepo](https://turbo.build)** - Monorepo build system with caching and change detection
+- **[Changesets](https://github.com/changesets/changesets)** - Versioning, changelogs, and publishing
 
 ### Pipeline Features
 
-The Jenkinsfile provides:
-
-- **Change Detection** - Only builds/tests/publishes packages with changes
-- **Parallel Execution** - Lint, test, and build run in parallel per package
-- **Conventional Commits** - Auto-detects version bump from commit messages
+- **Change Detection** - Turborepo's `--affected` flag only runs tasks on changed packages
+- **Caching** - Turborepo caches build outputs for faster CI runs
+- **Automatic Versioning** - Changesets handles semver and changelog generation
 - **Independent Semver** - Each package maintains its own version
-- **Dry Run Mode** - Test publishing without actually releasing
 
 ### Pipeline Stages
 
-1. **Setup** - Install dependencies, detect changed packages
-2. **Quality Gates** - Lint and format check (parallel)
-3. **Test** - Run tests with coverage (parallel per package)
-4. **Build** - Build changed packages (parallel)
-5. **Version & Publish** - Bump versions and publish to npm (main branch only)
+1. **Install** - Install dependencies with `bun install`
+2. **Quality** - Lint and format check (parallel)
+3. **Test** - Run tests with coverage on affected packages
+4. **Build** - Build affected packages with Turborepo
+5. **Release** - Version and publish via Changesets (main branch only)
 
-### Manual Versioning
+### Versioning with Changesets
+
+When making changes that should be released:
 
 ```bash
-# Bump a specific package version
-./scripts/bump-version.sh core patch   # 0.1.0 -> 0.1.1
-./scripts/bump-version.sh core minor   # 0.1.0 -> 0.2.0
-./scripts/bump-version.sh core major   # 0.1.0 -> 1.0.0
+# Create a changeset (interactive prompt)
+bunx changeset
 
-./scripts/bump-version.sh web-components patch
+# This creates a markdown file in .changeset/ describing your change
+# Commit this file with your PR
 ```
 
-### Change Detection
+Changesets will prompt you to:
+1. Select which packages are affected
+2. Choose the version bump type (major/minor/patch)
+3. Write a summary of the change
+
+### Releasing
 
 ```bash
-# Detect which packages have changes
-./scripts/detect-changes.sh
+# Apply pending changesets (updates versions and generates changelogs)
+bun run version
 
-# Compare against a specific base ref
-./scripts/detect-changes.sh HEAD~5
-./scripts/detect-changes.sh main
+# Full release: version + build + publish to npm
+bun run release
 ```
 
-### Publish Changed Packages
+On CI (main branch), the pipeline automatically runs:
+```bash
+bunx changeset version   # Apply changesets
+bunx turbo run build     # Build all packages
+bunx changeset publish   # Publish to npm + create git tags
+```
+
+### Turborepo Commands
 
 ```bash
-# Dry run (see what would be published)
-./scripts/publish-changed.sh --dry-run
+# Build only affected packages
+bunx turbo run build --affected
 
-# Actually publish
-./scripts/publish-changed.sh
+# Build packages changed since main
+bunx turbo run build --filter="[origin/main]"
+
+# See what would run (dry run)
+bunx turbo run build --affected --dry-run
 ```
 
 ### Jenkins Configuration
@@ -337,17 +359,6 @@ Required Jenkins credentials:
 
 - `npm-token` - NPM authentication token for publishing
 - `github-ssh-key` - SSH key for pushing tags and version commits
-
-### Conventional Commits
-
-The pipeline uses conventional commits to determine version bumps:
-
-| Commit Type               | Version Bump    |
-| ------------------------- | --------------- |
-| `feat:` or `feat(scope):` | Minor           |
-| `fix:` or `fix(scope):`   | Patch           |
-| `BREAKING CHANGE` or `!:` | Major           |
-| Other                     | Patch (default) |
 
 ## Documentation
 
