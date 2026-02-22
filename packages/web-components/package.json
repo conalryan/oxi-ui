@@ -1,7 +1,11 @@
 {
   "name": "@oxi-ui/web-components",
   "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -43,22 +47,32 @@
       "import": "./dist/angular/index.js"
     }
   },
-  "sideEffects": false,
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vite build",
-    "test": "bun test",
-    "test:coverage": "bun test --coverage",
-    "lint": "oxlint src",
-    "lint:fix": "oxlint src --fix",
     "clean": "rm -rf dist coverage",
-    "typecheck": "tsc --noEmit",
-    "prepublishOnly": "bun run build"
+    "format:check": "oxfmt --check src",
+    "format": "oxfmt --write src",
+    "lint:fix": "oxlint src --fix",
+    "lint": "oxlint src",
+    "prepublishOnly": "bun run build",
+    "test:coverage": "bun test --coverage",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "lit": "^3.1.0"
+  },
+  "devDependencies": {
+    "@angular/core": "^17.3.0",
+    "@types/bun": "^1.1.0",
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "vite-plugin-dts": "^4.0.0"
   },
   "peerDependencies": {
     "@angular/core": ">=17.0.0",
@@ -71,18 +85,6 @@
     "react": {
       "optional": true
     }
-  },
-  "devDependencies": {
-    "@angular/core": "^17.3.0",
-    "@types/bun": "^1.1.0",
-    "@types/react": "^18.3.0",
-    "react": "^18.3.0",
-    "typescript": "^5.5.0",
-    "vite": "^5.4.0",
-    "vite-plugin-dts": "^4.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "customElements": "custom-elements.json"
 }

@@ -1,11 +1,11 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import type { ButtonVariant, ButtonSize } from './types';
+import { LitElement, html, css } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import type { ButtonVariant, ButtonSize } from "./types";
 
 /**
- * OxiUI Button Web Component
+ * Oxi Button Web Component
  *
- * @element oxi-ui-button
+ * @element oxi-button
  * @slot - Default slot for button content
  * @fires click - Fired when the button is clicked
  *
@@ -13,11 +13,11 @@ import type { ButtonVariant, ButtonSize } from './types';
  *
  * @example
  * ```html
- * <oxi-button variant="primary" size="medium">Click me</oxi-ui-button>
+ * <oxi-button variant="primary" size="medium">Click me</oxi-button>
  * ```
  */
-@customElement('oxi-ui-button')
-export class OxiUIButton extends LitElement {
+@customElement("oxi-button")
+export class OxiButton extends LitElement {
   static override styles = css`
     :host {
       display: inline-block;
@@ -120,7 +120,7 @@ export class OxiUIButton extends LitElement {
     }
 
     .button--loading::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 1rem;
       height: 1rem;
@@ -151,11 +151,11 @@ export class OxiUIButton extends LitElement {
 
   /** Button variant style */
   @property({ type: String, reflect: true })
-  variant: ButtonVariant = 'primary';
+  variant: ButtonVariant = "primary";
 
   /** Button size */
   @property({ type: String, reflect: true })
-  size: ButtonSize = 'medium';
+  size: ButtonSize = "medium";
 
   /** Whether the button is disabled */
   @property({ type: Boolean, reflect: true })
@@ -167,10 +167,10 @@ export class OxiUIButton extends LitElement {
 
   /** Button type attribute */
   @property({ type: String })
-  type: 'button' | 'submit' | 'reset' = 'button';
+  type: "button" | "submit" | "reset" = "button";
 
   /** Full width button */
-  @property({ type: Boolean, reflect: true, attribute: 'full-width' })
+  @property({ type: Boolean, reflect: true, attribute: "full-width" })
   fullWidth = false;
 
   private _handleClick(e: MouseEvent) {
@@ -181,23 +181,23 @@ export class OxiUIButton extends LitElement {
     }
 
     this.dispatchEvent(
-      new CustomEvent('oxi-ui-click', {
+      new CustomEvent("click", {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
-      })
+      }),
     );
   }
 
   override render() {
     const classes = [
-      'button',
+      "button",
       `button--${this.variant}`,
       `button--${this.size}`,
-      this.loading ? 'button--loading' : '',
+      this.loading ? "button--loading" : "",
     ]
       .filter(Boolean)
-      .join(' ');
+      .join(" ");
 
     return html`
       <button
@@ -216,6 +216,6 @@ export class OxiUIButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'oxi-ui-button': OxiUIButton;
+    "oxi-button": OxiButton;
   }
 }

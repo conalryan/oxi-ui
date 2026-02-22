@@ -19,187 +19,187 @@
   /* --------------------------------------------------------------------------
      Background Colors
      -------------------------------------------------------------------------- */
-  --oxi-bg-primary: light-dark(#FFFFFF, #14151A);
-  --oxi-bg-secondary: light-dark(#FBF0DF, #16171D);
-  --oxi-bg-tertiary: light-dark(#F5F5F7, #1B2025);
-  --oxi-bg-elevated: light-dark(#FFFFFF, #22252D);
+  --oxi-bg-primary: light-dark(#ffffff, #14151a);
+  --oxi-bg-secondary: light-dark(#fbf0df, #16171d);
+  --oxi-bg-tertiary: light-dark(#f5f5f7, #1b2025);
+  --oxi-bg-elevated: light-dark(#ffffff, #22252d);
   --oxi-bg-overlay: light-dark(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
-  --oxi-bg-inverse: light-dark(#14151A, #FFFFFF);
+  --oxi-bg-inverse: light-dark(#14151a, #ffffff);
 
   /* --------------------------------------------------------------------------
      Surface Colors (for cards, panels, containers)
      -------------------------------------------------------------------------- */
-  --oxi-surface-primary: light-dark(#FFFFFF, #1B2025);
-  --oxi-surface-secondary: light-dark(#F5F5F7, #22252D);
-  --oxi-surface-tertiary: light-dark(#E5E7EB, #2D3139);
-  --oxi-surface-hover: light-dark(#F0F0F2, #2A2D35);
-  --oxi-surface-active: light-dark(#E8E8EA, #32363E);
-  --oxi-surface-disabled: light-dark(#F5F5F7, #1F2228);
+  --oxi-surface-primary: light-dark(#ffffff, #1b2025);
+  --oxi-surface-secondary: light-dark(#f5f5f7, #22252d);
+  --oxi-surface-tertiary: light-dark(#e5e7eb, #2d3139);
+  --oxi-surface-hover: light-dark(#f0f0f2, #2a2d35);
+  --oxi-surface-active: light-dark(#e8e8ea, #32363e);
+  --oxi-surface-disabled: light-dark(#f5f5f7, #1f2228);
 
   /* --------------------------------------------------------------------------
      Text Colors
      -------------------------------------------------------------------------- */
-  --oxi-text-primary: light-dark(#14151A, #FFFFFF);
-  --oxi-text-secondary: light-dark(#6B7280, #B9B9BB);
-  --oxi-text-tertiary: light-dark(#867E8E, #867E8E);
-  --oxi-text-disabled: light-dark(#9CA3AF, #4B5563);
-  --oxi-text-inverse: light-dark(#FFFFFF, #14151A);
-  --oxi-text-placeholder: light-dark(#9CA3AF, #6B7280);
-  --oxi-text-link: light-dark(#0073D8, #60A5FA);
-  --oxi-text-link-hover: light-dark(#005BB5, #87B5E9);
+  --oxi-text-primary: light-dark(#14151a, #ffffff);
+  --oxi-text-secondary: light-dark(#6b7280, #b9b9bb);
+  --oxi-text-tertiary: light-dark(#867e8e, #867e8e);
+  --oxi-text-disabled: light-dark(#9ca3af, #4b5563);
+  --oxi-text-inverse: light-dark(#ffffff, #14151a);
+  --oxi-text-placeholder: light-dark(#9ca3af, #6b7280);
+  --oxi-text-link: light-dark(#0073d8, #60a5fa);
+  --oxi-text-link-hover: light-dark(#005bb5, #87b5e9);
 
   /* --------------------------------------------------------------------------
      Border Colors
      -------------------------------------------------------------------------- */
-  --oxi-border-primary: light-dark(#E5E7EB, #3B3440);
-  --oxi-border-secondary: light-dark(#D1D5DB, #4B5563);
-  --oxi-border-focus: light-dark(#8558FF, #B39AFF);
-  --oxi-border-error: light-dark(#DC2626, #F87171);
-  --oxi-border-success: light-dark(#16A34A, #34D399);
-  --oxi-border-warning: light-dark(#D97706, #FCD34D);
-  --oxi-border-disabled: light-dark(#E5E7EB, #2D3139);
+  --oxi-border-primary: light-dark(#e5e7eb, #3b3440);
+  --oxi-border-secondary: light-dark(#d1d5db, #4b5563);
+  --oxi-border-focus: light-dark(#8558ff, #b39aff);
+  --oxi-border-error: light-dark(#dc2626, #f87171);
+  --oxi-border-success: light-dark(#16a34a, #34d399);
+  --oxi-border-warning: light-dark(#d97706, #fcd34d);
+  --oxi-border-disabled: light-dark(#e5e7eb, #2d3139);
 
   /* --------------------------------------------------------------------------
      Brand Colors - Primary (Vite Purple)
      -------------------------------------------------------------------------- */
-  --oxi-primary: light-dark(#8558FF, #B39AFF);
-  --oxi-primary-hover: light-dark(#7347E6, #9B7AFF);
-  --oxi-primary-active: light-dark(#6136CC, #8558FF);
-  --oxi-primary-pressed: light-dark(#5028B3, #7347E6);
-  --oxi-primary-disabled: light-dark(#C5B4FF, #4A3B7A);
-  --oxi-primary-subtle: light-dark(#F3EFFF, #2A2440);
-  --oxi-primary-subtle-hover: light-dark(#E8E0FF, #3A3050);
-  --oxi-primary-on: light-dark(#FFFFFF, #14151A);
+  --oxi-primary: light-dark(#8558ff, #b39aff);
+  --oxi-primary-hover: light-dark(#7347e6, #9b7aff);
+  --oxi-primary-active: light-dark(#6136cc, #8558ff);
+  --oxi-primary-pressed: light-dark(#5028b3, #7347e6);
+  --oxi-primary-disabled: light-dark(#c5b4ff, #4a3b7a);
+  --oxi-primary-subtle: light-dark(#f3efff, #2a2440);
+  --oxi-primary-subtle-hover: light-dark(#e8e0ff, #3a3050);
+  --oxi-primary-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Brand Colors - Secondary (OXC Cyan)
      -------------------------------------------------------------------------- */
-  --oxi-secondary: light-dark(#178390, #4CE5F1);
-  --oxi-secondary-hover: light-dark(#136E7A, #32F3EF);
-  --oxi-secondary-active: light-dark(#0F5A64, #22D3EE);
-  --oxi-secondary-pressed: light-dark(#0B464E, #56C2C9);
-  --oxi-secondary-disabled: light-dark(#A3D4DA, #1B3C40);
-  --oxi-secondary-subtle: light-dark(#E6F7F9, #151D20);
-  --oxi-secondary-subtle-hover: light-dark(#D0F0F4, #1B2830);
-  --oxi-secondary-on: light-dark(#FFFFFF, #14151A);
+  --oxi-secondary: light-dark(#178390, #4ce5f1);
+  --oxi-secondary-hover: light-dark(#136e7a, #32f3ef);
+  --oxi-secondary-active: light-dark(#0f5a64, #22d3ee);
+  --oxi-secondary-pressed: light-dark(#0b464e, #56c2c9);
+  --oxi-secondary-disabled: light-dark(#a3d4da, #1b3c40);
+  --oxi-secondary-subtle: light-dark(#e6f7f9, #151d20);
+  --oxi-secondary-subtle-hover: light-dark(#d0f0f4, #1b2830);
+  --oxi-secondary-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Brand Colors - Accent (Bun Orange)
      -------------------------------------------------------------------------- */
-  --oxi-accent: light-dark(#EB8A1C, #FCD34D);
-  --oxi-accent-hover: light-dark(#D47818, #FACC15);
-  --oxi-accent-active: light-dark(#BD6614, #FDB813);
-  --oxi-accent-pressed: light-dark(#A65410, #EB8A1C);
-  --oxi-accent-disabled: light-dark(#F5C98E, #4A3B20);
-  --oxi-accent-subtle: light-dark(#FEF7E6, #2A2418);
-  --oxi-accent-subtle-hover: light-dark(#FDF0D0, #3A3020);
-  --oxi-accent-on: light-dark(#14151A, #14151A);
+  --oxi-accent: light-dark(#eb8a1c, #fcd34d);
+  --oxi-accent-hover: light-dark(#d47818, #facc15);
+  --oxi-accent-active: light-dark(#bd6614, #fdb813);
+  --oxi-accent-pressed: light-dark(#a65410, #eb8a1c);
+  --oxi-accent-disabled: light-dark(#f5c98e, #4a3b20);
+  --oxi-accent-subtle: light-dark(#fef7e6, #2a2418);
+  --oxi-accent-subtle-hover: light-dark(#fdf0d0, #3a3020);
+  --oxi-accent-on: light-dark(#14151a, #14151a);
 
   /* --------------------------------------------------------------------------
      Semantic Colors - Success (Green)
      -------------------------------------------------------------------------- */
-  --oxi-success: light-dark(#16A34A, #34D399);
-  --oxi-success-hover: light-dark(#15803D, #22C589);
-  --oxi-success-active: light-dark(#166534, #10B779);
-  --oxi-success-pressed: light-dark(#14532D, #34D399);
-  --oxi-success-disabled: light-dark(#A3D9B8, #1B3C2E);
-  --oxi-success-subtle: light-dark(#ECFDF5, #0D2818);
-  --oxi-success-subtle-hover: light-dark(#D1FAE5, #153820);
-  --oxi-success-on: light-dark(#FFFFFF, #14151A);
+  --oxi-success: light-dark(#16a34a, #34d399);
+  --oxi-success-hover: light-dark(#15803d, #22c589);
+  --oxi-success-active: light-dark(#166534, #10b779);
+  --oxi-success-pressed: light-dark(#14532d, #34d399);
+  --oxi-success-disabled: light-dark(#a3d9b8, #1b3c2e);
+  --oxi-success-subtle: light-dark(#ecfdf5, #0d2818);
+  --oxi-success-subtle-hover: light-dark(#d1fae5, #153820);
+  --oxi-success-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Semantic Colors - Error (Red)
      -------------------------------------------------------------------------- */
-  --oxi-error: light-dark(#DC2626, #F87171);
-  --oxi-error-hover: light-dark(#B91C1C, #EF4444);
-  --oxi-error-active: light-dark(#991B1B, #DC2626);
-  --oxi-error-pressed: light-dark(#7F1D1D, #F87171);
-  --oxi-error-disabled: light-dark(#FECACA, #4A2020);
-  --oxi-error-subtle: light-dark(#FEF2F2, #2A1818);
-  --oxi-error-subtle-hover: light-dark(#FEE2E2, #3A2020);
-  --oxi-error-on: light-dark(#FFFFFF, #14151A);
+  --oxi-error: light-dark(#dc2626, #f87171);
+  --oxi-error-hover: light-dark(#b91c1c, #ef4444);
+  --oxi-error-active: light-dark(#991b1b, #dc2626);
+  --oxi-error-pressed: light-dark(#7f1d1d, #f87171);
+  --oxi-error-disabled: light-dark(#fecaca, #4a2020);
+  --oxi-error-subtle: light-dark(#fef2f2, #2a1818);
+  --oxi-error-subtle-hover: light-dark(#fee2e2, #3a2020);
+  --oxi-error-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Semantic Colors - Warning (Amber)
      -------------------------------------------------------------------------- */
-  --oxi-warning: light-dark(#D97706, #FCD34D);
-  --oxi-warning-hover: light-dark(#B45309, #FBBF24);
-  --oxi-warning-active: light-dark(#92400E, #F59E0B);
-  --oxi-warning-pressed: light-dark(#78350F, #FCD34D);
-  --oxi-warning-disabled: light-dark(#FDE68A, #4A3B20);
-  --oxi-warning-subtle: light-dark(#FFFBEB, #2A2418);
-  --oxi-warning-subtle-hover: light-dark(#FEF3C7, #3A3020);
-  --oxi-warning-on: light-dark(#14151A, #14151A);
+  --oxi-warning: light-dark(#d97706, #fcd34d);
+  --oxi-warning-hover: light-dark(#b45309, #fbbf24);
+  --oxi-warning-active: light-dark(#92400e, #f59e0b);
+  --oxi-warning-pressed: light-dark(#78350f, #fcd34d);
+  --oxi-warning-disabled: light-dark(#fde68a, #4a3b20);
+  --oxi-warning-subtle: light-dark(#fffbeb, #2a2418);
+  --oxi-warning-subtle-hover: light-dark(#fef3c7, #3a3020);
+  --oxi-warning-on: light-dark(#14151a, #14151a);
 
   /* --------------------------------------------------------------------------
      Semantic Colors - Info (Blue)
      -------------------------------------------------------------------------- */
-  --oxi-info: light-dark(#0073D8, #60A5FA);
-  --oxi-info-hover: light-dark(#0062B8, #3B82F6);
-  --oxi-info-active: light-dark(#005198, #2563EB);
-  --oxi-info-pressed: light-dark(#004078, #60A5FA);
-  --oxi-info-disabled: light-dark(#93C5FD, #1E3A5F);
-  --oxi-info-subtle: light-dark(#EFF6FF, #172554);
-  --oxi-info-subtle-hover: light-dark(#DBEAFE, #1E3A60);
-  --oxi-info-on: light-dark(#FFFFFF, #14151A);
+  --oxi-info: light-dark(#0073d8, #60a5fa);
+  --oxi-info-hover: light-dark(#0062b8, #3b82f6);
+  --oxi-info-active: light-dark(#005198, #2563eb);
+  --oxi-info-pressed: light-dark(#004078, #60a5fa);
+  --oxi-info-disabled: light-dark(#93c5fd, #1e3a5f);
+  --oxi-info-subtle: light-dark(#eff6ff, #172554);
+  --oxi-info-subtle-hover: light-dark(#dbeafe, #1e3a60);
+  --oxi-info-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Feature Colors - Magenta/Pink (OXC/Bun accent)
      -------------------------------------------------------------------------- */
-  --oxi-magenta: light-dark(#EF56EF, #F472B6);
-  --oxi-magenta-hover: light-dark(#D946D9, #EC4899);
-  --oxi-magenta-active: light-dark(#C336C3, #DB2777);
-  --oxi-magenta-pressed: light-dark(#AD26AD, #F472B6);
-  --oxi-magenta-disabled: light-dark(#FBCFE8, #4A2040);
-  --oxi-magenta-subtle: light-dark(#FDF2F8, #2A1828);
-  --oxi-magenta-subtle-hover: light-dark(#FCE7F3, #3A2030);
-  --oxi-magenta-on: light-dark(#FFFFFF, #14151A);
+  --oxi-magenta: light-dark(#ef56ef, #f472b6);
+  --oxi-magenta-hover: light-dark(#d946d9, #ec4899);
+  --oxi-magenta-active: light-dark(#c336c3, #db2777);
+  --oxi-magenta-pressed: light-dark(#ad26ad, #f472b6);
+  --oxi-magenta-disabled: light-dark(#fbcfe8, #4a2040);
+  --oxi-magenta-subtle: light-dark(#fdf2f8, #2a1828);
+  --oxi-magenta-subtle-hover: light-dark(#fce7f3, #3a2030);
+  --oxi-magenta-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Feature Colors - Purple (Vite)
      -------------------------------------------------------------------------- */
-  --oxi-purple: light-dark(#9153D0, #C084FC);
-  --oxi-purple-hover: light-dark(#7C3AED, #A855F7);
-  --oxi-purple-active: light-dark(#6D28D9, #9333EA);
-  --oxi-purple-pressed: light-dark(#5B21B6, #C084FC);
-  --oxi-purple-disabled: light-dark(#DDD6FE, #3A2860);
-  --oxi-purple-subtle: light-dark(#FAF5FF, #1F1830);
-  --oxi-purple-subtle-hover: light-dark(#F3E8FF, #2A2040);
-  --oxi-purple-on: light-dark(#FFFFFF, #14151A);
+  --oxi-purple: light-dark(#9153d0, #c084fc);
+  --oxi-purple-hover: light-dark(#7c3aed, #a855f7);
+  --oxi-purple-active: light-dark(#6d28d9, #9333ea);
+  --oxi-purple-pressed: light-dark(#5b21b6, #c084fc);
+  --oxi-purple-disabled: light-dark(#ddd6fe, #3a2860);
+  --oxi-purple-subtle: light-dark(#faf5ff, #1f1830);
+  --oxi-purple-subtle-hover: light-dark(#f3e8ff, #2a2040);
+  --oxi-purple-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Feature Colors - Teal (OXC)
      -------------------------------------------------------------------------- */
-  --oxi-teal: light-dark(#0D9488, #22D3EE);
-  --oxi-teal-hover: light-dark(#0F766E, #14B8A6);
-  --oxi-teal-active: light-dark(#115E59, #0D9488);
-  --oxi-teal-pressed: light-dark(#134E4A, #22D3EE);
-  --oxi-teal-disabled: light-dark(#99F6E4, #134E4A);
-  --oxi-teal-subtle: light-dark(#F0FDFA, #0D1F1E);
-  --oxi-teal-subtle-hover: light-dark(#CCFBF1, #153028);
-  --oxi-teal-on: light-dark(#FFFFFF, #14151A);
+  --oxi-teal: light-dark(#0d9488, #22d3ee);
+  --oxi-teal-hover: light-dark(#0f766e, #14b8a6);
+  --oxi-teal-active: light-dark(#115e59, #0d9488);
+  --oxi-teal-pressed: light-dark(#134e4a, #22d3ee);
+  --oxi-teal-disabled: light-dark(#99f6e4, #134e4a);
+  --oxi-teal-subtle: light-dark(#f0fdfa, #0d1f1e);
+  --oxi-teal-subtle-hover: light-dark(#ccfbf1, #153028);
+  --oxi-teal-on: light-dark(#ffffff, #14151a);
 
   /* --------------------------------------------------------------------------
      Neutral Palette
      -------------------------------------------------------------------------- */
-  --oxi-neutral-50: light-dark(#FAFAFA, #18181B);
-  --oxi-neutral-100: light-dark(#F4F4F5, #27272A);
-  --oxi-neutral-200: light-dark(#E4E4E7, #3F3F46);
-  --oxi-neutral-300: light-dark(#D4D4D8, #52525B);
-  --oxi-neutral-400: light-dark(#A1A1AA, #71717A);
-  --oxi-neutral-500: light-dark(#71717A, #A1A1AA);
-  --oxi-neutral-600: light-dark(#52525B, #D4D4D8);
-  --oxi-neutral-700: light-dark(#3F3F46, #E4E4E7);
-  --oxi-neutral-800: light-dark(#27272A, #F4F4F5);
-  --oxi-neutral-900: light-dark(#18181B, #FAFAFA);
+  --oxi-neutral-50: light-dark(#fafafa, #18181b);
+  --oxi-neutral-100: light-dark(#f4f4f5, #27272a);
+  --oxi-neutral-200: light-dark(#e4e4e7, #3f3f46);
+  --oxi-neutral-300: light-dark(#d4d4d8, #52525b);
+  --oxi-neutral-400: light-dark(#a1a1aa, #71717a);
+  --oxi-neutral-500: light-dark(#71717a, #a1a1aa);
+  --oxi-neutral-600: light-dark(#52525b, #d4d4d8);
+  --oxi-neutral-700: light-dark(#3f3f46, #e4e4e7);
+  --oxi-neutral-800: light-dark(#27272a, #f4f4f5);
+  --oxi-neutral-900: light-dark(#18181b, #fafafa);
 
   /* --------------------------------------------------------------------------
      Focus & Interaction States
      -------------------------------------------------------------------------- */
-  --oxi-focus-ring: light-dark(#8558FF, #B39AFF);
+  --oxi-focus-ring: light-dark(#8558ff, #b39aff);
   --oxi-focus-ring-offset: 2px;
   --oxi-focus-ring-width: 2px;
-  
+
   /* Overlay states for hover/pressed effects */
   --oxi-state-hover: light-dark(rgba(0, 0, 0, 0.04), rgba(255, 255, 255, 0.08));
   --oxi-state-pressed: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.12));
@@ -209,41 +209,50 @@
   /* --------------------------------------------------------------------------
      Shadows & Elevation
      -------------------------------------------------------------------------- */
-  --oxi-shadow-xs: light-dark(
-    0 1px 2px rgba(0, 0, 0, 0.05),
-    0 1px 2px rgba(0, 0, 0, 0.4)
-  );
+  --oxi-shadow-xs: light-dark(0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.4));
   --oxi-shadow-sm: light-dark(
-    0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06),
-    0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3)
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.3)
   );
   --oxi-shadow-md: light-dark(
-    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
-    0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 4px 6px -1px rgba(0, 0, 0, 0.5),
+    0 2px 4px -1px rgba(0, 0, 0, 0.3)
   );
   --oxi-shadow-lg: light-dark(
-    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05),
-    0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3)
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 4px 6px -2px rgba(0, 0, 0, 0.3)
   );
   --oxi-shadow-xl: light-dark(
-    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
-    0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3)
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 20px 25px -5px rgba(0, 0, 0, 0.5),
+    0 10px 10px -5px rgba(0, 0, 0, 0.3)
   );
 
   /* --------------------------------------------------------------------------
      Typography Scale
      -------------------------------------------------------------------------- */
-  --oxi-font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --oxi-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  
-  --oxi-font-size-xs: 0.75rem;     /* 12px */
-  --oxi-font-size-sm: 0.875rem;    /* 14px */
-  --oxi-font-size-base: 1rem;      /* 16px */
-  --oxi-font-size-lg: 1.125rem;    /* 18px */
-  --oxi-font-size-xl: 1.25rem;     /* 20px */
-  --oxi-font-size-2xl: 1.5rem;     /* 24px */
-  --oxi-font-size-3xl: 1.875rem;   /* 30px */
-  --oxi-font-size-4xl: 2.25rem;    /* 36px */
+  --oxi-font-family-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --oxi-font-family-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --oxi-font-size-xs: 0.75rem; /* 12px */
+  --oxi-font-size-sm: 0.875rem; /* 14px */
+  --oxi-font-size-base: 1rem; /* 16px */
+  --oxi-font-size-lg: 1.125rem; /* 18px */
+  --oxi-font-size-xl: 1.25rem; /* 20px */
+  --oxi-font-size-2xl: 1.5rem; /* 24px */
+  --oxi-font-size-3xl: 1.875rem; /* 30px */
+  --oxi-font-size-4xl: 2.25rem; /* 36px */
 
   --oxi-font-weight-normal: 400;
   --oxi-font-weight-medium: 500;
@@ -259,36 +268,36 @@
      -------------------------------------------------------------------------- */
   --oxi-space-0: 0;
   --oxi-space-px: 1px;
-  --oxi-space-0-5: 0.125rem;  /* 2px */
-  --oxi-space-1: 0.25rem;     /* 4px */
-  --oxi-space-1-5: 0.375rem;  /* 6px */
-  --oxi-space-2: 0.5rem;      /* 8px */
-  --oxi-space-2-5: 0.625rem;  /* 10px */
-  --oxi-space-3: 0.75rem;     /* 12px */
-  --oxi-space-3-5: 0.875rem;  /* 14px */
-  --oxi-space-4: 1rem;        /* 16px */
-  --oxi-space-5: 1.25rem;     /* 20px */
-  --oxi-space-6: 1.5rem;      /* 24px */
-  --oxi-space-7: 1.75rem;     /* 28px */
-  --oxi-space-8: 2rem;        /* 32px */
-  --oxi-space-9: 2.25rem;     /* 36px */
-  --oxi-space-10: 2.5rem;     /* 40px */
-  --oxi-space-12: 3rem;       /* 48px */
-  --oxi-space-14: 3.5rem;     /* 56px */
-  --oxi-space-16: 4rem;       /* 64px */
-  --oxi-space-20: 5rem;       /* 80px */
-  --oxi-space-24: 6rem;       /* 96px */
+  --oxi-space-0-5: 0.125rem; /* 2px */
+  --oxi-space-1: 0.25rem; /* 4px */
+  --oxi-space-1-5: 0.375rem; /* 6px */
+  --oxi-space-2: 0.5rem; /* 8px */
+  --oxi-space-2-5: 0.625rem; /* 10px */
+  --oxi-space-3: 0.75rem; /* 12px */
+  --oxi-space-3-5: 0.875rem; /* 14px */
+  --oxi-space-4: 1rem; /* 16px */
+  --oxi-space-5: 1.25rem; /* 20px */
+  --oxi-space-6: 1.5rem; /* 24px */
+  --oxi-space-7: 1.75rem; /* 28px */
+  --oxi-space-8: 2rem; /* 32px */
+  --oxi-space-9: 2.25rem; /* 36px */
+  --oxi-space-10: 2.5rem; /* 40px */
+  --oxi-space-12: 3rem; /* 48px */
+  --oxi-space-14: 3.5rem; /* 56px */
+  --oxi-space-16: 4rem; /* 64px */
+  --oxi-space-20: 5rem; /* 80px */
+  --oxi-space-24: 6rem; /* 96px */
 
   /* --------------------------------------------------------------------------
      Border Radius
      -------------------------------------------------------------------------- */
   --oxi-radius-none: 0;
-  --oxi-radius-sm: 0.25rem;   /* 4px */
-  --oxi-radius-md: 0.375rem;  /* 6px */
-  --oxi-radius-lg: 0.5rem;    /* 8px */
-  --oxi-radius-xl: 0.75rem;   /* 12px */
-  --oxi-radius-2xl: 1rem;     /* 16px */
-  --oxi-radius-3xl: 1.5rem;   /* 24px */
+  --oxi-radius-sm: 0.25rem; /* 4px */
+  --oxi-radius-md: 0.375rem; /* 6px */
+  --oxi-radius-lg: 0.5rem; /* 8px */
+  --oxi-radius-xl: 0.75rem; /* 12px */
+  --oxi-radius-2xl: 1rem; /* 16px */
+  --oxi-radius-3xl: 1.5rem; /* 24px */
   --oxi-radius-full: 9999px;
 
   /* --------------------------------------------------------------------------
@@ -334,9 +343,9 @@
 /* High contrast mode support */
 @media (prefers-contrast: more) {
   :root {
-    --oxi-border-primary: light-dark(#000000, #FFFFFF);
-    --oxi-border-focus: light-dark(#000000, #FFFFFF);
-    --oxi-text-secondary: light-dark(#374151, #E5E7EB);
+    --oxi-border-primary: light-dark(#000000, #ffffff);
+    --oxi-border-focus: light-dark(#000000, #ffffff);
+    --oxi-text-secondary: light-dark(#374151, #e5e7eb);
     --oxi-focus-ring-width: 3px;
   }
 }

@@ -82,7 +82,9 @@
           "attributes": [
             {
               "name": "type",
-              "type": { "text": "'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search'" },
+              "type": {
+                "text": "'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search'"
+              },
               "default": "'text'",
               "description": "Input type"
             },

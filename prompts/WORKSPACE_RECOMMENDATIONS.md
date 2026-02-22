@@ -3,6 +3,7 @@
 ## Executive Summary
 
 This document evaluates the top 3 build tooling options for a production-grade, framework-agnostic front-end monorepo containing:
+
 - A Lit component library with React/Angular wrappers
 - A "portal" wrapper component (header, footer, side-menu)
 - ESLint configuration package
@@ -16,16 +17,17 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 
 **Overview**: Nx provides monorepo orchestration with intelligent caching, while Vite handles development and esbuild powers production builds.
 
-| Category | Details |
-|----------|---------|
-| **Build Tooling** | Nx for orchestration, Vite for dev server, esbuild/Rollup for production |
-| **Caching** | Nx Cloud remote caching, local computation caching, affected-only builds |
-| **Minification** | esbuild (extremely fast) or terser (more optimized) |
-| **Performance** | Excellent - sub-second HMR, parallel task execution |
-| **Monorepo Support** | First-class - dependency graph, generators, executors |
-| **Modern Tooling** | Native ESM, TypeScript 5.x, modern browser targets |
+| Category             | Details                                                                  |
+| -------------------- | ------------------------------------------------------------------------ |
+| **Build Tooling**    | Nx for orchestration, Vite for dev server, esbuild/Rollup for production |
+| **Caching**          | Nx Cloud remote caching, local computation caching, affected-only builds |
+| **Minification**     | esbuild (extremely fast) or terser (more optimized)                      |
+| **Performance**      | Excellent - sub-second HMR, parallel task execution                      |
+| **Monorepo Support** | First-class - dependency graph, generators, executors                    |
+| **Modern Tooling**   | Native ESM, TypeScript 5.x, modern browser targets                       |
 
 **Pros**:
+
 - ✅ Best-in-class caching with Nx Cloud (free tier available)
 - ✅ Intelligent affected detection - only rebuilds changed packages
 - ✅ Built-in generators for Lit, React, Angular packages
@@ -36,6 +38,7 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 - ✅ Vite's native Lit support is excellent
 
 **Cons**:
+
 - ❌ Steeper learning curve for Nx concepts
 - ❌ Additional configuration complexity
 - ❌ Nx Cloud required for remote caching (team environments)
@@ -49,16 +52,17 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 
 **Overview**: Turborepo provides lightweight monorepo task orchestration with powerful caching, paired with Vite for development.
 
-| Category | Details |
-|----------|---------|
-| **Build Tooling** | Turborepo for orchestration, Vite for dev/build |
-| **Caching** | Local + Vercel Remote Cache, content-addressable |
-| **Minification** | esbuild (default) or terser via Vite config |
-| **Performance** | Excellent - incremental builds, parallel execution |
-| **Monorepo Support** | Good - task pipelines, workspace dependencies |
-| **Modern Tooling** | Native ESM, modern TypeScript support |
+| Category             | Details                                            |
+| -------------------- | -------------------------------------------------- |
+| **Build Tooling**    | Turborepo for orchestration, Vite for dev/build    |
+| **Caching**          | Local + Vercel Remote Cache, content-addressable   |
+| **Minification**     | esbuild (default) or terser via Vite config        |
+| **Performance**      | Excellent - incremental builds, parallel execution |
+| **Monorepo Support** | Good - task pipelines, workspace dependencies      |
+| **Modern Tooling**   | Native ESM, modern TypeScript support              |
 
 **Pros**:
+
 - ✅ Zero-config to start, minimal learning curve
 - ✅ Extremely fast local caching
 - ✅ Simple `turbo.json` configuration
@@ -68,6 +72,7 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 - ✅ Great for Lit projects with Vite plugin
 
 **Cons**:
+
 - ❌ Less sophisticated dependency graph than Nx
 - ❌ Fewer built-in generators and scaffolding tools
 - ❌ No affected-only testing out of the box
@@ -82,16 +87,17 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 
 **Overview**: Lean approach using pnpm's native workspace features with Vite, adding tools as needed.
 
-| Category | Details |
-|----------|---------|
-| **Build Tooling** | pnpm workspaces, Vite, custom scripts |
-| **Caching** | pnpm store (dependencies only), no task caching |
-| **Minification** | esbuild/terser via Vite |
-| **Performance** | Good - fast installs, parallel scripts |
-| **Monorepo Support** | Basic - workspace protocol, filtering |
-| **Modern Tooling** | Fully modern stack |
+| Category             | Details                                         |
+| -------------------- | ----------------------------------------------- |
+| **Build Tooling**    | pnpm workspaces, Vite, custom scripts           |
+| **Caching**          | pnpm store (dependencies only), no task caching |
+| **Minification**     | esbuild/terser via Vite                         |
+| **Performance**      | Good - fast installs, parallel scripts          |
+| **Monorepo Support** | Basic - workspace protocol, filtering           |
+| **Modern Tooling**   | Fully modern stack                              |
 
 **Pros**:
+
 - ✅ Maximum flexibility and control
 - ✅ No additional abstractions to learn
 - ✅ pnpm is extremely fast for dependency management
@@ -100,6 +106,7 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 - ✅ Can add Nx/Turborepo later if needed
 
 **Cons**:
+
 - ❌ No built-in task caching (must implement or add later)
 - ❌ Manual task orchestration required
 - ❌ No affected-only builds without additional tooling
@@ -133,6 +140,7 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 > Since Lerna v6+, Nx is the **default task runner** for Lerna, so they integrate seamlessly.
 
 **Pros**:
+
 - ✅ Best-in-class versioning with Lerna's `independent` mode
 - ✅ Automatic changelogs from conventional commits
 - ✅ Selective publishing - only changed packages
@@ -142,12 +150,14 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 - ✅ Mature and battle-tested publishing workflow
 
 **Cons**:
+
 - ❌ Three tools to configure (pnpm-workspace.yaml, lerna.json, nx.json)
 - ❌ Some redundancy between Lerna and Nx concepts
 - ❌ Lerna now owned by Nx; full Nx may be preferred long-term
 - ❌ Slightly more cognitive overhead
 
 **Configuration Example**:
+
 ```json
 // lerna.json
 {
@@ -183,20 +193,20 @@ This document evaluates the top 3 build tooling options for a production-grade, 
 
 ## Detailed Comparison Matrix
 
-| Feature | Nx + Vite | Turborepo + Vite | pnpm + Vite | pnpm + Lerna + Nx |
-|---------|-----------|------------------|-------------|-------------------|
-| **Setup Complexity** | Medium-High | Low | Low | Medium |
-| **Learning Curve** | Steep | Gentle | Minimal | Moderate |
-| **Local Caching** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ❌ | ⭐⭐⭐⭐⭐ |
-| **Remote Caching** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ❌ | ⭐⭐⭐⭐⭐ |
-| **Affected Detection** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ❌ | ⭐⭐⭐⭐⭐ |
-| **Generators/Scaffolding** | ⭐⭐⭐⭐⭐ | ⭐⭐ | ❌ | ⭐⭐ |
-| **CI/CD Integration** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Lit Support** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **React/Angular Wrappers** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-| **Library Publishing** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Independent Versioning** | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Documentation** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Feature                    | Nx + Vite   | Turborepo + Vite | pnpm + Vite | pnpm + Lerna + Nx |
+| -------------------------- | ----------- | ---------------- | ----------- | ----------------- |
+| **Setup Complexity**       | Medium-High | Low              | Low         | Medium            |
+| **Learning Curve**         | Steep       | Gentle           | Minimal     | Moderate          |
+| **Local Caching**          | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐       | ❌          | ⭐⭐⭐⭐⭐        |
+| **Remote Caching**         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐         | ❌          | ⭐⭐⭐⭐⭐        |
+| **Affected Detection**     | ⭐⭐⭐⭐⭐  | ⭐⭐⭐           | ❌          | ⭐⭐⭐⭐⭐        |
+| **Generators/Scaffolding** | ⭐⭐⭐⭐⭐  | ⭐⭐             | ❌          | ⭐⭐              |
+| **CI/CD Integration**      | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐         | ⭐⭐⭐      | ⭐⭐⭐⭐⭐        |
+| **Lit Support**            | ⭐⭐⭐⭐    | ⭐⭐⭐⭐         | ⭐⭐⭐⭐    | ⭐⭐⭐⭐          |
+| **React/Angular Wrappers** | ⭐⭐⭐⭐⭐  | ⭐⭐⭐           | ⭐⭐⭐      | ⭐⭐⭐            |
+| **Library Publishing**     | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐         | ⭐⭐⭐      | ⭐⭐⭐⭐⭐        |
+| **Independent Versioning** | ⭐⭐⭐⭐    | ⭐⭐⭐           | ⭐⭐        | ⭐⭐⭐⭐⭐        |
+| **Documentation**          | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐         | ⭐⭐⭐⭐    | ⭐⭐⭐⭐          |
 
 ---
 
@@ -209,42 +219,44 @@ For the `cui-portal` component served as standalone JS/CSS:
 ```
 dist/
 ├── compute-ui-portal.min.js    # IIFE/UMD bundle
-├── compute-ui-portal.esm.js    # ES module bundle  
+├── compute-ui-portal.esm.js    # ES module bundle
 ├── compute-ui.min.css          # Extracted styles
 └── types/                      # TypeScript declarations
 ```
 
 **Recommended Vite Config for Lit Libraries**:
+
 ```typescript
 // vite.config.ts
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/index.ts',
-      name: 'ComputeUIPortal',
-      formats: ['es', 'iife'],
-      fileName: (format) => `compute-ui-portal.${format === 'es' ? 'esm' : 'min'}.js`
+      entry: "src/index.ts",
+      name: "ComputeUIPortal",
+      formats: ["es", "iife"],
+      fileName: (format) => `compute-ui-portal.${format === "es" ? "esm" : "min"}.js`,
     },
     rollupOptions: {
       external: [], // Bundle all dependencies for standalone use
     },
-    minify: 'esbuild',
+    minify: "esbuild",
     sourcemap: true,
-  }
+  },
 });
 ```
 
 ### React/Angular Wrappers
 
 Use `@lit/react` for React wrappers:
+
 ```typescript
-import { createComponent } from '@lit/react';
-import { CuiPortal } from '@oxi-ui/portal';
+import { createComponent } from "@lit/react";
+import { CuiPortal } from "@oxi-ui/portal";
 
 export const Portal = createComponent({
-  tagName: 'cui-portal',
+  tagName: "cui-portal",
   elementClass: CuiPortal,
   react: React,
 });
@@ -300,20 +312,20 @@ For the `eslint-config` package, use the new flat config format:
 
 ```javascript
 // packages/eslint-config/index.js
-import tseslint from 'typescript-eslint';
-import litPlugin from 'eslint-plugin-lit';
-import prettierConfig from 'eslint-config-prettier';
+import tseslint from "typescript-eslint";
+import litPlugin from "eslint-plugin-lit";
+import prettierConfig from "eslint-config-prettier";
 
 export default [
   ...tseslint.configs.recommended,
-  litPlugin.configs['flat/recommended'],
+  litPlugin.configs["flat/recommended"],
   prettierConfig,
   {
     rules: {
-      '@typescript-eslint/explicit-function-return-type': 'warn',
-      'lit/no-legacy-template-syntax': 'error',
-    }
-  }
+      "@typescript-eslint/explicit-function-return-type": "warn",
+      "lit/no-legacy-template-syntax": "error",
+    },
+  },
 ];
 ```
 
@@ -322,18 +334,21 @@ export default [
 ## Performance Optimization Strategies
 
 ### Build Performance
+
 1. **esbuild for minification** - 10-100x faster than terser
 2. **Parallel builds** - Nx/Turborepo handle automatically
 3. **Incremental TypeScript** - Enable in tsconfig
 4. **SWC for React** - If using React wrappers
 
 ### Runtime Performance
+
 1. **Code splitting** - Lazy load non-critical components
 2. **Tree shaking** - ES modules enable dead code elimination
 3. **CSS containment** - Use Shadow DOM for style isolation
 4. **Preload hints** - For critical portal assets
 
 ### CI/CD Performance
+
 1. **Remote caching** - Skip unchanged package builds
 2. **Affected-only testing** - Test only changed packages
 3. **Distributed execution** - Nx Cloud or Turborepo remote execution
@@ -364,6 +379,7 @@ For a production-grade monorepo with Lit components, React/Angular wrappers, and
 | **Changesets** | Version management |
 
 **Quick Start**:
+
 ```bash
 # Initialize with Nx
 pnpm dlx create-nx-workspace@latest oxi-ui --preset=ts --pm=pnpm
@@ -380,6 +396,7 @@ pnpm nx g @nx/web:library components --bundler=vite
 ## Alternative Considerations
 
 ### Turborepo + Vite
+
 If the team prefers **simplicity over features**, start with **Turborepo + Vite**. It can handle most monorepo needs with less configuration. Migrate to Nx later if advanced features become necessary.
 
 ```bash
@@ -388,7 +405,9 @@ pnpm dlx create-turbo@latest
 ```
 
 ### pnpm + Lerna + Nx (Hybrid)
+
 If **independent versioning and publishing** is a core requirement, the **pnpm + Lerna + Nx** hybrid is an excellent choice:
+
 - Lerna's `independent` mode for per-package semver
 - Automatic changelog generation from conventional commits
 - Nx caching without adopting full Nx project structure
@@ -401,7 +420,9 @@ npx lerna init --independent
 ```
 
 ### Nx + Changesets (Alternative to Lerna)
+
 For those who want Nx features with independent versioning but **fewer tools**, consider **Nx + Changesets**:
+
 - Changesets handles independent versioning/changelogs
 - Nx handles orchestration and caching
 - One less tool to maintain than the Lerna hybrid

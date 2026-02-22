@@ -1,7 +1,7 @@
-export type { UserSession, AuthorizationOptions, AuthorizationResult } from './types';
+export type { UserSession, AuthorizationOptions, AuthorizationResult } from "./types";
 export {
   isAuthorized,
   isSessionExpired,
   hasRequiredRoles,
   hasRequiredPermissions,
-} from './isAuthorized';
+} from "./isAuthorized";

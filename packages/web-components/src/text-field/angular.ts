@@ -6,18 +6,18 @@ import {
   ElementRef,
   CUSTOM_ELEMENTS_SCHEMA,
   NgModule,
-} from '@angular/core';
-import type { TextFieldType, TextFieldSize } from './types';
+} from "@angular/core";
+import type { TextFieldType, TextFieldSize } from "./types";
 
 // Ensure the web component is imported for side effects
-import './text-field.element';
+import "./text-field.element";
 
 /**
  * Angular wrapper for the OxiUI Text Field web component
  *
  * @example
  * ```typescript
- * import { OxiUITextFieldComponent } from '@oxi-ui/web-components/text-field/angular';
+ * import { OxiTextFieldComponent } from '@/web-components/text-field/angular';
  *
  * @Component({
  *   selector: 'app-example',
@@ -26,8 +26,8 @@ import './text-field.element';
  *       label="Email"
  *       type="email"
  *       [value]="email"
- *       (oxi-uiInput)="onEmailInput($event)">
- *     </oxi-ui-text-field-wrapper>
+ *       (input)="onEmailInput($event)">
+ *     </oxi-text-field-wrapper>
  *   `
  * })
  * export class ExampleComponent {
@@ -40,7 +40,7 @@ import './text-field.element';
  * ```
  */
 @Component({
-  selector: 'oxi-ui-text-field-wrapper',
+  selector: "oxi-text-field-wrapper",
   template: `
     <oxi-text-field
       [attr.type]="type"
@@ -58,12 +58,12 @@ import './text-field.element';
       [attr.min-length]="minLength"
       [attr.pattern]="pattern"
       [attr.full-width]="fullWidth || null"
-      (oxi-ui-input)="onOxiUIInput($event)"
-      (oxi-ui-change)="onOxiUIChange($event)"
-      (oxi-ui-focus)="onOxiUIFocus($event)"
-      (oxi-ui-blur)="onOxiUIBlur($event)"
+      (input)="onInput($event)"
+      (change)="onChange($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
     >
-    </oxi-ui-text-field>
+    </oxi-text-field>
   `,
   styles: [
     `
@@ -73,30 +73,30 @@ import './text-field.element';
     `,
   ],
 })
-export class OxiUITextFieldComponent {
+export class OxiTextFieldComponent {
   /** Input type */
-  @Input() type: TextFieldType = 'text';
+  @Input() type: TextFieldType = "text";
 
   /** Input name */
-  @Input() name = '';
+  @Input() name = "";
 
   /** Input value */
-  @Input() value = '';
+  @Input() value = "";
 
   /** Placeholder text */
-  @Input() placeholder = '';
+  @Input() placeholder = "";
 
   /** Label text */
-  @Input() label = '';
+  @Input() label = "";
 
   /** Helper text below input */
-  @Input() helperText = '';
+  @Input() helperText = "";
 
   /** Error message */
-  @Input() errorText = '';
+  @Input() errorText = "";
 
   /** Field size */
-  @Input() size: TextFieldSize = 'medium';
+  @Input() size: TextFieldSize = "medium";
 
   /** Whether the field is disabled */
   @Input() disabled = false;
@@ -120,33 +120,33 @@ export class OxiUITextFieldComponent {
   @Input() fullWidth = false;
 
   /** Input event emitter */
-  @Output() oxi-uiInput = new EventEmitter<CustomEvent<{ value: string }>>();
+  @Output() input = new EventEmitter<CustomEvent<{ value: string }>>();
 
   /** Change event emitter */
-  @Output() oxi-uiChange = new EventEmitter<CustomEvent<{ value: string }>>();
+  @Output() change = new EventEmitter<CustomEvent<{ value: string }>>();
 
   /** Focus event emitter */
-  @Output() oxi-uiFocus = new EventEmitter<CustomEvent>();
+  @Output() focus = new EventEmitter<CustomEvent>();
 
   /** Blur event emitter */
-  @Output() oxi-uiBlur = new EventEmitter<CustomEvent>();
+  @Output() blur = new EventEmitter<CustomEvent>();
 
   constructor(private elementRef: ElementRef) {}
 
-  onOxiUIInput(event: CustomEvent<{ value: string }>) {
-    this.oxi-uiInput.emit(event);
+  onInput(event: CustomEvent<{ value: string }>) {
+    this.input.emit(event);
   }
 
-  onOxiUIChange(event: CustomEvent<{ value: string }>) {
-    this.oxi-uiChange.emit(event);
+  onChange(event: CustomEvent<{ value: string }>) {
+    this.change.emit(event);
   }
 
-  onOxiUIFocus(event: CustomEvent) {
-    this.oxi-uiFocus.emit(event);
+  onFocus(event: CustomEvent) {
+    this.focus.emit(event);
   }
 
-  onOxiUIBlur(event: CustomEvent) {
-    this.oxi-uiBlur.emit(event);
+  onBlur(event: CustomEvent) {
+    this.blur.emit(event);
   }
 }
 
@@ -154,10 +154,10 @@ export class OxiUITextFieldComponent {
  * Angular module for OxiUI Text Field
  */
 @NgModule({
-  declarations: [OxiUITextFieldComponent],
-  exports: [OxiUITextFieldComponent],
+  declarations: [OxiTextFieldComponent],
+  exports: [OxiTextFieldComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class OxiUITextFieldModule {}
+export class OxiTextFieldModule {}
 
 export type { TextFieldType, TextFieldSize };

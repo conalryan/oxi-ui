@@ -39,30 +39,30 @@ Core utilities library with tree-shakable exports:
 
 ```typescript
 // Import specific modules
-import { isAuthorized } from '@oxi-ui/core/authentication';
-import { isEnabled } from '@oxi-ui/core/feature-flags';
-import { hasPermission } from '@oxi-ui/core/permissions';
-import { debounce, throttle } from '@oxi-ui/core/utils';
+import { isAuthorized } from "@oxi-ui/core/authentication";
+import { isEnabled } from "@oxi-ui/core/feature-flags";
+import { hasPermission } from "@oxi-ui/core/permissions";
+import { debounce, throttle } from "@oxi-ui/core/utils";
 
 // Or import everything
-import { isAuthorized, isEnabled, hasPermission, debounce } from '@oxi-ui/core';
+import { isAuthorized, isEnabled, hasPermission, debounce } from "@oxi-ui/core";
 ```
 
 #### Authentication
 
 ```typescript
-import { isAuthorized } from '@oxi-ui/core/authentication';
+import { isAuthorized } from "@oxi-ui/core/authentication";
 
 const session = {
-  userId: 'user-123',
-  roles: ['admin', 'user'],
-  expiresAt: '2026-12-31T23:59:59Z',
-  permissions: ['read', 'write']
+  userId: "user-123",
+  roles: ["admin", "user"],
+  expiresAt: "2026-12-31T23:59:59Z",
+  permissions: ["read", "write"],
 };
 
 const result = isAuthorized(session, {
-  requiredRoles: ['admin'],
-  requiredPermissions: ['read']
+  requiredRoles: ["admin"],
+  requiredPermissions: ["read"],
 });
 
 if (result.authorized) {
@@ -73,18 +73,18 @@ if (result.authorized) {
 #### Feature Flags
 
 ```typescript
-import { initializeFeatureFlags, isEnabled } from '@oxi-ui/core/feature-flags';
+import { initializeFeatureFlags, isEnabled } from "@oxi-ui/core/feature-flags";
 
 initializeFeatureFlags([
-  { id: 'new-dashboard', name: 'New Dashboard', enabled: true },
-  { id: 'beta-feature', name: 'Beta', enabled: true, rolloutPercentage: 50 }
+  { id: "new-dashboard", name: "New Dashboard", enabled: true },
+  { id: "beta-feature", name: "Beta", enabled: true, rolloutPercentage: 50 },
 ]);
 
-if (isEnabled('new-dashboard')) {
+if (isEnabled("new-dashboard")) {
   // Show new dashboard
 }
 
-if (isEnabled('beta-feature', { userId: 'user-123' })) {
+if (isEnabled("beta-feature", { userId: "user-123" })) {
   // Show beta feature (50% rollout)
 }
 ```
@@ -113,18 +113,18 @@ Lit-based web components with framework wrappers:
 #### React
 
 ```tsx
-import { OxiUIButton, OxiUITextField } from '@oxi-ui/web-components/react';
+import { OxiButton, OxiTextField } from "@oxi-ui/web-components/react";
 
 function App() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   return (
     <>
-      <OxiUIButton variant="primary" onClick={() => console.log('clicked')}>
+      <OxiButton variant="primary" onClick={() => console.log("clicked")}>
         Submit
-      </OxiUIButton>
+      </OxiButton>
 
-      <OxiUITextField
+      <OxiTextField
         label="Email"
         type="email"
         value={email}
@@ -138,10 +138,10 @@ function App() {
 #### Angular
 
 ```typescript
-import { OxiUIComponentsModule } from '@oxi-ui/web-components/angular';
+import { OxiComponentsModule } from "@oxi-ui/web-components/angular";
 
 @NgModule({
-  imports: [OxiUIComponentsModule],
+  imports: [OxiComponentsModule],
 })
 export class AppModule {}
 ```
@@ -149,7 +149,7 @@ export class AppModule {}
 ```html
 <oxi-button-wrapper variant="primary" (oxi-uiClick)="handleClick($event)">
   Submit
-</oxi-ui-button-wrapper>
+</oxi-button-wrapper>
 
 <oxi-text-field-wrapper
   label="Email"
@@ -157,7 +157,7 @@ export class AppModule {}
   [value]="email"
   (oxi-uiInput)="onEmailInput($event)"
 >
-</oxi-ui-text-field-wrapper>
+</oxi-text-field-wrapper>
 ```
 
 ## Development
@@ -179,6 +179,7 @@ bun run test:web-components
 ### Package Scripts
 
 Each package supports:
+
 - `build` - Build the package with Vite
 - `test` - Run tests with Bun
 - `test:coverage` - Run tests with coverage
@@ -333,6 +334,7 @@ The Jenkinsfile provides:
 ### Jenkins Configuration
 
 Required Jenkins credentials:
+
 - `npm-token` - NPM authentication token for publishing
 - `github-ssh-key` - SSH key for pushing tags and version commits
 
@@ -340,12 +342,12 @@ Required Jenkins credentials:
 
 The pipeline uses conventional commits to determine version bumps:
 
-| Commit Type | Version Bump |
-|-------------|--------------|
-| `feat:` or `feat(scope):` | Minor |
-| `fix:` or `fix(scope):` | Patch |
-| `BREAKING CHANGE` or `!:` | Major |
-| Other | Patch (default) |
+| Commit Type               | Version Bump    |
+| ------------------------- | --------------- |
+| `feat:` or `feat(scope):` | Minor           |
+| `fix:` or `fix(scope):`   | Patch           |
+| `BREAKING CHANGE` or `!:` | Major           |
+| Other                     | Patch (default) |
 
 ## Documentation
 

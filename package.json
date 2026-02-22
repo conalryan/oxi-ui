@@ -2,28 +2,31 @@
   "name": "oxi-ui-monorepo",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
-    "build": "bun run --filter '*' build",
-    "build:core": "bun run --filter @oxi-ui/core build",
-    "build:web-components": "bun run --filter @oxi-ui/web-components build",
-    "test": "bun run --filter '*' test",
-    "test:core": "bun run --filter @oxi-ui/core test",
-    "test:web-components": "bun run --filter @oxi-ui/web-components test",
-    "test:coverage": "bun run --filter '*' test:coverage",
-    "lint": "oxlint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "clean": "bun run --filter '*' clean",
-    "publish:all": "bun run --filter '*' publish"
+    "build": "turbo",
+    "build:core": "turbo build --filter=@oxi-ui/core",
+    "build:theme": "turbo build --filter=@oxi-ui/theme",
+    "build:web-components": "turbo build --filter=@oxi-ui/web-components",
+    "clean": "turbo clean",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "turbo lint",
+    "publish:all": "turbo build && bun run --filter '*' publish",
+    "test": "turbo test",
+    "test:core": "turbo test --filter=@oxi-ui/core",
+    "test:coverage": "turbo test:coverage",
+    "test:web-components": "turbo test --filter=@oxi-ui/web-components",
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "@types/bun": "^1.1.0",
+    "oxfmt": "0.34.0",
     "oxlint": "^0.9.0",
-    "prettier": "^3.3.0",
+    "turbo": "^2.0.0",
     "typescript": "^5.5.0"
   },
   "engines": {

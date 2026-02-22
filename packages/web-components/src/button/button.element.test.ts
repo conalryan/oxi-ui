@@ -1,89 +1,89 @@
-import { describe, expect, it, beforeAll } from 'bun:test';
-import { OxiUIButton } from './button.element';
+import { describe, expect, it, beforeAll } from "bun:test";
+import { OxiButton } from "./button.element";
 
 // Register the custom element for testing
 beforeAll(() => {
-  if (!customElements.get('oxi-ui-button')) {
-    customElements.define('oxi-ui-button', OxiUIButton);
+  if (!customElements.get("oxi-ui-button")) {
+    customElements.define("oxi-ui-button", OxiButton);
   }
 });
 
-describe('OxiUIButton', () => {
-  const createElement = (props: Partial<OxiUIButton> = {}): OxiUIButton => {
-    const el = document.createElement('oxi-ui-button') as OxiUIButton;
+describe("OxiButton", () => {
+  const createElement = (props: Partial<OxiButton> = {}): OxiButton => {
+    const el = document.createElement("oxi-ui-button") as OxiButton;
     Object.assign(el, props);
     document.body.appendChild(el);
     return el;
   };
 
-  const cleanup = (el: OxiUIButton) => {
+  const cleanup = (el: OxiButton) => {
     el.remove();
   };
 
-  describe('properties', () => {
-    it('has default variant of primary', () => {
+  describe("properties", () => {
+    it("has default variant of primary", () => {
       const el = createElement();
-      expect(el.variant).toBe('primary');
+      expect(el.variant).toBe("primary");
       cleanup(el);
     });
 
-    it('has default size of medium', () => {
+    it("has default size of medium", () => {
       const el = createElement();
-      expect(el.size).toBe('medium');
+      expect(el.size).toBe("medium");
       cleanup(el);
     });
 
-    it('has default disabled of false', () => {
+    it("has default disabled of false", () => {
       const el = createElement();
       expect(el.disabled).toBe(false);
       cleanup(el);
     });
 
-    it('has default loading of false', () => {
+    it("has default loading of false", () => {
       const el = createElement();
       expect(el.loading).toBe(false);
       cleanup(el);
     });
 
-    it('has default type of button', () => {
+    it("has default type of button", () => {
       const el = createElement();
-      expect(el.type).toBe('button');
+      expect(el.type).toBe("button");
       cleanup(el);
     });
 
-    it('has default fullWidth of false', () => {
+    it("has default fullWidth of false", () => {
       const el = createElement();
       expect(el.fullWidth).toBe(false);
       cleanup(el);
     });
 
-    it('accepts variant property', () => {
-      const el = createElement({ variant: 'secondary' });
-      expect(el.variant).toBe('secondary');
+    it("accepts variant property", () => {
+      const el = createElement({ variant: "secondary" });
+      expect(el.variant).toBe("secondary");
       cleanup(el);
     });
 
-    it('accepts size property', () => {
-      const el = createElement({ size: 'large' });
-      expect(el.size).toBe('large');
+    it("accepts size property", () => {
+      const el = createElement({ size: "large" });
+      expect(el.size).toBe("large");
       cleanup(el);
     });
 
-    it('accepts disabled property', () => {
+    it("accepts disabled property", () => {
       const el = createElement({ disabled: true });
       expect(el.disabled).toBe(true);
       cleanup(el);
     });
 
-    it('accepts loading property', () => {
+    it("accepts loading property", () => {
       const el = createElement({ loading: true });
       expect(el.loading).toBe(true);
       cleanup(el);
     });
   });
 
-  describe('variants', () => {
-    const variants = ['primary', 'secondary', 'outline', 'ghost', 'danger'] as const;
+  describe("variants", () => {
+    const variants = ["primary", "secondary", "outline", "ghost", "danger"] as const;
 
     variants.forEach((variant) => {
       it(`supports ${variant} variant`, () => {
@@ -94,8 +94,8 @@ describe('OxiUIButton', () => {
     });
   });
 
-  describe('sizes', () => {
-    const sizes = ['small', 'medium', 'large'] as const;
+  describe("sizes", () => {
+    const sizes = ["small", "medium", "large"] as const;
 
     sizes.forEach((size) => {
       it(`supports ${size} size`, () => {
@@ -106,8 +106,8 @@ describe('OxiUIButton', () => {
     });
   });
 
-  describe('types', () => {
-    const types = ['button', 'submit', 'reset'] as const;
+  describe("types", () => {
+    const types = ["button", "submit", "reset"] as const;
 
     types.forEach((type) => {
       it(`supports ${type} type`, () => {
@@ -118,36 +118,36 @@ describe('OxiUIButton', () => {
     });
   });
 
-  describe('states', () => {
-    it('can be disabled', () => {
+  describe("states", () => {
+    it("can be disabled", () => {
       const el = createElement({ disabled: true });
       expect(el.disabled).toBe(true);
       cleanup(el);
     });
 
-    it('can be in loading state', () => {
+    it("can be in loading state", () => {
       const el = createElement({ loading: true });
       expect(el.loading).toBe(true);
       cleanup(el);
     });
 
-    it('can be full width', () => {
+    it("can be full width", () => {
       const el = createElement({ fullWidth: true });
       expect(el.fullWidth).toBe(true);
       cleanup(el);
     });
   });
 
-  describe('rendering', () => {
-    it('renders as custom element', () => {
+  describe("rendering", () => {
+    it("renders as custom element", () => {
       const el = createElement();
-      expect(el.tagName.toLowerCase()).toBe('oxi-ui-button');
+      expect(el.tagName.toLowerCase()).toBe("oxi-ui-button");
       cleanup(el);
     });
 
-    it('is instance of OxiUIButton', () => {
+    it("is instance of OxiButton", () => {
       const el = createElement();
-      expect(el instanceof OxiUIButton).toBe(true);
+      expect(el instanceof OxiButton).toBe(true);
       cleanup(el);
     });
   });

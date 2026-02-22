@@ -1,11 +1,17 @@
 {
   "name": "@oxi-ui/theme",
   "version": "0.0.1",
+  "style": "./dist/theme.css",
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "style": "./dist/theme.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,27 +25,23 @@
       "import": "./dist/tokens/index.js"
     }
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vite build && cp src/theme.css dist/theme.css",
-    "lint": "oxlint src",
-    "lint:fix": "oxlint src --fix",
     "clean": "rm -rf dist",
-    "typecheck": "tsc --noEmit",
-    "prepublishOnly": "bun run build"
+    "format:check": "oxfmt --check src",
+    "format": "oxfmt --write src",
+    "lint:fix": "oxlint src --fix",
+    "lint": "oxlint src",
+    "prepublishOnly": "bun run build",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/bun": "^1.1.0",
     "typescript": "^5.5.0",
     "vite": "^5.4.0",
     "vite-plugin-dts": "^4.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

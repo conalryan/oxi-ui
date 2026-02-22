@@ -2,9 +2,10 @@
 // Tree-shakable exports for web components and framework wrappers
 
 // Web Components (Lit)
-export { OxiUIButton } from './button';
-export { OxiUITextField } from './text-field';
+export { OxiButton } from "./button";
+export { OxiTextField } from "./text-field";
 
 // Types
-export type { ButtonVariant, ButtonSize, OxiUIButtonProps } from './button';
-export type { TextFieldType, TextFieldSize, OxiUITextFieldProps } from './text-field';
+export type { ButtonVariant, ButtonSize, ButtonProps } from "./button";
+export type { TextFieldType, TextFieldSize, TextFieldProps } from "./text-field";
+``;

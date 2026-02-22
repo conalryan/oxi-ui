@@ -17,9 +17,6 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false
   },
-  "references": [
-    { "path": "./packages/core" },
-    { "path": "./packages/web-components" }
-  ],
+  "references": [{ "path": "./packages/core" }, { "path": "./packages/web-components" }],
   "exclude": ["node_modules", "dist"]
 }

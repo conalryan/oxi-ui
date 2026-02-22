@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, forwardRef } from 'react';
-import type { ButtonVariant, ButtonSize, OxiUIButtonProps } from './types';
+import React, { useRef, useEffect, forwardRef } from "react";
+import type { ButtonVariant, ButtonSize, ButtonProps } from "./types";
 
 // Ensure the web component is imported for side effects
-import './button.element';
+import "./button.element";
 
-export interface ReactOxiUIButtonProps extends OxiUIButtonProps {
+export interface ReactOxiButtonProps extends ButtonProps {
   /** Button content */
   children?: React.ReactNode;
   /** Click handler */
@@ -20,32 +20,32 @@ export interface ReactOxiUIButtonProps extends OxiUIButtonProps {
  *
  * @example
  * ```tsx
- * import { OxiUIButton } from '@oxi-ui/web-components/button/react';
+ * import { OxiButton } from '@oxi-ui/web-components/button/react';
  *
  * function App() {
  *   return (
- *     <OxiUIButton variant="primary" onClick={() => console.log('clicked')}>
+ *     <OxiButton variant="primary" onClick={() => console.log('clicked')}>
  *       Click me
- *     </OxiUIButton>
+ *     </OxiButton>
  *   );
  * }
  * ```
  */
-export const OxiUIButton = forwardRef<HTMLElement, ReactOxiUIButtonProps>(
+export const OxiButton = forwardRef<HTMLElement, ReactOxiButtonProps>(
   (
     {
-      variant = 'primary',
-      size = 'medium',
+      variant = "primary",
+      size = "medium",
       disabled = false,
       loading = false,
-      type = 'button',
+      type = "button",
       fullWidth = false,
       children,
       onClick,
       className,
       style,
     },
-    ref
+    ref,
   ) => {
     const innerRef = useRef<HTMLElement>(null);
     const buttonRef = (ref as React.RefObject<HTMLElement>) || innerRef;
@@ -58,15 +58,15 @@ export const OxiUIButton = forwardRef<HTMLElement, ReactOxiUIButtonProps>(
         onClick(e as CustomEvent);
       };
 
-      element.addEventListener('oxi-ui-click', handleClick);
+      element.addEventListener("click", handleClick);
       return () => {
-        element.removeEventListener('oxi-ui-click', handleClick);
+        element.removeEventListener("click", handleClick);
       };
     }, [onClick, buttonRef]);
 
     // Using createElement to avoid JSX issues with custom elements
     return React.createElement(
-      'oxi-ui-button',
+      "oxi-button",
       {
         ref: buttonRef,
         variant,
@@ -74,15 +74,15 @@ export const OxiUIButton = forwardRef<HTMLElement, ReactOxiUIButtonProps>(
         disabled: disabled || undefined,
         loading: loading || undefined,
         type,
-        'full-width': fullWidth || undefined,
+        "full-width": fullWidth || undefined,
         class: className,
         style,
       },
-      children
+      children,
     );
-  }
+  },
 );
 
-OxiUIButton.displayName = 'OxiUIButton';
+OxiButton.displayName = "OxiButton";
 
 export type { ButtonVariant, ButtonSize };
