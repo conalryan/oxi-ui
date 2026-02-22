@@ -1,0 +1,33 @@
+{
+  "name": "canon-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter '*' build",
+    "build:core": "bun run --filter @canon/core build",
+    "build:web-components": "bun run --filter @canon/web-components build",
+    "test": "bun run --filter '*' test",
+    "test:core": "bun run --filter @canon/core test",
+    "test:web-components": "bun run --filter @canon/web-components test",
+    "test:coverage": "bun run --filter '*' test:coverage",
+    "lint": "oxlint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "bun run --filter '*' clean",
+    "publish:all": "bun run --filter '*' publish"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.0",
+    "oxlint": "^0.9.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "bun@1.1.0"
+}

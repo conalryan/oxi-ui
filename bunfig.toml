@@ -1,0 +1,17 @@
+# Bun configuration for monorepo
+[install]
+# Use exact versions for reproducibility
+exact = true
+
+[install.cache]
+# Enable caching for faster installs
+disable = false
+
+[run]
+# Enable parallel script execution
+parallel = true
+
+[test]
+# Test configuration
+coverage = true
+coverageThreshold = { line = 90, function = 90, branch = 90 }

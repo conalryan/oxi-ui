@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/button/button.element.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "CanonButton",
+          "tagName": "canon-button",
+          "description": "Canon Button Web Component",
+          "attributes": [
+            {
+              "name": "variant",
+              "type": { "text": "'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'" },
+              "default": "'primary'",
+              "description": "Button variant style"
+            },
+            {
+              "name": "size",
+              "type": { "text": "'small' | 'medium' | 'large'" },
+              "default": "'medium'",
+              "description": "Button size"
+            },
+            {
+              "name": "disabled",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Whether the button is disabled"
+            },
+            {
+              "name": "loading",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Whether the button shows a loading state"
+            },
+            {
+              "name": "type",
+              "type": { "text": "'button' | 'submit' | 'reset'" },
+              "default": "'button'",
+              "description": "Button type attribute"
+            },
+            {
+              "name": "full-width",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Full width button"
+            }
+          ],
+          "events": [
+            {
+              "name": "canon-click",
+              "description": "Fired when the button is clicked"
+            }
+          ],
+          "slots": [
+            {
+              "name": "",
+              "description": "Default slot for button content"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "button",
+              "description": "The button element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/text-field/text-field.element.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "CanonTextField",
+          "tagName": "canon-text-field",
+          "description": "Canon Text Field Web Component",
+          "attributes": [
+            {
+              "name": "type",
+              "type": { "text": "'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search'" },
+              "default": "'text'",
+              "description": "Input type"
+            },
+            {
+              "name": "name",
+              "type": { "text": "string" },
+              "description": "Input name"
+            },
+            {
+              "name": "value",
+              "type": { "text": "string" },
+              "default": "''",
+              "description": "Input value"
+            },
+            {
+              "name": "placeholder",
+              "type": { "text": "string" },
+              "description": "Placeholder text"
+            },
+            {
+              "name": "label",
+              "type": { "text": "string" },
+              "description": "Label text"
+            },
+            {
+              "name": "helper-text",
+              "type": { "text": "string" },
+              "description": "Helper text below input"
+            },
+            {
+              "name": "error-text",
+              "type": { "text": "string" },
+              "description": "Error message"
+            },
+            {
+              "name": "size",
+              "type": { "text": "'small' | 'medium' | 'large'" },
+              "default": "'medium'",
+              "description": "Field size"
+            },
+            {
+              "name": "disabled",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Whether the field is disabled"
+            },
+            {
+              "name": "readonly",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Whether the field is readonly"
+            },
+            {
+              "name": "required",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Whether the field is required"
+            },
+            {
+              "name": "max-length",
+              "type": { "text": "number" },
+              "description": "Maximum length"
+            },
+            {
+              "name": "min-length",
+              "type": { "text": "number" },
+              "description": "Minimum length"
+            },
+            {
+              "name": "pattern",
+              "type": { "text": "string" },
+              "description": "Pattern for validation"
+            },
+            {
+              "name": "full-width",
+              "type": { "text": "boolean" },
+              "default": "false",
+              "description": "Full width field"
+            }
+          ],
+          "events": [
+            {
+              "name": "canon-input",
+              "description": "Fired when the input value changes"
+            },
+            {
+              "name": "canon-change",
+              "description": "Fired when the input loses focus after value change"
+            },
+            {
+              "name": "canon-focus",
+              "description": "Fired when the input gains focus"
+            },
+            {
+              "name": "canon-blur",
+              "description": "Fired when the input loses focus"
+            }
+          ],
+          "cssParts": [
+            {
+              "name": "container",
+              "description": "The container element"
+            },
+            {
+              "name": "label",
+              "description": "The label element"
+            },
+            {
+              "name": "input",
+              "description": "The input element"
+            },
+            {
+              "name": "helper",
+              "description": "The helper text element"
+            },
+            {
+              "name": "error",
+              "description": "The error text element"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
