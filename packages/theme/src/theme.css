@@ -1,0 +1,378 @@
+/**
+ * OXI-UI Theme
+ * 
+ * A modern, accessible theme system inspired by OXC, Bun, and Vite color palettes.
+ * Uses the modern CSS `light-dark()` syntax for seamless theme switching.
+ * 
+ * Usage:
+ *   1. Import this CSS file in your application
+ *   2. Set `color-scheme: light dark` on :root (default)
+ *   3. Force a theme with `color-scheme: light` or `color-scheme: dark`
+ */
+
+/* ============================================================================
+   COLOR SCHEME & BASE SETUP
+   Using light-dark() for automatic theme switching
+   ============================================================================ */
+:root {
+  color-scheme: light dark;
+  /* --------------------------------------------------------------------------
+     Background Colors
+     -------------------------------------------------------------------------- */
+  --oxi-bg-primary: light-dark(#FFFFFF, #14151A);
+  --oxi-bg-secondary: light-dark(#FBF0DF, #16171D);
+  --oxi-bg-tertiary: light-dark(#F5F5F7, #1B2025);
+  --oxi-bg-elevated: light-dark(#FFFFFF, #22252D);
+  --oxi-bg-overlay: light-dark(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+  --oxi-bg-inverse: light-dark(#14151A, #FFFFFF);
+
+  /* --------------------------------------------------------------------------
+     Surface Colors (for cards, panels, containers)
+     -------------------------------------------------------------------------- */
+  --oxi-surface-primary: light-dark(#FFFFFF, #1B2025);
+  --oxi-surface-secondary: light-dark(#F5F5F7, #22252D);
+  --oxi-surface-tertiary: light-dark(#E5E7EB, #2D3139);
+  --oxi-surface-hover: light-dark(#F0F0F2, #2A2D35);
+  --oxi-surface-active: light-dark(#E8E8EA, #32363E);
+  --oxi-surface-disabled: light-dark(#F5F5F7, #1F2228);
+
+  /* --------------------------------------------------------------------------
+     Text Colors
+     -------------------------------------------------------------------------- */
+  --oxi-text-primary: light-dark(#14151A, #FFFFFF);
+  --oxi-text-secondary: light-dark(#6B7280, #B9B9BB);
+  --oxi-text-tertiary: light-dark(#867E8E, #867E8E);
+  --oxi-text-disabled: light-dark(#9CA3AF, #4B5563);
+  --oxi-text-inverse: light-dark(#FFFFFF, #14151A);
+  --oxi-text-placeholder: light-dark(#9CA3AF, #6B7280);
+  --oxi-text-link: light-dark(#0073D8, #60A5FA);
+  --oxi-text-link-hover: light-dark(#005BB5, #87B5E9);
+
+  /* --------------------------------------------------------------------------
+     Border Colors
+     -------------------------------------------------------------------------- */
+  --oxi-border-primary: light-dark(#E5E7EB, #3B3440);
+  --oxi-border-secondary: light-dark(#D1D5DB, #4B5563);
+  --oxi-border-focus: light-dark(#8558FF, #B39AFF);
+  --oxi-border-error: light-dark(#DC2626, #F87171);
+  --oxi-border-success: light-dark(#16A34A, #34D399);
+  --oxi-border-warning: light-dark(#D97706, #FCD34D);
+  --oxi-border-disabled: light-dark(#E5E7EB, #2D3139);
+
+  /* --------------------------------------------------------------------------
+     Brand Colors - Primary (Vite Purple)
+     -------------------------------------------------------------------------- */
+  --oxi-primary: light-dark(#8558FF, #B39AFF);
+  --oxi-primary-hover: light-dark(#7347E6, #9B7AFF);
+  --oxi-primary-active: light-dark(#6136CC, #8558FF);
+  --oxi-primary-pressed: light-dark(#5028B3, #7347E6);
+  --oxi-primary-disabled: light-dark(#C5B4FF, #4A3B7A);
+  --oxi-primary-subtle: light-dark(#F3EFFF, #2A2440);
+  --oxi-primary-subtle-hover: light-dark(#E8E0FF, #3A3050);
+  --oxi-primary-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Brand Colors - Secondary (OXC Cyan)
+     -------------------------------------------------------------------------- */
+  --oxi-secondary: light-dark(#178390, #4CE5F1);
+  --oxi-secondary-hover: light-dark(#136E7A, #32F3EF);
+  --oxi-secondary-active: light-dark(#0F5A64, #22D3EE);
+  --oxi-secondary-pressed: light-dark(#0B464E, #56C2C9);
+  --oxi-secondary-disabled: light-dark(#A3D4DA, #1B3C40);
+  --oxi-secondary-subtle: light-dark(#E6F7F9, #151D20);
+  --oxi-secondary-subtle-hover: light-dark(#D0F0F4, #1B2830);
+  --oxi-secondary-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Brand Colors - Accent (Bun Orange)
+     -------------------------------------------------------------------------- */
+  --oxi-accent: light-dark(#EB8A1C, #FCD34D);
+  --oxi-accent-hover: light-dark(#D47818, #FACC15);
+  --oxi-accent-active: light-dark(#BD6614, #FDB813);
+  --oxi-accent-pressed: light-dark(#A65410, #EB8A1C);
+  --oxi-accent-disabled: light-dark(#F5C98E, #4A3B20);
+  --oxi-accent-subtle: light-dark(#FEF7E6, #2A2418);
+  --oxi-accent-subtle-hover: light-dark(#FDF0D0, #3A3020);
+  --oxi-accent-on: light-dark(#14151A, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Semantic Colors - Success (Green)
+     -------------------------------------------------------------------------- */
+  --oxi-success: light-dark(#16A34A, #34D399);
+  --oxi-success-hover: light-dark(#15803D, #22C589);
+  --oxi-success-active: light-dark(#166534, #10B779);
+  --oxi-success-pressed: light-dark(#14532D, #34D399);
+  --oxi-success-disabled: light-dark(#A3D9B8, #1B3C2E);
+  --oxi-success-subtle: light-dark(#ECFDF5, #0D2818);
+  --oxi-success-subtle-hover: light-dark(#D1FAE5, #153820);
+  --oxi-success-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Semantic Colors - Error (Red)
+     -------------------------------------------------------------------------- */
+  --oxi-error: light-dark(#DC2626, #F87171);
+  --oxi-error-hover: light-dark(#B91C1C, #EF4444);
+  --oxi-error-active: light-dark(#991B1B, #DC2626);
+  --oxi-error-pressed: light-dark(#7F1D1D, #F87171);
+  --oxi-error-disabled: light-dark(#FECACA, #4A2020);
+  --oxi-error-subtle: light-dark(#FEF2F2, #2A1818);
+  --oxi-error-subtle-hover: light-dark(#FEE2E2, #3A2020);
+  --oxi-error-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Semantic Colors - Warning (Amber)
+     -------------------------------------------------------------------------- */
+  --oxi-warning: light-dark(#D97706, #FCD34D);
+  --oxi-warning-hover: light-dark(#B45309, #FBBF24);
+  --oxi-warning-active: light-dark(#92400E, #F59E0B);
+  --oxi-warning-pressed: light-dark(#78350F, #FCD34D);
+  --oxi-warning-disabled: light-dark(#FDE68A, #4A3B20);
+  --oxi-warning-subtle: light-dark(#FFFBEB, #2A2418);
+  --oxi-warning-subtle-hover: light-dark(#FEF3C7, #3A3020);
+  --oxi-warning-on: light-dark(#14151A, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Semantic Colors - Info (Blue)
+     -------------------------------------------------------------------------- */
+  --oxi-info: light-dark(#0073D8, #60A5FA);
+  --oxi-info-hover: light-dark(#0062B8, #3B82F6);
+  --oxi-info-active: light-dark(#005198, #2563EB);
+  --oxi-info-pressed: light-dark(#004078, #60A5FA);
+  --oxi-info-disabled: light-dark(#93C5FD, #1E3A5F);
+  --oxi-info-subtle: light-dark(#EFF6FF, #172554);
+  --oxi-info-subtle-hover: light-dark(#DBEAFE, #1E3A60);
+  --oxi-info-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Feature Colors - Magenta/Pink (OXC/Bun accent)
+     -------------------------------------------------------------------------- */
+  --oxi-magenta: light-dark(#EF56EF, #F472B6);
+  --oxi-magenta-hover: light-dark(#D946D9, #EC4899);
+  --oxi-magenta-active: light-dark(#C336C3, #DB2777);
+  --oxi-magenta-pressed: light-dark(#AD26AD, #F472B6);
+  --oxi-magenta-disabled: light-dark(#FBCFE8, #4A2040);
+  --oxi-magenta-subtle: light-dark(#FDF2F8, #2A1828);
+  --oxi-magenta-subtle-hover: light-dark(#FCE7F3, #3A2030);
+  --oxi-magenta-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Feature Colors - Purple (Vite)
+     -------------------------------------------------------------------------- */
+  --oxi-purple: light-dark(#9153D0, #C084FC);
+  --oxi-purple-hover: light-dark(#7C3AED, #A855F7);
+  --oxi-purple-active: light-dark(#6D28D9, #9333EA);
+  --oxi-purple-pressed: light-dark(#5B21B6, #C084FC);
+  --oxi-purple-disabled: light-dark(#DDD6FE, #3A2860);
+  --oxi-purple-subtle: light-dark(#FAF5FF, #1F1830);
+  --oxi-purple-subtle-hover: light-dark(#F3E8FF, #2A2040);
+  --oxi-purple-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Feature Colors - Teal (OXC)
+     -------------------------------------------------------------------------- */
+  --oxi-teal: light-dark(#0D9488, #22D3EE);
+  --oxi-teal-hover: light-dark(#0F766E, #14B8A6);
+  --oxi-teal-active: light-dark(#115E59, #0D9488);
+  --oxi-teal-pressed: light-dark(#134E4A, #22D3EE);
+  --oxi-teal-disabled: light-dark(#99F6E4, #134E4A);
+  --oxi-teal-subtle: light-dark(#F0FDFA, #0D1F1E);
+  --oxi-teal-subtle-hover: light-dark(#CCFBF1, #153028);
+  --oxi-teal-on: light-dark(#FFFFFF, #14151A);
+
+  /* --------------------------------------------------------------------------
+     Neutral Palette
+     -------------------------------------------------------------------------- */
+  --oxi-neutral-50: light-dark(#FAFAFA, #18181B);
+  --oxi-neutral-100: light-dark(#F4F4F5, #27272A);
+  --oxi-neutral-200: light-dark(#E4E4E7, #3F3F46);
+  --oxi-neutral-300: light-dark(#D4D4D8, #52525B);
+  --oxi-neutral-400: light-dark(#A1A1AA, #71717A);
+  --oxi-neutral-500: light-dark(#71717A, #A1A1AA);
+  --oxi-neutral-600: light-dark(#52525B, #D4D4D8);
+  --oxi-neutral-700: light-dark(#3F3F46, #E4E4E7);
+  --oxi-neutral-800: light-dark(#27272A, #F4F4F5);
+  --oxi-neutral-900: light-dark(#18181B, #FAFAFA);
+
+  /* --------------------------------------------------------------------------
+     Focus & Interaction States
+     -------------------------------------------------------------------------- */
+  --oxi-focus-ring: light-dark(#8558FF, #B39AFF);
+  --oxi-focus-ring-offset: 2px;
+  --oxi-focus-ring-width: 2px;
+  
+  /* Overlay states for hover/pressed effects */
+  --oxi-state-hover: light-dark(rgba(0, 0, 0, 0.04), rgba(255, 255, 255, 0.08));
+  --oxi-state-pressed: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.12));
+  --oxi-state-selected: light-dark(rgba(133, 88, 255, 0.12), rgba(179, 154, 255, 0.16));
+  --oxi-state-disabled: light-dark(rgba(0, 0, 0, 0.04), rgba(255, 255, 255, 0.04));
+
+  /* --------------------------------------------------------------------------
+     Shadows & Elevation
+     -------------------------------------------------------------------------- */
+  --oxi-shadow-xs: light-dark(
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.4)
+  );
+  --oxi-shadow-sm: light-dark(
+    0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3)
+  );
+  --oxi-shadow-md: light-dark(
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)
+  );
+  --oxi-shadow-lg: light-dark(
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3)
+  );
+  --oxi-shadow-xl: light-dark(
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3)
+  );
+
+  /* --------------------------------------------------------------------------
+     Typography Scale
+     -------------------------------------------------------------------------- */
+  --oxi-font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --oxi-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  
+  --oxi-font-size-xs: 0.75rem;     /* 12px */
+  --oxi-font-size-sm: 0.875rem;    /* 14px */
+  --oxi-font-size-base: 1rem;      /* 16px */
+  --oxi-font-size-lg: 1.125rem;    /* 18px */
+  --oxi-font-size-xl: 1.25rem;     /* 20px */
+  --oxi-font-size-2xl: 1.5rem;     /* 24px */
+  --oxi-font-size-3xl: 1.875rem;   /* 30px */
+  --oxi-font-size-4xl: 2.25rem;    /* 36px */
+
+  --oxi-font-weight-normal: 400;
+  --oxi-font-weight-medium: 500;
+  --oxi-font-weight-semibold: 600;
+  --oxi-font-weight-bold: 700;
+
+  --oxi-line-height-tight: 1.25;
+  --oxi-line-height-normal: 1.5;
+  --oxi-line-height-relaxed: 1.75;
+
+  /* --------------------------------------------------------------------------
+     Spacing Scale
+     -------------------------------------------------------------------------- */
+  --oxi-space-0: 0;
+  --oxi-space-px: 1px;
+  --oxi-space-0-5: 0.125rem;  /* 2px */
+  --oxi-space-1: 0.25rem;     /* 4px */
+  --oxi-space-1-5: 0.375rem;  /* 6px */
+  --oxi-space-2: 0.5rem;      /* 8px */
+  --oxi-space-2-5: 0.625rem;  /* 10px */
+  --oxi-space-3: 0.75rem;     /* 12px */
+  --oxi-space-3-5: 0.875rem;  /* 14px */
+  --oxi-space-4: 1rem;        /* 16px */
+  --oxi-space-5: 1.25rem;     /* 20px */
+  --oxi-space-6: 1.5rem;      /* 24px */
+  --oxi-space-7: 1.75rem;     /* 28px */
+  --oxi-space-8: 2rem;        /* 32px */
+  --oxi-space-9: 2.25rem;     /* 36px */
+  --oxi-space-10: 2.5rem;     /* 40px */
+  --oxi-space-12: 3rem;       /* 48px */
+  --oxi-space-14: 3.5rem;     /* 56px */
+  --oxi-space-16: 4rem;       /* 64px */
+  --oxi-space-20: 5rem;       /* 80px */
+  --oxi-space-24: 6rem;       /* 96px */
+
+  /* --------------------------------------------------------------------------
+     Border Radius
+     -------------------------------------------------------------------------- */
+  --oxi-radius-none: 0;
+  --oxi-radius-sm: 0.25rem;   /* 4px */
+  --oxi-radius-md: 0.375rem;  /* 6px */
+  --oxi-radius-lg: 0.5rem;    /* 8px */
+  --oxi-radius-xl: 0.75rem;   /* 12px */
+  --oxi-radius-2xl: 1rem;     /* 16px */
+  --oxi-radius-3xl: 1.5rem;   /* 24px */
+  --oxi-radius-full: 9999px;
+
+  /* --------------------------------------------------------------------------
+     Transitions & Animation
+     -------------------------------------------------------------------------- */
+  --oxi-duration-fast: 100ms;
+  --oxi-duration-normal: 200ms;
+  --oxi-duration-slow: 300ms;
+  --oxi-duration-slower: 500ms;
+
+  --oxi-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --oxi-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --oxi-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --oxi-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* --------------------------------------------------------------------------
+     Z-Index Scale
+     -------------------------------------------------------------------------- */
+  --oxi-z-base: 0;
+  --oxi-z-dropdown: 100;
+  --oxi-z-sticky: 200;
+  --oxi-z-overlay: 300;
+  --oxi-z-modal: 400;
+  --oxi-z-popover: 500;
+  --oxi-z-toast: 600;
+  --oxi-z-tooltip: 700;
+}
+
+/* ============================================================================
+   ACCESSIBILITY UTILITIES
+   ============================================================================ */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --oxi-duration-fast: 0ms;
+    --oxi-duration-normal: 0ms;
+    --oxi-duration-slow: 0ms;
+    --oxi-duration-slower: 0ms;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  :root {
+    --oxi-border-primary: light-dark(#000000, #FFFFFF);
+    --oxi-border-focus: light-dark(#000000, #FFFFFF);
+    --oxi-text-secondary: light-dark(#374151, #E5E7EB);
+    --oxi-focus-ring-width: 3px;
+  }
+}
+
+/* Focus visible utility class */
+.oxi-focus-visible:focus-visible {
+  outline: var(--oxi-focus-ring-width) solid var(--oxi-focus-ring);
+  outline-offset: var(--oxi-focus-ring-offset);
+}
+
+/* Screen reader only utility */
+.oxi-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================================
+   THEME OVERRIDE CLASSES
+   Force a specific theme regardless of system preference
+   ============================================================================ */
+
+/* Force light theme */
+.oxi-light,
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Force dark theme */
+.oxi-dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+}
