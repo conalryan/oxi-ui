@@ -13,21 +13,21 @@ import type { TextFieldType, TextFieldSize } from './types';
 import './text-field.element';
 
 /**
- * Angular wrapper for the Canon Text Field web component
+ * Angular wrapper for the Piloting Text Field web component
  *
  * @example
  * ```typescript
- * import { CanonTextFieldComponent } from '@canon/web-components/text-field/angular';
+ * import { PilotingTextFieldComponent } from '@piloting/web-components/text-field/angular';
  *
  * @Component({
  *   selector: 'app-example',
  *   template: `
- *     <canon-text-field-wrapper
+ *     <piloting-text-field-wrapper
  *       label="Email"
  *       type="email"
  *       [value]="email"
- *       (canonInput)="onEmailInput($event)">
- *     </canon-text-field-wrapper>
+ *       (pilotingInput)="onEmailInput($event)">
+ *     </piloting-text-field-wrapper>
  *   `
  * })
  * export class ExampleComponent {
@@ -40,9 +40,9 @@ import './text-field.element';
  * ```
  */
 @Component({
-  selector: 'canon-text-field-wrapper',
+  selector: 'piloting-text-field-wrapper',
   template: `
-    <canon-text-field
+    <piloting-text-field
       [attr.type]="type"
       [attr.name]="name"
       [attr.value]="value"
@@ -58,12 +58,12 @@ import './text-field.element';
       [attr.min-length]="minLength"
       [attr.pattern]="pattern"
       [attr.full-width]="fullWidth || null"
-      (canon-input)="onCanonInput($event)"
-      (canon-change)="onCanonChange($event)"
-      (canon-focus)="onCanonFocus($event)"
-      (canon-blur)="onCanonBlur($event)"
+      (piloting-input)="onPilotingInput($event)"
+      (piloting-change)="onPilotingChange($event)"
+      (piloting-focus)="onPilotingFocus($event)"
+      (piloting-blur)="onPilotingBlur($event)"
     >
-    </canon-text-field>
+    </piloting-text-field>
   `,
   styles: [
     `
@@ -73,7 +73,7 @@ import './text-field.element';
     `,
   ],
 })
-export class CanonTextFieldComponent {
+export class PilotingTextFieldComponent {
   /** Input type */
   @Input() type: TextFieldType = 'text';
 
@@ -120,44 +120,44 @@ export class CanonTextFieldComponent {
   @Input() fullWidth = false;
 
   /** Input event emitter */
-  @Output() canonInput = new EventEmitter<CustomEvent<{ value: string }>>();
+  @Output() pilotingInput = new EventEmitter<CustomEvent<{ value: string }>>();
 
   /** Change event emitter */
-  @Output() canonChange = new EventEmitter<CustomEvent<{ value: string }>>();
+  @Output() pilotingChange = new EventEmitter<CustomEvent<{ value: string }>>();
 
   /** Focus event emitter */
-  @Output() canonFocus = new EventEmitter<CustomEvent>();
+  @Output() pilotingFocus = new EventEmitter<CustomEvent>();
 
   /** Blur event emitter */
-  @Output() canonBlur = new EventEmitter<CustomEvent>();
+  @Output() pilotingBlur = new EventEmitter<CustomEvent>();
 
   constructor(private elementRef: ElementRef) {}
 
-  onCanonInput(event: CustomEvent<{ value: string }>) {
-    this.canonInput.emit(event);
+  onPilotingInput(event: CustomEvent<{ value: string }>) {
+    this.pilotingInput.emit(event);
   }
 
-  onCanonChange(event: CustomEvent<{ value: string }>) {
-    this.canonChange.emit(event);
+  onPilotingChange(event: CustomEvent<{ value: string }>) {
+    this.pilotingChange.emit(event);
   }
 
-  onCanonFocus(event: CustomEvent) {
-    this.canonFocus.emit(event);
+  onPilotingFocus(event: CustomEvent) {
+    this.pilotingFocus.emit(event);
   }
 
-  onCanonBlur(event: CustomEvent) {
-    this.canonBlur.emit(event);
+  onPilotingBlur(event: CustomEvent) {
+    this.pilotingBlur.emit(event);
   }
 }
 
 /**
- * Angular module for Canon Text Field
+ * Angular module for Piloting Text Field
  */
 @NgModule({
-  declarations: [CanonTextFieldComponent],
-  exports: [CanonTextFieldComponent],
+  declarations: [PilotingTextFieldComponent],
+  exports: [PilotingTextFieldComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CanonTextFieldModule {}
+export class PilotingTextFieldModule {}
 
 export type { TextFieldType, TextFieldSize };

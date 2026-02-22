@@ -1,2 +1,2 @@
-export { CanonTextField } from './text-field.element';
-export type { TextFieldType, TextFieldSize, CanonTextFieldProps } from './types';
+export { PilotingTextField } from './text-field.element';
+export type { TextFieldType, TextFieldSize, PilotingTextFieldProps } from './types';

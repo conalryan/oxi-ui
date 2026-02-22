@@ -11,7 +11,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 /**
  * Button component props
  */
-export interface CanonButtonProps {
+export interface PilotingButtonProps {
   /** Button variant style */
   variant?: ButtonVariant;
   /** Button size */

@@ -1,5 +1,5 @@
 {
-  "name": "Canon Monorepo",
+  "name": "Piloting Monorepo",
   "build": {
     "dockerfile": "../Dockerfile",
     "context": "..",
@@ -71,8 +71,8 @@
   "remoteUser": "bun",
 
   "mounts": [
-    "source=canon-node-modules,target=/app/node_modules,type=volume",
-    "source=canon-bun-cache,target=/home/bun/.bun,type=volume"
+    "source=piloting-node-modules,target=/app/node_modules,type=volume",
+    "source=piloting-bun-cache,target=/home/bun/.bun,type=volume"
   ],
 
   "containerEnv": {

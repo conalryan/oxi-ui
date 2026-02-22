@@ -3,13 +3,13 @@ import { customElement, property, state } from 'lit/decorators.js';
 import type { TextFieldType, TextFieldSize } from './types';
 
 /**
- * Canon Text Field Web Component
+ * Piloting Text Field Web Component
  *
- * @element canon-text-field
- * @fires canon-input - Fired when the input value changes
- * @fires canon-change - Fired when the input loses focus after value change
- * @fires canon-focus - Fired when the input gains focus
- * @fires canon-blur - Fired when the input loses focus
+ * @element piloting-text-field
+ * @fires piloting-input - Fired when the input value changes
+ * @fires piloting-change - Fired when the input loses focus after value change
+ * @fires piloting-focus - Fired when the input gains focus
+ * @fires piloting-blur - Fired when the input loses focus
  *
  * @csspart container - The container element
  * @csspart label - The label element
@@ -19,16 +19,16 @@ import type { TextFieldType, TextFieldSize } from './types';
  *
  * @example
  * ```html
- * <canon-text-field
+ * <piloting-text-field
  *   label="Email"
  *   type="email"
  *   placeholder="Enter your email"
  *   required
- * ></canon-text-field>
+ * ></piloting-text-field>
  * ```
  */
-@customElement('canon-text-field')
-export class CanonTextField extends LitElement {
+@customElement('piloting-text-field')
+export class PilotingTextField extends LitElement {
   static override styles = css`
     :host {
       display: block;
@@ -194,7 +194,7 @@ export class CanonTextField extends LitElement {
     this.value = input.value;
 
     this.dispatchEvent(
-      new CustomEvent('canon-input', {
+      new CustomEvent('piloting-input', {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
@@ -204,7 +204,7 @@ export class CanonTextField extends LitElement {
 
   private _handleChange(e: Event) {
     this.dispatchEvent(
-      new CustomEvent('canon-change', {
+      new CustomEvent('piloting-change', {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
@@ -215,7 +215,7 @@ export class CanonTextField extends LitElement {
   private _handleFocus(e: FocusEvent) {
     this._focused = true;
     this.dispatchEvent(
-      new CustomEvent('canon-focus', {
+      new CustomEvent('piloting-focus', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
@@ -226,7 +226,7 @@ export class CanonTextField extends LitElement {
   private _handleBlur(e: FocusEvent) {
     this._focused = false;
     this.dispatchEvent(
-      new CustomEvent('canon-blur', {
+      new CustomEvent('piloting-blur', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
@@ -286,6 +286,6 @@ export class CanonTextField extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'canon-text-field': CanonTextField;
+    'piloting-text-field': PilotingTextField;
   }
 }

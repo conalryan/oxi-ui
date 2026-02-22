@@ -11,7 +11,7 @@ export type TextFieldSize = 'small' | 'medium' | 'large';
 /**
  * Text field component props
  */
-export interface CanonTextFieldProps {
+export interface PilotingTextFieldProps {
   /** Input type */
   type?: TextFieldType;
   /** Input name */

@@ -1,4 +1,4 @@
-// @canon/core - Main entry point
+// @piloting/core - Main entry point
 // Tree-shakable exports for authentication, feature-flags, permissions, and utilities
 
 export * from './authentication';

@@ -13,20 +13,20 @@ import type { ButtonVariant, ButtonSize } from './types';
 import './button.element';
 
 /**
- * Angular wrapper for the Canon Button web component
+ * Angular wrapper for the Piloting Button web component
  *
  * @example
  * ```typescript
- * import { CanonButtonComponent } from '@canon/web-components/button/angular';
+ * import { PilotingButtonComponent } from '@piloting/web-components/button/angular';
  *
  * @Component({
  *   selector: 'app-example',
  *   template: `
- *     <canon-button-wrapper
+ *     <piloting-button-wrapper
  *       variant="primary"
- *       (canonClick)="handleClick($event)">
+ *       (pilotingClick)="handleClick($event)">
  *       Click me
- *     </canon-button-wrapper>
+ *     </piloting-button-wrapper>
  *   `
  * })
  * export class ExampleComponent {
@@ -37,19 +37,19 @@ import './button.element';
  * ```
  */
 @Component({
-  selector: 'canon-button-wrapper',
+  selector: 'piloting-button-wrapper',
   template: `
-    <canon-button
+    <piloting-button
       [attr.variant]="variant"
       [attr.size]="size"
       [attr.disabled]="disabled || null"
       [attr.loading]="loading || null"
       [attr.type]="type"
       [attr.full-width]="fullWidth || null"
-      (canon-click)="onCanonClick($event)"
+      (piloting-click)="onPilotingClick($event)"
     >
       <ng-content></ng-content>
-    </canon-button>
+    </piloting-button>
   `,
   styles: [
     `
@@ -59,7 +59,7 @@ import './button.element';
     `,
   ],
 })
-export class CanonButtonComponent {
+export class PilotingButtonComponent {
   /** Button variant style */
   @Input() variant: ButtonVariant = 'primary';
 
@@ -79,23 +79,23 @@ export class CanonButtonComponent {
   @Input() fullWidth = false;
 
   /** Click event emitter */
-  @Output() canonClick = new EventEmitter<CustomEvent>();
+  @Output() pilotingClick = new EventEmitter<CustomEvent>();
 
   constructor(private elementRef: ElementRef) {}
 
-  onCanonClick(event: CustomEvent) {
-    this.canonClick.emit(event);
+  onPilotingClick(event: CustomEvent) {
+    this.pilotingClick.emit(event);
   }
 }
 
 /**
- * Angular module for Canon Button
+ * Angular module for Piloting Button
  */
 @NgModule({
-  declarations: [CanonButtonComponent],
-  exports: [CanonButtonComponent],
+  declarations: [PilotingButtonComponent],
+  exports: [PilotingButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CanonButtonModule {}
+export class PilotingButtonModule {}
 
 export type { ButtonVariant, ButtonSize };

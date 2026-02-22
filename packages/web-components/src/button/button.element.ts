@@ -3,9 +3,9 @@ import { customElement, property } from 'lit/decorators.js';
 import type { ButtonVariant, ButtonSize } from './types';
 
 /**
- * Canon Button Web Component
+ * Piloting Button Web Component
  *
- * @element canon-button
+ * @element piloting-button
  * @slot - Default slot for button content
  * @fires click - Fired when the button is clicked
  *
@@ -13,11 +13,11 @@ import type { ButtonVariant, ButtonSize } from './types';
  *
  * @example
  * ```html
- * <canon-button variant="primary" size="medium">Click me</canon-button>
+ * <piloting-button variant="primary" size="medium">Click me</piloting-button>
  * ```
  */
-@customElement('canon-button')
-export class CanonButton extends LitElement {
+@customElement('piloting-button')
+export class PilotingButton extends LitElement {
   static override styles = css`
     :host {
       display: inline-block;
@@ -181,7 +181,7 @@ export class CanonButton extends LitElement {
     }
 
     this.dispatchEvent(
-      new CustomEvent('canon-click', {
+      new CustomEvent('piloting-click', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
@@ -216,6 +216,6 @@ export class CanonButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'canon-button': CanonButton;
+    'piloting-button': PilotingButton;
   }
 }

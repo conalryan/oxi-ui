@@ -1,2 +1,2 @@
-export { CanonButton } from './button.element';
-export type { ButtonVariant, ButtonSize, CanonButtonProps } from './types';
+export { PilotingButton } from './button.element';
+export type { ButtonVariant, ButtonSize, PilotingButtonProps } from './types';

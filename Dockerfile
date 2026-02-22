@@ -1,4 +1,4 @@
-# Canon Monorepo Development Container
+# Piloting Monorepo Development Container
 # Multi-stage build for development and CI/CD
 
 # =============================================================================
@@ -106,8 +106,8 @@ COPY --from=builder /app/packages/web-components/package.json ./packages/web-com
 COPY package.json ./
 
 # Labels for container metadata
-LABEL org.opencontainers.image.title="Canon Monorepo"
-LABEL org.opencontainers.image.description="Canon frontend library packages"
-LABEL org.opencontainers.image.source="https://github.com/your-org/canon"
+LABEL org.opencontainers.image.title="Piloting Monorepo"
+LABEL org.opencontainers.image.description="Piloting frontend library packages"
+LABEL org.opencontainers.image.source="https://github.com/your-org/piloting"
 
-CMD ["echo", "Canon packages ready for publishing"]
+CMD ["echo", "Piloting packages ready for publishing"]

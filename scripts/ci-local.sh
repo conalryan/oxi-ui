@@ -7,14 +7,14 @@ set -e
 
 COMMAND="${1:-all}"
 
-echo "🐳 Running Canon CI locally with Docker"
+echo "🐳 Running Piloting CI locally with Docker"
 echo "========================================"
 
 # Build the Docker image
-docker build --target development -t canon-ci .
+docker build --target development -t piloting-ci .
 
 run_in_docker() {
-    docker run --rm -v "$(pwd):/app" -w /app canon-ci "$@"
+    docker run --rm -v "$(pwd):/app" -w /app piloting-ci "$@"
 }
 
 case "$COMMAND" in

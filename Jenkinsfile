@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 /**
- * Canon Monorepo CI/CD Pipeline
+ * Piloting Monorepo CI/CD Pipeline
  * 
  * Features:
  * - Builds, tests, lints only changed packages
@@ -23,9 +23,9 @@ pipeline {
         CI = 'true'
         NPM_TOKEN = credentials('npm-token')
         GIT_AUTHOR_NAME = 'Jenkins CI'
-        GIT_AUTHOR_EMAIL = 'ci@canon.dev'
+        GIT_AUTHOR_EMAIL = 'ci@piloting.dev'
         GIT_COMMITTER_NAME = 'Jenkins CI'
-        GIT_COMMITTER_EMAIL = 'ci@canon.dev'
+        GIT_COMMITTER_EMAIL = 'ci@piloting.dev'
     }
 
     options {
@@ -82,7 +82,7 @@ pipeline {
                         expression { return env.CORE_CHANGED == 'true' }
                     }
                     steps {
-                        sh 'bun run --filter @canon/core lint || oxlint packages/core'
+                        sh 'bun run --filter @piloting/core lint || oxlint packages/core'
                     }
                 }
                 
@@ -91,7 +91,7 @@ pipeline {
                         expression { return env.WEB_COMPONENTS_CHANGED == 'true' }
                     }
                     steps {
-                        sh 'bun run --filter @canon/web-components lint || oxlint packages/web-components'
+                        sh 'bun run --filter @piloting/web-components lint || oxlint packages/web-components'
                     }
                 }
                 
@@ -110,7 +110,7 @@ pipeline {
                         expression { return env.CORE_CHANGED == 'true' }
                     }
                     steps {
-                        sh 'bun run --filter @canon/core test:coverage'
+                        sh 'bun run --filter @piloting/core test:coverage'
                     }
                     post {
                         always {
@@ -131,7 +131,7 @@ pipeline {
                         expression { return env.WEB_COMPONENTS_CHANGED == 'true' }
                     }
                     steps {
-                        sh 'bun run --filter @canon/web-components test:coverage'
+                        sh 'bun run --filter @piloting/web-components test:coverage'
                     }
                     post {
                         always {
@@ -156,7 +156,7 @@ pipeline {
                         expression { return env.CORE_CHANGED == 'true' }
                     }
                     steps {
-                        sh 'bun run --filter @canon/core build'
+                        sh 'bun run --filter @piloting/core build'
                     }
                 }
                 
@@ -165,7 +165,7 @@ pipeline {
                         expression { return env.WEB_COMPONENTS_CHANGED == 'true' }
                     }
                     steps {
-                        sh 'bun run --filter @canon/web-components build'
+                        sh 'bun run --filter @piloting/web-components build'
                     }
                 }
             }
@@ -227,14 +227,14 @@ pipeline {
                             if (env.CORE_CHANGED == 'true' && env.CORE_VERSION) {
                                 dir('packages/core') {
                                     sh 'npm publish --access public'
-                                    echo "Published @canon/core@${env.CORE_VERSION}"
+                                    echo "Published @piloting/core@${env.CORE_VERSION}"
                                 }
                             }
                             
                             if (env.WEB_COMPONENTS_CHANGED == 'true' && env.WEB_COMPONENTS_VERSION) {
                                 dir('packages/web-components') {
                                     sh 'npm publish --access public'
-                                    echo "Published @canon/web-components@${env.WEB_COMPONENTS_VERSION}"
+                                    echo "Published @piloting/web-components@${env.WEB_COMPONENTS_VERSION}"
                                 }
                             }
                         }
@@ -249,10 +249,10 @@ pipeline {
                         script {
                             sshagent(['github-ssh-key']) {
                                 if (env.CORE_VERSION) {
-                                    sh "git tag -a core-v${env.CORE_VERSION} -m 'Release @canon/core@${env.CORE_VERSION}'"
+                                    sh "git tag -a core-v${env.CORE_VERSION} -m 'Release @piloting/core@${env.CORE_VERSION}'"
                                 }
                                 if (env.WEB_COMPONENTS_VERSION) {
-                                    sh "git tag -a web-components-v${env.WEB_COMPONENTS_VERSION} -m 'Release @canon/web-components@${env.WEB_COMPONENTS_VERSION}'"
+                                    sh "git tag -a web-components-v${env.WEB_COMPONENTS_VERSION} -m 'Release @piloting/web-components@${env.WEB_COMPONENTS_VERSION}'"
                                 }
                                 
                                 // Commit version changes and push
@@ -276,12 +276,12 @@ pipeline {
         success {
             script {
                 if (env.CORE_VERSION || env.WEB_COMPONENTS_VERSION) {
-                    def message = "✅ Canon Release Successful\n"
+                    def message = "✅ Piloting Release Successful\n"
                     if (env.CORE_VERSION) {
-                        message += "- @canon/core@${env.CORE_VERSION}\n"
+                        message += "- @piloting/core@${env.CORE_VERSION}\n"
                     }
                     if (env.WEB_COMPONENTS_VERSION) {
-                        message += "- @canon/web-components@${env.WEB_COMPONENTS_VERSION}\n"
+                        message += "- @piloting/web-components@${env.WEB_COMPONENTS_VERSION}\n"
                     }
                     echo message
                 }

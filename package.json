@@ -1,5 +1,5 @@
 {
-  "name": "canon-monorepo",
+  "name": "piloting-monorepo",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,11 +8,11 @@
   ],
   "scripts": {
     "build": "bun run --filter '*' build",
-    "build:core": "bun run --filter @canon/core build",
-    "build:web-components": "bun run --filter @canon/web-components build",
+    "build:core": "bun run --filter @piloting/core build",
+    "build:web-components": "bun run --filter @piloting/web-components build",
     "test": "bun run --filter '*' test",
-    "test:core": "bun run --filter @canon/core test",
-    "test:web-components": "bun run --filter @canon/web-components test",
+    "test:core": "bun run --filter @piloting/core test",
+    "test:web-components": "bun run --filter @piloting/web-components test",
     "test:coverage": "bun run --filter '*' test:coverage",
     "lint": "oxlint .",
     "format": "prettier --write .",

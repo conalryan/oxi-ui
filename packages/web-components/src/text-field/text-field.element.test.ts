@@ -1,22 +1,22 @@
 import { describe, expect, it, beforeAll } from 'bun:test';
-import { CanonTextField } from './text-field.element';
+import { PilotingTextField } from './text-field.element';
 
 // Register the custom element for testing
 beforeAll(() => {
-  if (!customElements.get('canon-text-field')) {
-    customElements.define('canon-text-field', CanonTextField);
+  if (!customElements.get('piloting-text-field')) {
+    customElements.define('piloting-text-field', PilotingTextField);
   }
 });
 
-describe('CanonTextField', () => {
-  const createElement = (props: Partial<CanonTextField> = {}): CanonTextField => {
-    const el = document.createElement('canon-text-field') as CanonTextField;
+describe('PilotingTextField', () => {
+  const createElement = (props: Partial<PilotingTextField> = {}): PilotingTextField => {
+    const el = document.createElement('piloting-text-field') as PilotingTextField;
     Object.assign(el, props);
     document.body.appendChild(el);
     return el;
   };
 
-  const cleanup = (el: CanonTextField) => {
+  const cleanup = (el: PilotingTextField) => {
     el.remove();
   };
 
@@ -173,13 +173,13 @@ describe('CanonTextField', () => {
   describe('rendering', () => {
     it('renders as custom element', () => {
       const el = createElement();
-      expect(el.tagName.toLowerCase()).toBe('canon-text-field');
+      expect(el.tagName.toLowerCase()).toBe('piloting-text-field');
       cleanup(el);
     });
 
-    it('is instance of CanonTextField', () => {
+    it('is instance of PilotingTextField', () => {
       const el = createElement();
-      expect(el instanceof CanonTextField).toBe(true);
+      expect(el instanceof PilotingTextField).toBe(true);
       cleanup(el);
     });
   });

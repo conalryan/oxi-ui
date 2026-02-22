@@ -1,22 +1,22 @@
 import { describe, expect, it, beforeAll } from 'bun:test';
-import { CanonButton } from './button.element';
+import { PilotingButton } from './button.element';
 
 // Register the custom element for testing
 beforeAll(() => {
-  if (!customElements.get('canon-button')) {
-    customElements.define('canon-button', CanonButton);
+  if (!customElements.get('piloting-button')) {
+    customElements.define('piloting-button', PilotingButton);
   }
 });
 
-describe('CanonButton', () => {
-  const createElement = (props: Partial<CanonButton> = {}): CanonButton => {
-    const el = document.createElement('canon-button') as CanonButton;
+describe('PilotingButton', () => {
+  const createElement = (props: Partial<PilotingButton> = {}): PilotingButton => {
+    const el = document.createElement('piloting-button') as PilotingButton;
     Object.assign(el, props);
     document.body.appendChild(el);
     return el;
   };
 
-  const cleanup = (el: CanonButton) => {
+  const cleanup = (el: PilotingButton) => {
     el.remove();
   };
 
@@ -141,13 +141,13 @@ describe('CanonButton', () => {
   describe('rendering', () => {
     it('renders as custom element', () => {
       const el = createElement();
-      expect(el.tagName.toLowerCase()).toBe('canon-button');
+      expect(el.tagName.toLowerCase()).toBe('piloting-button');
       cleanup(el);
     });
 
-    it('is instance of CanonButton', () => {
+    it('is instance of PilotingButton', () => {
       const el = createElement();
-      expect(el instanceof CanonButton).toBe(true);
+      expect(el instanceof PilotingButton).toBe(true);
       cleanup(el);
     });
   });

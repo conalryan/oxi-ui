@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🚀 Setting up Canon development environment..."
+echo "🚀 Setting up Piloting development environment..."
 
 # Install dependencies
 echo "📦 Installing dependencies..."
@@ -27,5 +27,5 @@ echo "  bun run lint            - Lint all packages"
 echo "  bun run format          - Format code with Prettier"
 echo ""
 echo "Build specific packages:"
-echo "  bun run build:core           - Build @canon/core"
-echo "  bun run build:web-components - Build @canon/web-components"
+echo "  bun run build:core           - Build @piloting/core"
+echo "  bun run build:web-components - Build @piloting/web-components"

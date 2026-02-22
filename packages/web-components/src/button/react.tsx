@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, forwardRef } from 'react';
-import type { ButtonVariant, ButtonSize, CanonButtonProps } from './types';
+import type { ButtonVariant, ButtonSize, PilotingButtonProps } from './types';
 
 // Ensure the web component is imported for side effects
 import './button.element';
 
-export interface ReactCanonButtonProps extends CanonButtonProps {
+export interface ReactPilotingButtonProps extends PilotingButtonProps {
   /** Button content */
   children?: React.ReactNode;
   /** Click handler */
@@ -16,22 +16,22 @@ export interface ReactCanonButtonProps extends CanonButtonProps {
 }
 
 /**
- * React wrapper for the Canon Button web component
+ * React wrapper for the Piloting Button web component
  *
  * @example
  * ```tsx
- * import { CanonButton } from '@canon/web-components/button/react';
+ * import { PilotingButton } from '@piloting/web-components/button/react';
  *
  * function App() {
  *   return (
- *     <CanonButton variant="primary" onClick={() => console.log('clicked')}>
+ *     <PilotingButton variant="primary" onClick={() => console.log('clicked')}>
  *       Click me
- *     </CanonButton>
+ *     </PilotingButton>
  *   );
  * }
  * ```
  */
-export const CanonButton = forwardRef<HTMLElement, ReactCanonButtonProps>(
+export const PilotingButton = forwardRef<HTMLElement, ReactPilotingButtonProps>(
   (
     {
       variant = 'primary',
@@ -58,15 +58,15 @@ export const CanonButton = forwardRef<HTMLElement, ReactCanonButtonProps>(
         onClick(e as CustomEvent);
       };
 
-      element.addEventListener('canon-click', handleClick);
+      element.addEventListener('piloting-click', handleClick);
       return () => {
-        element.removeEventListener('canon-click', handleClick);
+        element.removeEventListener('piloting-click', handleClick);
       };
     }, [onClick, buttonRef]);
 
     // Using createElement to avoid JSX issues with custom elements
     return React.createElement(
-      'canon-button',
+      'piloting-button',
       {
         ref: buttonRef,
         variant,
@@ -83,6 +83,6 @@ export const CanonButton = forwardRef<HTMLElement, ReactCanonButtonProps>(
   }
 );
 
-CanonButton.displayName = 'CanonButton';
+PilotingButton.displayName = 'PilotingButton';
 
 export type { ButtonVariant, ButtonSize };

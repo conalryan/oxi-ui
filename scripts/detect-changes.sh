@@ -51,21 +51,21 @@ echo -e "\n${YELLOW}Package change detection results:${NC}"
 CHANGED_PACKAGES=""
 
 if [ "$CORE_CHANGED" = true ]; then
-    echo -e "${GREEN}✓ @canon/core has changes${NC}"
+    echo -e "${GREEN}✓ @piloting/core has changes${NC}"
     CHANGED_PACKAGES="core"
 else
-    echo -e "${RED}✗ @canon/core has no changes${NC}"
+    echo -e "${RED}✗ @piloting/core has no changes${NC}"
 fi
 
 if [ "$WEB_COMPONENTS_CHANGED" = true ]; then
-    echo -e "${GREEN}✓ @canon/web-components has changes${NC}"
+    echo -e "${GREEN}✓ @piloting/web-components has changes${NC}"
     if [ -n "$CHANGED_PACKAGES" ]; then
         CHANGED_PACKAGES="${CHANGED_PACKAGES},web-components"
     else
         CHANGED_PACKAGES="web-components"
     fi
 else
-    echo -e "${RED}✗ @canon/web-components has no changes${NC}"
+    echo -e "${RED}✗ @piloting/web-components has no changes${NC}"
 fi
 
 # Output for CI consumption

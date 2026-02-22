@@ -241,7 +241,7 @@ export default defineConfig({
 Use `@lit/react` for React wrappers:
 ```typescript
 import { createComponent } from '@lit/react';
-import { CuiPortal } from '@canon/portal';
+import { CuiPortal } from '@piloting/portal';
 
 export const Portal = createComponent({
   tagName: 'cui-portal',
@@ -257,7 +257,7 @@ For Angular, use `@lit/angular` or CUSTOM_ELEMENTS_SCHEMA with the standard Lit 
 ## Recommended Package Structure
 
 ```
-canon/
+piloting/
 ├── packages/
 │   ├── components/           # Lit component library
 │   │   ├── src/
@@ -366,7 +366,7 @@ For a production-grade monorepo with Lit components, React/Angular wrappers, and
 **Quick Start**:
 ```bash
 # Initialize with Nx
-pnpm dlx create-nx-workspace@latest canon --preset=ts --pm=pnpm
+pnpm dlx create-nx-workspace@latest piloting --preset=ts --pm=pnpm
 
 # Add Vite support
 pnpm nx add @nx/vite
@@ -408,7 +408,7 @@ For those who want Nx features with independent versioning but **fewer tools**, 
 
 ```bash
 # Nx + Changesets
-pnpm dlx create-nx-workspace@latest canon --preset=ts --pm=pnpm
+pnpm dlx create-nx-workspace@latest piloting --preset=ts --pm=pnpm
 pnpm add -D @changesets/cli
 pnpm changeset init
 ```

@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, forwardRef, useCallback } from 'react';
-import type { TextFieldType, TextFieldSize, CanonTextFieldProps } from './types';
+import type { TextFieldType, TextFieldSize, PilotingTextFieldProps } from './types';
 
 // Ensure the web component is imported for side effects
 import './text-field.element';
 
-export interface ReactCanonTextFieldProps extends CanonTextFieldProps {
+export interface ReactPilotingTextFieldProps extends PilotingTextFieldProps {
   /** Input handler */
   onInput?: (event: CustomEvent<{ value: string }>) => void;
   /** Change handler */
@@ -20,17 +20,17 @@ export interface ReactCanonTextFieldProps extends CanonTextFieldProps {
 }
 
 /**
- * React wrapper for the Canon Text Field web component
+ * React wrapper for the Piloting Text Field web component
  *
  * @example
  * ```tsx
- * import { CanonTextField } from '@canon/web-components/text-field/react';
+ * import { PilotingTextField } from '@piloting/web-components/text-field/react';
  *
  * function App() {
  *   const [value, setValue] = useState('');
  *
  *   return (
- *     <CanonTextField
+ *     <PilotingTextField
  *       label="Email"
  *       type="email"
  *       value={value}
@@ -40,7 +40,7 @@ export interface ReactCanonTextFieldProps extends CanonTextFieldProps {
  * }
  * ```
  */
-export const CanonTextField = forwardRef<HTMLElement, ReactCanonTextFieldProps>(
+export const PilotingTextField = forwardRef<HTMLElement, ReactPilotingTextFieldProps>(
   (
     {
       type = 'text',
@@ -102,20 +102,20 @@ export const CanonTextField = forwardRef<HTMLElement, ReactCanonTextFieldProps>(
       const element = textFieldRef.current;
       if (!element) return;
 
-      if (onInput) element.addEventListener('canon-input', handleInput);
-      if (onChange) element.addEventListener('canon-change', handleChange);
-      if (onFocus) element.addEventListener('canon-focus', handleFocus);
-      if (onBlur) element.addEventListener('canon-blur', handleBlur);
+      if (onInput) element.addEventListener('piloting-input', handleInput);
+      if (onChange) element.addEventListener('piloting-change', handleChange);
+      if (onFocus) element.addEventListener('piloting-focus', handleFocus);
+      if (onBlur) element.addEventListener('piloting-blur', handleBlur);
 
       return () => {
-        if (onInput) element.removeEventListener('canon-input', handleInput);
-        if (onChange) element.removeEventListener('canon-change', handleChange);
-        if (onFocus) element.removeEventListener('canon-focus', handleFocus);
-        if (onBlur) element.removeEventListener('canon-blur', handleBlur);
+        if (onInput) element.removeEventListener('piloting-input', handleInput);
+        if (onChange) element.removeEventListener('piloting-change', handleChange);
+        if (onFocus) element.removeEventListener('piloting-focus', handleFocus);
+        if (onBlur) element.removeEventListener('piloting-blur', handleBlur);
       };
     }, [handleInput, handleChange, handleFocus, handleBlur, onInput, onChange, onFocus, onBlur, textFieldRef]);
 
-    return React.createElement('canon-text-field', {
+    return React.createElement('piloting-text-field', {
       ref: textFieldRef,
       type,
       name,
@@ -138,6 +138,6 @@ export const CanonTextField = forwardRef<HTMLElement, ReactCanonTextFieldProps>(
   }
 );
 
-CanonTextField.displayName = 'CanonTextField';
+PilotingTextField.displayName = 'PilotingTextField';
 
 export type { TextFieldType, TextFieldSize };

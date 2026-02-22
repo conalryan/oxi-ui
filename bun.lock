@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "canon-monorepo",
+      "name": "piloting-monorepo",
       "devDependencies": {
         "@types/bun": "^1.1.0",
         "oxlint": "^0.9.0",
@@ -12,7 +12,7 @@
       },
     },
     "packages/core": {
-      "name": "@canon/core",
+      "name": "@piloting/core",
       "version": "0.1.0",
       "devDependencies": {
         "@types/bun": "^1.1.0",
@@ -22,7 +22,7 @@
       },
     },
     "packages/web-components": {
-      "name": "@canon/web-components",
+      "name": "@piloting/web-components",
       "version": "0.1.0",
       "dependencies": {
         "lit": "^3.1.0",
@@ -57,9 +57,9 @@
 
     "@babel/types": ["@babel/types@7.29.0", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.28.5" } }, "sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A=="],
 
-    "@canon/core": ["@canon/core@workspace:packages/core"],
+    "@piloting/core": ["@piloting/core@workspace:packages/core"],
 
-    "@canon/web-components": ["@canon/web-components@workspace:packages/web-components"],
+    "@piloting/web-components": ["@piloting/web-components@workspace:packages/web-components"],
 
     "@esbuild/aix-ppc64": ["@esbuild/aix-ppc64@0.21.5", "", { "os": "aix", "cpu": "ppc64" }, "sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ=="],
 
