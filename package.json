@@ -7,7 +7,7 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "turbo",
+    "build": "turbo build",
     "build:core": "turbo build --filter=@oxi-ui/core",
     "build:theme": "turbo build --filter=@oxi-ui/theme",
     "build:web-components": "turbo build --filter=@oxi-ui/web-components",

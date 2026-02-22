@@ -14,7 +14,7 @@ echo "========================================"
 docker build --target development -t oxi-ui-ci .
 
 run_in_docker() {
-    docker run --rm -v "$(pwd):/app" -w /app oxi-ui-ci "$@"
+    docker run --rm oxi-ui-ci "$@"
 }
 
 case "$COMMAND" in

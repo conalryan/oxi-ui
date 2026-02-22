@@ -4,7 +4,7 @@
 # =============================================================================
 # Base stage - Common Bun runtime
 # =============================================================================
-FROM oven/bun:1.1-alpine AS base
+FROM oven/bun:1.3-alpine AS base
 
 # Install system dependencies
 RUN apk add --no-cache \
@@ -26,6 +26,7 @@ FROM base AS dependencies
 # Copy package files for dependency installation
 COPY package.json bun.lock* bunfig.toml ./
 COPY packages/core/package.json ./packages/core/
+COPY packages/theme/package.json ./packages/theme/
 COPY packages/web-components/package.json ./packages/web-components/
 
 # Install dependencies
@@ -99,6 +100,8 @@ FROM base AS production
 # Copy built packages only
 COPY --from=builder /app/packages/core/dist ./packages/core/dist
 COPY --from=builder /app/packages/core/package.json ./packages/core/
+COPY --from=builder /app/packages/theme/dist ./packages/theme/dist
+COPY --from=builder /app/packages/theme/package.json ./packages/theme/
 COPY --from=builder /app/packages/web-components/dist ./packages/web-components/dist
 COPY --from=builder /app/packages/web-components/package.json ./packages/web-components/
 
