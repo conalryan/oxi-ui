@@ -1,12 +1,7 @@
-import { describe, expect, it, beforeAll } from "bun:test";
+import { describe, expect, it } from "bun:test";
 import { OxiTextField } from "./text-field.element";
 
-// Register the custom element for testing
-beforeAll(() => {
-  if (!customElements.get("oxi-text-field")) {
-    customElements.define("oxi-text-field", OxiTextField);
-  }
-});
+// Element is auto-registered via @customElement decorator when imported
 
 describe("OxiTextField", () => {
   const createElement = (props: Partial<OxiTextField> = {}): OxiTextField => {

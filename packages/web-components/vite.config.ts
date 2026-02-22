@@ -7,6 +7,7 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
       rollupTypes: false,
+      exclude: ["**/*.test.ts", "**/test-setup.ts"],
     }),
   ],
   build: {

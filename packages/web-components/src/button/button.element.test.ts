@@ -1,16 +1,11 @@
-import { describe, expect, it, beforeAll } from "bun:test";
+import { describe, expect, it } from "bun:test";
 import { OxiButton } from "./button.element";
 
-// Register the custom element for testing
-beforeAll(() => {
-  if (!customElements.get("oxi-ui-button")) {
-    customElements.define("oxi-ui-button", OxiButton);
-  }
-});
+// Element is auto-registered via @customElement decorator when imported
 
 describe("OxiButton", () => {
   const createElement = (props: Partial<OxiButton> = {}): OxiButton => {
-    const el = document.createElement("oxi-ui-button") as OxiButton;
+    const el = document.createElement("oxi-button") as OxiButton;
     Object.assign(el, props);
     document.body.appendChild(el);
     return el;
@@ -141,7 +136,7 @@ describe("OxiButton", () => {
   describe("rendering", () => {
     it("renders as custom element", () => {
       const el = createElement();
-      expect(el.tagName.toLowerCase()).toBe("oxi-ui-button");
+      expect(el.tagName.toLowerCase()).toBe("oxi-button");
       cleanup(el);
     });
 
