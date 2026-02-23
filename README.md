@@ -460,6 +460,7 @@ Required Jenkins credentials:
 
 - [Workspace Recommendations](./prompts/WORKSPACE_RECOMMENDATIONS.md)
 - [Modern Tooling Recommendations](./prompts/MODERN_TOOLING_RECOMMENDATIONS.md)
+- [Workspace Tooling Recommendations](./prompts/WORKSPACE_TOOLING_RECOMMENDATIONS.md)
 
 ## License
 
