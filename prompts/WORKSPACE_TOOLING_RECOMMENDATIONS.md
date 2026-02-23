@@ -13,11 +13,13 @@ This document compares monorepo orchestration and versioning tools for a modern 
 ## Tool Categories
 
 ### Monorepo Orchestration
+
 - **Lerna + Nx** - Classic publishing workflow with modern caching
 - **Turborepo** - Lightweight, fast task orchestration
 - **Nx (standalone)** - Feature-rich enterprise solution
 
 ### Versioning & Publishing
+
 - **Changesets** - Independent versioning with changelogs
 - **Lerna** - Conventional commits and automated publishing
 - **Nx Release** - Integrated versioning within Nx
@@ -28,13 +30,13 @@ This document compares monorepo orchestration and versioning tools for a modern 
 
 **Overview**: Lightweight orchestration with independent versioning. This is the current stack used in the workspace.
 
-| Feature | Rating | Details |
-|---------|--------|---------|
-| **Caching** | ⭐⭐⭐⭐⭐ | Local + Vercel Remote Cache, content-addressable |
+| Feature                | Rating     | Details                                                     |
+| ---------------------- | ---------- | ----------------------------------------------------------- |
+| **Caching**            | ⭐⭐⭐⭐⭐ | Local + Vercel Remote Cache, content-addressable            |
 | **Parallel Execution** | ⭐⭐⭐⭐⭐ | Excellent parallel task execution with topological ordering |
-| **Affected Detection** | ⭐⭐⭐ | Filter-based (`--filter`), no built-in affected command |
-| **Publishing** | ⭐⭐⭐⭐⭐ | Changesets handles selective publishing beautifully |
-| **Versioning** | ⭐⭐⭐⭐⭐ | Independent mode, automatic changelogs |
+| **Affected Detection** | ⭐⭐⭐     | Filter-based (`--filter`), no built-in affected command     |
+| **Publishing**         | ⭐⭐⭐⭐⭐ | Changesets handles selective publishing beautifully         |
+| **Versioning**         | ⭐⭐⭐⭐⭐ | Independent mode, automatic changelogs                      |
 
 ### Caching
 
@@ -58,11 +60,11 @@ turbo link
 {
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],  // Waits for dependencies
+      "dependsOn": ["^build"], // Waits for dependencies
       "outputs": ["dist/**"]
     },
     "lint": {
-      "outputs": []  // Runs in parallel, no dependencies
+      "outputs": [] // Runs in parallel, no dependencies
     }
   }
 }
@@ -94,6 +96,7 @@ bun changeset publish
 ```
 
 **Changeset Features**:
+
 - Independent versioning per package
 - Automatic CHANGELOG.md generation
 - Pre-release support (`--pre`)
@@ -121,13 +124,13 @@ bun changeset publish
 
 **Overview**: Lerna provides mature publishing workflows, Nx provides caching and orchestration. Since Lerna v6+, Nx is the default task runner.
 
-| Feature | Rating | Details |
-|---------|--------|---------|
-| **Caching** | ⭐⭐⭐⭐⭐ | Nx local + Nx Cloud remote caching |
-| **Parallel Execution** | ⭐⭐⭐⭐⭐ | Nx's sophisticated task scheduler |
+| Feature                | Rating     | Details                                          |
+| ---------------------- | ---------- | ------------------------------------------------ |
+| **Caching**            | ⭐⭐⭐⭐⭐ | Nx local + Nx Cloud remote caching               |
+| **Parallel Execution** | ⭐⭐⭐⭐⭐ | Nx's sophisticated task scheduler                |
 | **Affected Detection** | ⭐⭐⭐⭐⭐ | First-class `--affected` flag with project graph |
-| **Publishing** | ⭐⭐⭐⭐⭐ | Lerna's mature conventional commits workflow |
-| **Versioning** | ⭐⭐⭐⭐⭐ | Independent or fixed modes |
+| **Publishing**         | ⭐⭐⭐⭐⭐ | Lerna's mature conventional commits workflow     |
+| **Versioning**         | ⭐⭐⭐⭐⭐ | Independent or fixed modes                       |
 
 ### Configuration
 
@@ -220,6 +223,7 @@ npx lerna version && npx lerna publish from-git
 ```
 
 **Lerna Features**:
+
 - `--conventional-commits` for automated changelog generation
 - `--create-release github` for GitHub releases
 - `--independent` for per-package semver
@@ -248,13 +252,13 @@ npx lerna version && npx lerna publish from-git
 
 **Overview**: Full Nx adoption with built-in versioning via Nx Release (introduced in Nx 17+).
 
-| Feature | Rating | Details |
-|---------|--------|---------|
-| **Caching** | ⭐⭐⭐⭐⭐ | Best-in-class local + remote caching |
-| **Parallel Execution** | ⭐⭐⭐⭐⭐ | Sophisticated task scheduling |
+| Feature                | Rating     | Details                                |
+| ---------------------- | ---------- | -------------------------------------- |
+| **Caching**            | ⭐⭐⭐⭐⭐ | Best-in-class local + remote caching   |
+| **Parallel Execution** | ⭐⭐⭐⭐⭐ | Sophisticated task scheduling          |
 | **Affected Detection** | ⭐⭐⭐⭐⭐ | First-class support with project graph |
-| **Publishing** | ⭐⭐⭐⭐ | Nx Release (newer, maturing) |
-| **Versioning** | ⭐⭐⭐⭐ | Independent versioning support |
+| **Publishing**         | ⭐⭐⭐⭐   | Nx Release (newer, maturing)           |
+| **Versioning**         | ⭐⭐⭐⭐   | Independent versioning support         |
 
 ### Configuration
 
@@ -318,13 +322,13 @@ npx nx release
 
 **Overview**: Use Turborepo for caching/orchestration, Lerna only for versioning/publishing.
 
-| Feature | Rating | Details |
-|---------|--------|---------|
-| **Caching** | ⭐⭐⭐⭐⭐ | Turborepo's excellent caching |
-| **Parallel Execution** | ⭐⭐⭐⭐⭐ | Turborepo task scheduling |
-| **Affected Detection** | ⭐⭐⭐ | Filter-based (Turborepo) |
-| **Publishing** | ⭐⭐⭐⭐⭐ | Lerna's mature workflow |
-| **Versioning** | ⭐⭐⭐⭐⭐ | Lerna conventional commits |
+| Feature                | Rating     | Details                       |
+| ---------------------- | ---------- | ----------------------------- |
+| **Caching**            | ⭐⭐⭐⭐⭐ | Turborepo's excellent caching |
+| **Parallel Execution** | ⭐⭐⭐⭐⭐ | Turborepo task scheduling     |
+| **Affected Detection** | ⭐⭐⭐     | Filter-based (Turborepo)      |
+| **Publishing**         | ⭐⭐⭐⭐⭐ | Lerna's mature workflow       |
+| **Versioning**         | ⭐⭐⭐⭐⭐ | Lerna conventional commits    |
 
 ### Configuration
 
@@ -333,7 +337,7 @@ npx nx release
 {
   "version": "independent",
   "npmClient": "bun",
-  "useNx": false,  // Use Turborepo instead
+  "useNx": false, // Use Turborepo instead
   "command": {
     "publish": {
       "conventionalCommits": true
@@ -359,21 +363,21 @@ npx nx release
 
 ## Comparison Matrix
 
-| Feature | Turbo + Changesets | Lerna + Nx | Nx Standalone | Turbo + Lerna |
-|---------|-------------------|------------|---------------|---------------|
-| **Setup Complexity** | Low | Medium-High | Medium | Medium |
-| **Bun Compatibility** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Local Caching** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Remote Caching** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Affected Detection** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **Parallel Execution** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Independent Versioning** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Changelog Generation** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Publishing Workflow** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| **Generators/Scaffolding** | ❌ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ❌ |
-| **Graph Visualization** | ❌ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ❌ |
-| **Maintenance Burden** | Low | High | Medium | Medium |
-| **Community/Docs** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Feature                    | Turbo + Changesets | Lerna + Nx  | Nx Standalone | Turbo + Lerna |
+| -------------------------- | ------------------ | ----------- | ------------- | ------------- |
+| **Setup Complexity**       | Low                | Medium-High | Medium        | Medium        |
+| **Bun Compatibility**      | ⭐⭐⭐⭐⭐         | ⭐⭐⭐      | ⭐⭐⭐        | ⭐⭐⭐⭐      |
+| **Local Caching**          | ⭐⭐⭐⭐⭐         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐⭐⭐    |
+| **Remote Caching**         | ⭐⭐⭐⭐           | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐⭐      |
+| **Affected Detection**     | ⭐⭐⭐             | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐        |
+| **Parallel Execution**     | ⭐⭐⭐⭐⭐         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐⭐⭐    |
+| **Independent Versioning** | ⭐⭐⭐⭐⭐         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐    |
+| **Changelog Generation**   | ⭐⭐⭐⭐⭐         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐    |
+| **Publishing Workflow**    | ⭐⭐⭐⭐⭐         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐    |
+| **Generators/Scaffolding** | ❌                 | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ❌            |
+| **Graph Visualization**    | ❌                 | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ❌            |
+| **Maintenance Burden**     | Low                | High        | Medium        | Medium        |
+| **Community/Docs**         | ⭐⭐⭐⭐⭐         | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐⭐      |
 
 ---
 
@@ -383,14 +387,14 @@ npx nx release
 
 For a **Bun + Vite + OXC** monorepo, **Turborepo + Changesets** is the optimal choice:
 
-| Aspect | Rationale |
-|--------|-----------|
-| **Bun Compatibility** | Turborepo works natively with Bun workspaces |
-| **Simplicity** | Minimal configuration, clear mental model |
+| Aspect                  | Rationale                                            |
+| ----------------------- | ---------------------------------------------------- |
+| **Bun Compatibility**   | Turborepo works natively with Bun workspaces         |
+| **Simplicity**          | Minimal configuration, clear mental model            |
 | **Changesets Maturity** | Battle-tested in major projects (React, Radix, etc.) |
-| **Performance** | Turborepo's Go-based caching is extremely fast |
-| **Independence** | No vendor lock-in, can migrate to Nx later if needed |
-| **OXC Alignment** | Both tools favor simplicity and performance |
+| **Performance**         | Turborepo's Go-based caching is extremely fast       |
+| **Independence**        | No vendor lock-in, can migrate to Nx later if needed |
+| **OXC Alignment**       | Both tools favor simplicity and performance          |
 
 ### Current Workspace Status
 
@@ -413,22 +417,24 @@ The workspace **already uses Turborepo + Changesets**, which is the recommended 
 
 ### When to Consider Alternatives
 
-| Scenario | Recommendation |
-|----------|----------------|
-| Need sophisticated affected detection | Consider Lerna + Nx |
-| Want generators for scaffolding | Consider Nx standalone |
-| Prefer conventional commits over manual changesets | Consider Lerna |
-| Need distributed task execution | Consider Nx Cloud |
+| Scenario                                           | Recommendation         |
+| -------------------------------------------------- | ---------------------- |
+| Need sophisticated affected detection              | Consider Lerna + Nx    |
+| Want generators for scaffolding                    | Consider Nx standalone |
+| Prefer conventional commits over manual changesets | Consider Lerna         |
+| Need distributed task execution                    | Consider Nx Cloud      |
 
 ### Recommended Enhancements
 
 1. **Enable Vercel Remote Cache** (optional):
+
    ```bash
    bunx turbo login
    bunx turbo link
    ```
 
 2. **Add prerelease support**:
+
    ```bash
    bun changeset pre enter beta
    bun changeset version

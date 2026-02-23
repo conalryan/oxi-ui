@@ -312,7 +312,8 @@ oxi-ui/
 - **Build System**: [Turborepo](https://turbo.build) - Monorepo build orchestration with caching
 - **Bundler**: [Vite](https://vitejs.dev) - Next-generation frontend tooling
 - **Versioning**: [Changesets](https://github.com/changesets/changesets) - Version management and publishing
-- **Linting**: [OXLint](https://oxc-project.github.io/docs/guide/usage/linter.html) - Fast Rust-based linter
+- **Linting**: [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) - Fast Rust-based linter
+- **formatting**: [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) - Fast Rust-based formatter
 - **Web Components**: [Lit](https://lit.dev) - Simple, fast web components
 - **Testing**: Bun test runner with built-in coverage
 
@@ -459,8 +460,9 @@ Required Jenkins credentials:
 ## Documentation
 
 - [Workspace Recommendations](./prompts/WORKSPACE_RECOMMENDATIONS.md)
-- [Modern Tooling Recommendations](./prompts/MODERN_TOOLING_RECOMMENDATIONS.md)
 - [Workspace Tooling Recommendations](./prompts/WORKSPACE_TOOLING_RECOMMENDATIONS.md)
+- [Modern Tooling Recommendations](./prompts/MODERN_TOOLING_RECOMMENDATIONS.md)
+- [CI/CD Recommendations](./prompts/CICD_RECOMMENDATIONS.md)
 
 ## License
 
