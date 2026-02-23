@@ -450,7 +450,38 @@ bunx turbo run build --filter="[origin/main]"
 bunx turbo run build --affected --dry-run
 ```
 
-### Jenkins Configuration
+### GitHub Actions Configuration
+
+The repository uses GitHub Actions for CI/CD with Turborepo remote caching. Configure the following:
+
+**Required Secrets** (Settings → Secrets and variables → Actions):
+
+| Secret        | Description                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| `NPM_TOKEN`   | npm automation token for publishing (`npm token create --type automation`)   |
+| `TURBO_TOKEN` | Turborepo remote cache token (run `bunx turbo login` then `bunx turbo link`) |
+
+**Required Variables** (Settings → Secrets and variables → Actions → Variables):
+
+| Variable     | Description                                      |
+| ------------ | ------------------------------------------------ |
+| `TURBO_TEAM` | Your Vercel team slug for Turborepo remote cache |
+
+**Setup Steps**:
+
+```bash
+# 1. Link Turborepo to Vercel remote cache
+bunx turbo login
+bunx turbo link
+
+# 2. Create npm automation token
+npm token create --type automation
+# Add the token as NPM_TOKEN secret in GitHub
+
+# 3. Add TURBO_TOKEN and TURBO_TEAM to GitHub repository settings
+```
+
+### Jenkins Configuration (Legacy)
 
 Required Jenkins credentials:
 

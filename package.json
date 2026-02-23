@@ -16,6 +16,7 @@
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "lint": "turbo lint",
+    "publish-packages": "changeset publish",
     "release": "changeset version && turbo build && changeset publish",
     "test": "turbo test",
     "test:core": "turbo test --filter=@oxi-ui/core",
