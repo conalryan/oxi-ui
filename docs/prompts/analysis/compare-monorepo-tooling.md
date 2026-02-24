@@ -1,4 +1,4 @@
-# Prompt: Workspace tooling recommendations
+# Prompt: Compare monorepo tooling
 
 ## Input
 
