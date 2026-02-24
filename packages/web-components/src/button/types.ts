@@ -1,12 +1,12 @@
 /**
  * Button variant styles
  */
-export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "danger";
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
 
 /**
  * Button sizes
  */
-export type ButtonSize = "small" | "medium" | "large";
+export type ButtonSize = 'small' | 'medium' | 'large';
 
 /**
  * Button component props
@@ -21,7 +21,7 @@ export interface ButtonProps {
   /** Whether the button shows a loading state */
   loading?: boolean;
   /** Button type attribute */
-  type?: "button" | "submit" | "reset";
+  type?: 'button' | 'submit' | 'reset';
   /** Full width button */
   fullWidth?: boolean;
 }

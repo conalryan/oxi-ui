@@ -17,7 +17,8 @@ This document evaluates CI/CD tooling options for a production-grade front-end m
 
 ### Option 1: GitHub Actions + GitHub Packages
 
-**Overview**: GitHub's native CI/CD platform with integrated package registry. Seamless integration with repository events, pull requests, and branch protection.
+**Overview**: GitHub's native CI/CD platform with integrated package registry. Seamless integration
+with repository events, pull requests, and branch protection.
 
 | Category        | Details                                                       |
 | --------------- | ------------------------------------------------------------- |
@@ -139,7 +140,8 @@ jobs:
 
 ### Option 2: Jenkins (Current) + Docker + npm Registry
 
-**Overview**: Self-hosted Jenkins with Docker-based builds. Full control over infrastructure and pipeline configuration.
+**Overview**: Self-hosted Jenkins with Docker-based builds. Full control over infrastructure and
+pipeline configuration.
 
 | Category        | Details                                          |
 | --------------- | ------------------------------------------------ |
@@ -237,7 +239,8 @@ pipeline {
 
 ### Option 3: GitLab CI/CD + GitLab Package Registry
 
-**Overview**: GitLab's integrated DevOps platform with built-in CI/CD, container registry, and package management.
+**Overview**: GitLab's integrated DevOps platform with built-in CI/CD, container registry, and
+package management.
 
 | Category        | Details                                         |
 | --------------- | ----------------------------------------------- |
@@ -447,7 +450,8 @@ workflows:
 
 ### Option 5: Vercel + Turborepo Remote Cache + npm Registry
 
-**Overview**: Specialized for frontend with native Turborepo integration. Excellent for preview deployments and edge hosting.
+**Overview**: Specialized for frontend with native Turborepo integration. Excellent for preview
+deployments and edge hosting.
 
 | Category        | Details                                     |
 | --------------- | ------------------------------------------- |
@@ -484,13 +488,14 @@ workflows:
 
 # vercel.json
 {
-  "buildCommand": "bunx turbo run build --filter=@oxi-ui/docs",
-  "installCommand": "bun install",
-  "framework": null,
+  'buildCommand': 'bunx turbo run build --filter=@oxi-ui/docs',
+  'installCommand': 'bun install',
+  'framework': null,
 }
 ```
 
-**Ideal For**: Teams wanting preview deployments with Turborepo caching, combined with another CI tool.
+**Ideal For**: Teams wanting preview deployments with Turborepo caching, combined with another CI
+tool.
 
 ---
 
@@ -559,7 +564,8 @@ workflows:
 - ❌ Infrastructure maintenance
 - ❌ Additional tooling to manage
 
-**Recommendation**: Use **npmjs.com** for public packages (standard for open source), with GitHub Packages as an option for internal/private packages.
+**Recommendation**: Use **npmjs.com** for public packages (standard for open source), with GitHub
+Packages as an option for internal/private packages.
 
 ---
 
@@ -678,7 +684,8 @@ on: [push, pull_request]
 
 ### **Recommended: GitHub Actions + npm Registry + Turborepo Remote Cache**
 
-For this monorepo with Bun, Vite, Turborepo, and Changesets, **GitHub Actions** provides the optimal balance:
+For this monorepo with Bun, Vite, Turborepo, and Changesets, **GitHub Actions** provides the optimal
+balance:
 
 | Factor          | GitHub Actions Advantage                               |
 | --------------- | ------------------------------------------------------ |

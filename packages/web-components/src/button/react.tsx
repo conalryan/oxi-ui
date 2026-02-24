@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, forwardRef } from "react";
-import type { ButtonVariant, ButtonSize, ButtonProps } from "./types";
+import React, { useRef, useEffect, forwardRef } from 'react';
+import type { ButtonVariant, ButtonSize, ButtonProps } from './types';
 
 // Ensure the web component is imported for side effects
-import "./button.element";
+import './button.element';
 
 export interface ReactOxiButtonProps extends ButtonProps {
   /** Button content */
@@ -34,18 +34,18 @@ export interface ReactOxiButtonProps extends ButtonProps {
 export const OxiButton = forwardRef<HTMLElement, ReactOxiButtonProps>(
   (
     {
-      variant = "primary",
-      size = "medium",
+      variant = 'primary',
+      size = 'medium',
       disabled = false,
       loading = false,
-      type = "button",
+      type = 'button',
       fullWidth = false,
       children,
       onClick,
       className,
       style,
     },
-    ref,
+    ref
   ) => {
     const innerRef = useRef<HTMLElement>(null);
     const buttonRef = (ref as React.RefObject<HTMLElement>) || innerRef;
@@ -58,15 +58,15 @@ export const OxiButton = forwardRef<HTMLElement, ReactOxiButtonProps>(
         onClick(e as CustomEvent);
       };
 
-      element.addEventListener("click", handleClick);
+      element.addEventListener('click', handleClick);
       return () => {
-        element.removeEventListener("click", handleClick);
+        element.removeEventListener('click', handleClick);
       };
     }, [onClick, buttonRef]);
 
     // Using createElement to avoid JSX issues with custom elements
     return React.createElement(
-      "oxi-button",
+      'oxi-button',
       {
         ref: buttonRef,
         variant,
@@ -74,15 +74,15 @@ export const OxiButton = forwardRef<HTMLElement, ReactOxiButtonProps>(
         disabled: disabled || undefined,
         loading: loading || undefined,
         type,
-        "full-width": fullWidth || undefined,
+        'full-width': fullWidth || undefined,
         class: className,
         style,
       },
-      children,
+      children
     );
-  },
+  }
 );
 
-OxiButton.displayName = "OxiButton";
+OxiButton.displayName = 'OxiButton';
 
 export type { ButtonVariant, ButtonSize };

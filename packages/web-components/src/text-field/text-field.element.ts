@@ -1,6 +1,6 @@
-import { LitElement, html, css } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
-import type { TextFieldType, TextFieldSize } from "./types";
+import { LitElement, html, css } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import type { TextFieldType, TextFieldSize } from './types';
 
 /**
  * OxiUI Text Field Web Component
@@ -27,7 +27,7 @@ import type { TextFieldType, TextFieldSize } from "./types";
  * ></oxi-text-field>
  * ```
  */
-@customElement("oxi-text-field")
+@customElement('oxi-text-field')
 export class OxiTextField extends LitElement {
   static override styles = css`
     :host {
@@ -47,7 +47,7 @@ export class OxiTextField extends LitElement {
     }
 
     .label--required::after {
-      content: " *";
+      content: ' *';
       color: #dc2626;
     }
 
@@ -127,35 +127,35 @@ export class OxiTextField extends LitElement {
 
   /** Input type */
   @property({ type: String })
-  type: TextFieldType = "text";
+  type: TextFieldType = 'text';
 
   /** Input name */
   @property({ type: String })
-  name = "";
+  name = '';
 
   /** Input value */
   @property({ type: String })
-  value = "";
+  value = '';
 
   /** Placeholder text */
   @property({ type: String })
-  placeholder = "";
+  placeholder = '';
 
   /** Label text */
   @property({ type: String })
-  label = "";
+  label = '';
 
   /** Helper text below input */
-  @property({ type: String, attribute: "helper-text" })
-  helperText = "";
+  @property({ type: String, attribute: 'helper-text' })
+  helperText = '';
 
   /** Error message */
-  @property({ type: String, attribute: "error-text" })
-  errorText = "";
+  @property({ type: String, attribute: 'error-text' })
+  errorText = '';
 
   /** Field size */
   @property({ type: String, reflect: true })
-  size: TextFieldSize = "medium";
+  size: TextFieldSize = 'medium';
 
   /** Whether the field is disabled */
   @property({ type: Boolean, reflect: true })
@@ -170,11 +170,11 @@ export class OxiTextField extends LitElement {
   required = false;
 
   /** Maximum length */
-  @property({ type: Number, attribute: "max-length" })
+  @property({ type: Number, attribute: 'max-length' })
   maxLength?: number;
 
   /** Minimum length */
-  @property({ type: Number, attribute: "min-length" })
+  @property({ type: Number, attribute: 'min-length' })
   minLength?: number;
 
   /** Pattern for validation */
@@ -182,7 +182,7 @@ export class OxiTextField extends LitElement {
   pattern?: string;
 
   /** Full width field */
-  @property({ type: Boolean, reflect: true, attribute: "full-width" })
+  @property({ type: Boolean, reflect: true, attribute: 'full-width' })
   fullWidth = false;
 
   /** Internal focused state */
@@ -194,58 +194,58 @@ export class OxiTextField extends LitElement {
     this.value = input.value;
 
     this.dispatchEvent(
-      new CustomEvent("input", {
+      new CustomEvent('input', {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
-      }),
+      })
     );
   }
 
   private _handleChange(e: Event) {
     this.dispatchEvent(
-      new CustomEvent("change", {
+      new CustomEvent('change', {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
-      }),
+      })
     );
   }
 
   private _handleFocus(e: FocusEvent) {
     this._focused = true;
     this.dispatchEvent(
-      new CustomEvent("focus", {
+      new CustomEvent('focus', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
-      }),
+      })
     );
   }
 
   private _handleBlur(e: FocusEvent) {
     this._focused = false;
     this.dispatchEvent(
-      new CustomEvent("blur", {
+      new CustomEvent('blur', {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
-      }),
+      })
     );
   }
 
   override render() {
-    const inputClasses = ["input", `input--${this.size}`, this.errorText ? "input--error" : ""]
+    const inputClasses = ['input', `input--${this.size}`, this.errorText ? 'input--error' : '']
       .filter(Boolean)
-      .join(" ");
+      .join(' ');
 
-    const labelClasses = ["label", this.required ? "label--required" : ""]
+    const labelClasses = ['label', this.required ? 'label--required' : '']
       .filter(Boolean)
-      .join(" ");
+      .join(' ');
 
     return html`
       <div class="container" part="container">
-        ${this.label ? html`<label class=${labelClasses} part="label">${this.label}</label>` : ""}
+        ${this.label ? html`<label class=${labelClasses} part="label">${this.label}</label>` : ''}
         <div class="input-wrapper">
           <input
             part="input"
@@ -257,11 +257,11 @@ export class OxiTextField extends LitElement {
             ?disabled=${this.disabled}
             ?readonly=${this.readonly}
             ?required=${this.required}
-            maxlength=${this.maxLength ?? ""}
-            minlength=${this.minLength ?? ""}
-            pattern=${this.pattern ?? ""}
-            aria-invalid=${this.errorText ? "true" : "false"}
-            aria-describedby=${this.errorText ? "error" : this.helperText ? "helper" : ""}
+            maxlength=${this.maxLength ?? ''}
+            minlength=${this.minLength ?? ''}
+            pattern=${this.pattern ?? ''}
+            aria-invalid=${this.errorText ? 'true' : 'false'}
+            aria-describedby=${this.errorText ? 'error' : this.helperText ? 'helper' : ''}
             @input=${this._handleInput}
             @change=${this._handleChange}
             @focus=${this._handleFocus}
@@ -273,7 +273,7 @@ export class OxiTextField extends LitElement {
             ? html`<span id="error" class="error-text" part="error">${this.errorText}</span>`
             : this.helperText
               ? html`<span id="helper" class="helper-text" part="helper">${this.helperText}</span>`
-              : ""
+              : ''
         }
       </div>
     `;
@@ -282,6 +282,6 @@ export class OxiTextField extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "oxi-text-field": OxiTextField;
+    'oxi-text-field': OxiTextField;
   }
 }

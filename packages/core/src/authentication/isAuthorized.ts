@@ -1,4 +1,4 @@
-import type { UserSession, AuthorizationOptions, AuthorizationResult } from "./types";
+import type { UserSession, AuthorizationOptions, AuthorizationResult } from './types';
 
 /**
  * Checks if a user session is expired
@@ -20,7 +20,7 @@ export function isSessionExpired(session: UserSession): boolean {
 export function hasRequiredRoles(
   userRoles: string[],
   requiredRoles: string[],
-  requireAll = false,
+  requireAll = false
 ): boolean {
   if (requiredRoles.length === 0) return true;
 
@@ -39,7 +39,7 @@ export function hasRequiredRoles(
  */
 export function hasRequiredPermissions(
   userPermissions: string[],
-  requiredPermissions: string[],
+  requiredPermissions: string[]
 ): boolean {
   if (requiredPermissions.length === 0) return true;
   return requiredPermissions.every((perm) => userPermissions.includes(perm));
@@ -73,16 +73,16 @@ export function hasRequiredPermissions(
  */
 export function isAuthorized(
   session: UserSession | null | undefined,
-  options: AuthorizationOptions = {},
+  options: AuthorizationOptions = {}
 ): AuthorizationResult {
   // Check for valid session
   if (!session) {
-    return { authorized: false, reason: "No active session" };
+    return { authorized: false, reason: 'No active session' };
   }
 
   // Check session expiration
   if (isSessionExpired(session)) {
-    return { authorized: false, reason: "Session expired" };
+    return { authorized: false, reason: 'Session expired' };
   }
 
   // Check roles if specified
@@ -92,19 +92,19 @@ export function isAuthorized(
     return {
       authorized: false,
       reason: requireAllRoles
-        ? `Missing required roles: ${requiredRoles.filter((r) => !session.roles.includes(r)).join(", ")}`
-        : `User does not have any of the required roles: ${requiredRoles.join(", ")}`,
+        ? `Missing required roles: ${requiredRoles.filter((r) => !session.roles.includes(r)).join(', ')}`
+        : `User does not have any of the required roles: ${requiredRoles.join(', ')}`,
     };
   }
 
   // Check permissions if specified
   if (!hasRequiredPermissions(session.permissions || [], requiredPermissions)) {
     const missingPerms = requiredPermissions.filter(
-      (p) => !(session.permissions || []).includes(p),
+      (p) => !(session.permissions || []).includes(p)
     );
     return {
       authorized: false,
-      reason: `Missing required permissions: ${missingPerms.join(", ")}`,
+      reason: `Missing required permissions: ${missingPerms.join(', ')}`,
     };
   }
 

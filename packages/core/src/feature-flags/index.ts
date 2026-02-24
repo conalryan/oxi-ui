@@ -1,4 +1,4 @@
-export type { FeatureFlag, FeatureFlagContext, FeatureFlagStore } from "./types";
+export type { FeatureFlag, FeatureFlagContext, FeatureFlagStore } from './types';
 export {
   isEnabled,
   initializeFeatureFlags,
@@ -9,4 +9,4 @@ export {
   isInRolloutPercentage,
   isTargetUser,
   isTargetEnvironment,
-} from "./isEnabled";
+} from './isEnabled';

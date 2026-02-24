@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   oxi-ui-dev:
@@ -11,9 +11,9 @@ services:
       - oxi-ui-node-modules:/app/node_modules
       - oxi-ui-bun-cache:/home/bun/.bun
     ports:
-      - "3000:3000"
-      - "5173:5173"
-      - "8080:8080"
+      - '3000:3000'
+      - '5173:5173'
+      - '8080:8080'
     environment:
       - NODE_ENV=development
       - BUN_INSTALL=/home/bun/.bun

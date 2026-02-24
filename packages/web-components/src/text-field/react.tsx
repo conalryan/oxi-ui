@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, forwardRef, useCallback } from "react";
-import type { TextFieldType, TextFieldSize, TextFieldProps } from "./types";
+import React, { useRef, useEffect, forwardRef, useCallback } from 'react';
+import type { TextFieldType, TextFieldSize, TextFieldProps } from './types';
 
 // Ensure the web component is imported for side effects
-import "./text-field.element";
+import './text-field.element';
 
 export interface ReactOxiTextFieldProps extends TextFieldProps {
   /** Input handler */
@@ -44,14 +44,14 @@ export interface ReactOxiTextFieldProps extends TextFieldProps {
 export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
   (
     {
-      type = "text",
+      type = 'text',
       name,
       value,
       placeholder,
       label,
       helperText,
       errorText,
-      size = "medium",
+      size = 'medium',
       disabled = false,
       readonly = false,
       required = false,
@@ -66,7 +66,7 @@ export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
       className,
       style,
     },
-    ref,
+    ref
   ) => {
     const innerRef = useRef<HTMLElement>(null);
     const textFieldRef = (ref as React.RefObject<HTMLElement>) || innerRef;
@@ -75,44 +75,44 @@ export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
       (e: Event) => {
         onInput?.(e as CustomEvent<{ value: string }>);
       },
-      [onInput],
+      [onInput]
     );
 
     const handleChange = useCallback(
       (e: Event) => {
         onChange?.(e as CustomEvent<{ value: string }>);
       },
-      [onChange],
+      [onChange]
     );
 
     const handleFocus = useCallback(
       (e: Event) => {
         onFocus?.(e as CustomEvent);
       },
-      [onFocus],
+      [onFocus]
     );
 
     const handleBlur = useCallback(
       (e: Event) => {
         onBlur?.(e as CustomEvent);
       },
-      [onBlur],
+      [onBlur]
     );
 
     useEffect(() => {
       const element = textFieldRef.current;
       if (!element) return;
 
-      if (onInput) element.addEventListener("oxi-ui-input", handleInput);
-      if (onChange) element.addEventListener("oxi-ui-change", handleChange);
-      if (onFocus) element.addEventListener("oxi-ui-focus", handleFocus);
-      if (onBlur) element.addEventListener("oxi-ui-blur", handleBlur);
+      if (onInput) element.addEventListener('oxi-ui-input', handleInput);
+      if (onChange) element.addEventListener('oxi-ui-change', handleChange);
+      if (onFocus) element.addEventListener('oxi-ui-focus', handleFocus);
+      if (onBlur) element.addEventListener('oxi-ui-blur', handleBlur);
 
       return () => {
-        if (onInput) element.removeEventListener("oxi-ui-input", handleInput);
-        if (onChange) element.removeEventListener("oxi-ui-change", handleChange);
-        if (onFocus) element.removeEventListener("oxi-ui-focus", handleFocus);
-        if (onBlur) element.removeEventListener("oxi-ui-blur", handleBlur);
+        if (onInput) element.removeEventListener('oxi-ui-input', handleInput);
+        if (onChange) element.removeEventListener('oxi-ui-change', handleChange);
+        if (onFocus) element.removeEventListener('oxi-ui-focus', handleFocus);
+        if (onBlur) element.removeEventListener('oxi-ui-blur', handleBlur);
       };
     }, [
       handleInput,
@@ -126,29 +126,29 @@ export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
       textFieldRef,
     ]);
 
-    return React.createElement("oxi-ui-text-field", {
+    return React.createElement('oxi-ui-text-field', {
       ref: textFieldRef,
       type,
       name,
       value,
       placeholder,
       label,
-      "helper-text": helperText,
-      "error-text": errorText,
+      'helper-text': helperText,
+      'error-text': errorText,
       size,
       disabled: disabled || undefined,
       readonly: readonly || undefined,
       required: required || undefined,
-      "max-length": maxLength,
-      "min-length": minLength,
+      'max-length': maxLength,
+      'min-length': minLength,
       pattern,
-      "full-width": fullWidth || undefined,
+      'full-width': fullWidth || undefined,
       class: className,
       style,
     });
-  },
+  }
 );
 
-OxiTextField.displayName = "OxiTextField";
+OxiTextField.displayName = 'OxiTextField';
 
 export type { TextFieldType, TextFieldSize };

@@ -1,4 +1,4 @@
-import type { FeatureFlag, FeatureFlagContext, FeatureFlagStore } from "./types";
+import type { FeatureFlag, FeatureFlagContext, FeatureFlagStore } from './types';
 
 // Global feature flag store
 let globalStore: FeatureFlagStore = { flags: new Map() };

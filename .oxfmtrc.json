@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+
+  // -----------------------------------------------------------------
+  // GLOBAL SETTINGS
+  // -----------------------------------------------------------------
+  "indent": 2, // spaces for JSON/YAML/JS/TS
+  "lineWidth": 100, // wrap lines longer than this
+  "trailingComma": "es5", // add trailing commas where safe
+  "quoteStyle": "single", // use single quotes for JS/TS strings
+  "endOfLine": "lf", // Unix line endings everywhere
+  "printWidth": 100,
+  "singleQuote": true,
+  "bracketSameLine": true,
+  "singleAttributePerLine": true,
+
+  // -----------------------------------------------------------------
+  // FILE‑TYPE SPECIFIC OVERRIDES
+  // -----------------------------------------------------------------
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx"],
+      "options": {
+        "proseWrap": "always", // wrap markdown paragraphs
+        "bulletListMarker": "-", // dash for unordered lists
+        "headingStyle": "atx" // # headings, not underlines
+      }
+    },
+    {
+      "files": ["*.sh", "*.bash", "*.zsh"],
+      "options": {
+        "indent": 2,
+        "shebang": true,
+        "trimTrailingWhitespace": true
+      }
+    },
+    {
+      "files": ["*.json", "*.yaml", "*.yml"],
+      "options": {
+        "sortKeys": true, // alphabetical key ordering
+        "quoteStyle": "double" // JSON must stay double‑quoted
+      }
+    }
+  ],
+
+  // -----------------------------------------------------------------
+  // WHAT TO FORMAT?
+  // -----------------------------------------------------------------
+  "include": [
+    "docs/**/*.{md,mdx,yaml,yml,json}",
+    "scripts/**/*.sh",
+    "scripts/**/*.bash",
+    "scripts/**/*.zsh"
+  ],
+
+  "ignorePatterns": ["build", "coverage", "dist", "node_modules"],
+
+  // -----------------------------------------------------------------
+  // WHAT TO IGNORE?
+  // -----------------------------------------------------------------
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/*.min.*",
+    "docs/generated/**", // generated docs we don’t touch
+    "scripts/tmp/**" // temporary scripts
+  ]
+}

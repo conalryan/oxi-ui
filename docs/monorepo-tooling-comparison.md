@@ -2,7 +2,8 @@
 
 ## Executive Summary
 
-This document compares monorepo orchestration and versioning tools for a modern front-end library monorepo using **Bun + Vite + OXC**. The workspace includes:
+This document compares monorepo orchestration and versioning tools for a modern front-end library
+monorepo using **Bun + Vite + OXC**. The workspace includes:
 
 - Theme library with design tokens and CSS variables
 - Core TypeScript library (utilities, authentication, permissions, feature flags)
@@ -28,7 +29,8 @@ This document compares monorepo orchestration and versioning tools for a modern 
 
 ## Option 1: Turborepo + Changesets
 
-**Overview**: Lightweight orchestration with independent versioning. This is the current stack used in the workspace.
+**Overview**: Lightweight orchestration with independent versioning. This is the current stack used
+in the workspace.
 
 | Feature                | Rating     | Details                                                     |
 | ---------------------- | ---------- | ----------------------------------------------------------- |
@@ -122,7 +124,8 @@ bun changeset publish
 
 ## Option 2: Lerna + Nx
 
-**Overview**: Lerna provides mature publishing workflows, Nx provides caching and orchestration. Since Lerna v6+, Nx is the default task runner.
+**Overview**: Lerna provides mature publishing workflows, Nx provides caching and orchestration.
+Since Lerna v6+, Nx is the default task runner.
 
 | Feature                | Rating     | Details                                          |
 | ---------------------- | ---------- | ------------------------------------------------ |

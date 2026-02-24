@@ -6,11 +6,11 @@ import {
   ElementRef,
   CUSTOM_ELEMENTS_SCHEMA,
   NgModule,
-} from "@angular/core";
-import type { ButtonVariant, ButtonSize } from "./types";
+} from '@angular/core';
+import type { ButtonVariant, ButtonSize } from './types';
 
 // Ensure the web component is imported for side effects
-import "./button.element";
+import './button.element';
 
 /**
  * Angular wrapper for the OxiUI Button web component
@@ -37,7 +37,7 @@ import "./button.element";
  * ```
  */
 @Component({
-  selector: "oxi-button-wrapper",
+  selector: 'oxi-button-wrapper',
   template: `
     <oxi-button
       [attr.variant]="variant"
@@ -46,8 +46,7 @@ import "./button.element";
       [attr.loading]="loading || null"
       [attr.type]="type"
       [attr.full-width]="fullWidth || null"
-      (click)="onOxiUIClick($event)"
-    >
+      (click)="onOxiUIClick($event)">
       <ng-content></ng-content>
     </oxi-button>
   `,
@@ -61,10 +60,10 @@ import "./button.element";
 })
 export class OxiButtonComponent {
   /** Button variant style */
-  @Input() variant: ButtonVariant = "primary";
+  @Input() variant: ButtonVariant = 'primary';
 
   /** Button size */
-  @Input() size: ButtonSize = "medium";
+  @Input() size: ButtonSize = 'medium';
 
   /** Whether the button is disabled */
   @Input() disabled = false;
@@ -73,7 +72,7 @@ export class OxiButtonComponent {
   @Input() loading = false;
 
   /** Button type attribute */
-  @Input() type: "button" | "submit" | "reset" = "button";
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
 
   /** Full width button */
   @Input() fullWidth = false;

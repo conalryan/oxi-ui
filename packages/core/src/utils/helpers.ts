@@ -6,7 +6,7 @@
  */
 export function debounce<T extends (...args: unknown[]) => unknown>(
   fn: T,
-  delay: number,
+  delay: number
 ): (...args: Parameters<T>) => void {
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
@@ -29,7 +29,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
  */
 export function throttle<T extends (...args: unknown[]) => unknown>(
   fn: T,
-  limit: number,
+  limit: number
 ): (...args: Parameters<T>) => void {
   let lastCall = 0;
 
@@ -48,7 +48,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
  * @returns A deep clone of the object
  */
 export function deepClone<T>(obj: T): T {
-  if (obj === null || typeof obj !== "object") {
+  if (obj === null || typeof obj !== 'object') {
     return obj;
   }
 
@@ -76,7 +76,7 @@ export function deepEqual(a: unknown, b: unknown): boolean {
 
   if (typeof a !== typeof b) return false;
   if (a === null || b === null) return false;
-  if (typeof a !== "object") return false;
+  if (typeof a !== 'object') return false;
 
   const aObj = a as Record<string, unknown>;
   const bObj = b as Record<string, unknown>;
@@ -94,7 +94,7 @@ export function deepEqual(a: unknown, b: unknown): boolean {
  * @param prefix - Optional prefix for the ID
  * @returns A unique string ID
  */
-export function generateId(prefix = ""): string {
+export function generateId(prefix = ''): string {
   const timestamp = Date.now().toString(36);
   const randomPart = Math.random().toString(36).substring(2, 9);
   return prefix ? `${prefix}-${timestamp}-${randomPart}` : `${timestamp}-${randomPart}`;
@@ -131,7 +131,7 @@ export function safeJsonParse<T>(json: string, fallback: T): T {
  */
 export function omit<T extends Record<string, unknown>, K extends keyof T>(
   obj: T,
-  keys: K[],
+  keys: K[]
 ): Omit<T, K> {
   const result = { ...obj };
   for (const key of keys) {
@@ -148,7 +148,7 @@ export function omit<T extends Record<string, unknown>, K extends keyof T>(
  */
 export function pick<T extends Record<string, unknown>, K extends keyof T>(
   obj: T,
-  keys: K[],
+  keys: K[]
 ): Pick<T, K> {
   const result = {} as Pick<T, K>;
   for (const key of keys) {

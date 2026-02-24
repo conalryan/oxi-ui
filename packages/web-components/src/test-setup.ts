@@ -1,4 +1,4 @@
-import { Window } from "happy-dom";
+import { Window } from 'happy-dom';
 
 // Create happy-dom window and register globals for DOM testing
 const window = new Window();

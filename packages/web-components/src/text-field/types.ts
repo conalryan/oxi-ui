@@ -1,12 +1,12 @@
 /**
  * Text field input types
  */
-export type TextFieldType = "text" | "password" | "email" | "number" | "tel" | "url" | "search";
+export type TextFieldType = 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
 
 /**
  * Text field sizes
  */
-export type TextFieldSize = "small" | "medium" | "large";
+export type TextFieldSize = 'small' | 'medium' | 'large';
 
 /**
  * Text field component props

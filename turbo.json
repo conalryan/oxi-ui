@@ -3,30 +3,40 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"],
-      "inputs": ["src/**", "package.json", "tsconfig.json", "vite.config.ts"]
-    },
-    "test": {
-      "dependsOn": ["build"],
-      "outputs": [],
-      "inputs": ["src/**", "package.json"]
-    },
-    "test:coverage": {
-      "dependsOn": ["build"],
-      "outputs": ["coverage/**"],
-      "inputs": ["src/**", "package.json"]
-    },
-    "lint": {
-      "outputs": [],
-      "inputs": ["src/**"]
-    },
-    "typecheck": {
-      "dependsOn": ["^build"],
-      "outputs": [],
-      "inputs": ["src/**", "tsconfig.json"]
+      "inputs": ["src/**", "package.json", "tsconfig.json", "vite.config.ts"],
+      "outputs": ["dist/**"]
     },
     "clean": {
       "cache": false
+    },
+    "format": {
+      "cache": false
+    },
+    "format:check": {
+      "cache": false
+    },
+    "lint": {
+      "inputs": ["src/**"],
+      "outputs": []
+    },
+    "lint:fix": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", "package.json"],
+      "outputs": []
+    },
+    "test:coverage": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", "package.json"],
+      "outputs": ["coverage/**"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json"],
+      "outputs": []
     }
   }
 }

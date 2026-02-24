@@ -6,11 +6,11 @@ import {
   ElementRef,
   CUSTOM_ELEMENTS_SCHEMA,
   NgModule,
-} from "@angular/core";
-import type { TextFieldType, TextFieldSize } from "./types";
+} from '@angular/core';
+import type { TextFieldType, TextFieldSize } from './types';
 
 // Ensure the web component is imported for side effects
-import "./text-field.element";
+import './text-field.element';
 
 /**
  * Angular wrapper for the OxiUI Text Field web component
@@ -40,7 +40,7 @@ import "./text-field.element";
  * ```
  */
 @Component({
-  selector: "oxi-text-field-wrapper",
+  selector: 'oxi-text-field-wrapper',
   template: `
     <oxi-text-field
       [attr.type]="type"
@@ -61,8 +61,7 @@ import "./text-field.element";
       (input)="onInput($event)"
       (change)="onChange($event)"
       (focus)="onFocus($event)"
-      (blur)="onBlur($event)"
-    >
+      (blur)="onBlur($event)">
     </oxi-text-field>
   `,
   styles: [
@@ -75,28 +74,28 @@ import "./text-field.element";
 })
 export class OxiTextFieldComponent {
   /** Input type */
-  @Input() type: TextFieldType = "text";
+  @Input() type: TextFieldType = 'text';
 
   /** Input name */
-  @Input() name = "";
+  @Input() name = '';
 
   /** Input value */
-  @Input() value = "";
+  @Input() value = '';
 
   /** Placeholder text */
-  @Input() placeholder = "";
+  @Input() placeholder = '';
 
   /** Label text */
-  @Input() label = "";
+  @Input() label = '';
 
   /** Helper text below input */
-  @Input() helperText = "";
+  @Input() helperText = '';
 
   /** Error message */
-  @Input() errorText = "";
+  @Input() errorText = '';
 
   /** Field size */
-  @Input() size: TextFieldSize = "medium";
+  @Input() size: TextFieldSize = 'medium';
 
   /** Whether the field is disabled */
   @Input() disabled = false;

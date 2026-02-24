@@ -55,7 +55,8 @@
 
 ### **Runtime Recommendation: Bun**
 
-Bun offers the best combination of modern features and raw performance while maintaining strong Node.js compatibility. For greenfield projects prioritizing speed, Bun is the clear winner.
+Bun offers the best combination of modern features and raw performance while maintaining strong
+Node.js compatibility. For greenfield projects prioritizing speed, Bun is the clear winner.
 
 ---
 
@@ -130,7 +131,8 @@ Bun offers the best combination of modern features and raw performance while mai
 
 ### **Bundler Recommendation: Vite**
 
-Vite offers the best developer experience with excellent performance. For maximum raw speed in production builds, watch OXC as it matures—it will likely become the standard once stable.
+Vite offers the best developer experience with excellent performance. For maximum raw speed in
+production builds, watch OXC as it matures—it will likely become the standard once stable.
 
 ---
 
@@ -172,7 +174,8 @@ Vite offers the best developer experience with excellent performance. For maximu
 
 ### **Linting Recommendation: Oxlint (with ESLint fallback)**
 
-Use Oxlint as the primary linter for speed. Supplement with ESLint only for rules Oxlint doesn't yet support. This hybrid approach provides maximum performance while maintaining rule coverage.
+Use Oxlint as the primary linter for speed. Supplement with ESLint only for rules Oxlint doesn't yet
+support. This hybrid approach provides maximum performance while maintaining rule coverage.
 
 ---
 
@@ -230,7 +233,8 @@ Use Oxlint as the primary linter for speed. Supplement with ESLint only for rule
 
 ### **Formatting Recommendation: Biome**
 
-Biome offers the best combination of features as an all-in-one linter and formatter. For teams heavily invested in Prettier, Oxfmt provides a faster drop-in alternative as it matures.
+Biome offers the best combination of features as an all-in-one linter and formatter. For teams
+heavily invested in Prettier, Oxfmt provides a faster drop-in alternative as it matures.
 
 ---
 
@@ -245,7 +249,9 @@ Biome offers the best combination of features as an all-in-one linter and format
 
 ### Alternative: The Unified OXC Stack (Future-Focused)
 
-For teams willing to adopt cutting-edge tooling, the OXC ecosystem (Oxlint, Oxfmt, OXC bundler) with Bun runtime represents the fastest possible toolchain. As OXC matures, this stack will likely become the gold standard.
+For teams willing to adopt cutting-edge tooling, the OXC ecosystem (Oxlint, Oxfmt, OXC bundler) with
+Bun runtime represents the fastest possible toolchain. As OXC matures, this stack will likely become
+the gold standard.
 
 ### Migration Path
 
