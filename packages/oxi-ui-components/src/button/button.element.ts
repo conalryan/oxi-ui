@@ -185,7 +185,7 @@ export class OxiButton extends LitElement {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
-      })
+      }),
     );
   }
 

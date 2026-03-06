@@ -217,7 +217,7 @@ describe('Feature Flags', () => {
 
       // All conditions met
       expect(isEnabled('complex-flag', { environment: 'production', userId: 'vip-user' })).toBe(
-        true
+        true,
       );
 
       // Wrong environment
@@ -225,7 +225,7 @@ describe('Feature Flags', () => {
 
       // Wrong user
       expect(isEnabled('complex-flag', { environment: 'production', userId: 'regular-user' })).toBe(
-        false
+        false,
       );
     });
 

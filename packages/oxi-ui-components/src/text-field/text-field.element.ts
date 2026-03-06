@@ -198,7 +198,7 @@ export class OxiTextField extends LitElement {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
-      })
+      }),
     );
   }
 
@@ -208,7 +208,7 @@ export class OxiTextField extends LitElement {
         bubbles: true,
         composed: true,
         detail: { value: this.value, originalEvent: e },
-      })
+      }),
     );
   }
 
@@ -219,7 +219,7 @@ export class OxiTextField extends LitElement {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
-      })
+      }),
     );
   }
 
@@ -230,7 +230,7 @@ export class OxiTextField extends LitElement {
         bubbles: true,
         composed: true,
         detail: { originalEvent: e },
-      })
+      }),
     );
   }
 

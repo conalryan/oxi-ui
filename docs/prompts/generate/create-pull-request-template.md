@@ -1,7 +1,7 @@
 ---
 # Front‑matter
 
-title: "Create a Pull Request Template"
+title: 'Create a Pull Request Template'
 category: git
 version: 0.0.1
 ---

@@ -1,0 +1,21 @@
+{
+  "name": "@oxi-ui/oxfmt",
+  "version": "0.1.0",
+  "description": "Oxfmt config for Compute UI, converted from Prettier settings in @akamai/compute-ui-eslint",
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./lib/oxfmtrc.json"
+  },
+  "scripts": {
+    "postinstall": "node ./lib/init-oxfmt.mjs"
+  },
+  "devDependencies": {
+    "oxfmt": "latest"
+  },
+  "peerDependencies": {
+    "oxfmt": ">=0.1.0"
+  }
+}

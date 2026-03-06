@@ -23,9 +23,11 @@
 
 ## Versioning (publishable packages only)
 
-If this PR changes any **publishable** package (core or config packages above), a changeset is required for the next release.
+If this PR changes any **publishable** package (core or config packages above), a changeset is
+required for the next release.
 
-- [ ] I have added a changeset (`pnpm changeset`) and committed the generated file under `.changeset/`
+- [ ] I have added a changeset (`pnpm changeset`) and committed the generated file under
+      `.changeset/`
 - [ ] N/A — no changes to publishable packages
 
 See [changeset-usage.md](./changeset-usage.md) for how to add a changeset.

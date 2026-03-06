@@ -66,7 +66,7 @@ export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
       className,
       style,
     },
-    ref
+    ref,
   ) => {
     const innerRef = useRef<HTMLElement>(null);
     const textFieldRef = (ref as React.RefObject<HTMLElement>) || innerRef;
@@ -75,28 +75,28 @@ export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
       (e: Event) => {
         onInput?.(e as CustomEvent<{ value: string }>);
       },
-      [onInput]
+      [onInput],
     );
 
     const handleChange = useCallback(
       (e: Event) => {
         onChange?.(e as CustomEvent<{ value: string }>);
       },
-      [onChange]
+      [onChange],
     );
 
     const handleFocus = useCallback(
       (e: Event) => {
         onFocus?.(e as CustomEvent);
       },
-      [onFocus]
+      [onFocus],
     );
 
     const handleBlur = useCallback(
       (e: Event) => {
         onBlur?.(e as CustomEvent);
       },
-      [onBlur]
+      [onBlur],
     );
 
     useEffect(() => {
@@ -146,7 +146,7 @@ export const OxiTextField = forwardRef<HTMLElement, ReactOxiTextFieldProps>(
       class: className,
       style,
     });
-  }
+  },
 );
 
 OxiTextField.displayName = 'OxiTextField';

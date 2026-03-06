@@ -45,7 +45,7 @@ export const OxiButton = forwardRef<HTMLElement, ReactOxiButtonProps>(
       className,
       style,
     },
-    ref
+    ref,
   ) => {
     const innerRef = useRef<HTMLElement>(null);
     const buttonRef = (ref as React.RefObject<HTMLElement>) || innerRef;
@@ -78,9 +78,9 @@ export const OxiButton = forwardRef<HTMLElement, ReactOxiButtonProps>(
         class: className,
         style,
       },
-      children
+      children,
     );
-  }
+  },
 );
 
 OxiButton.displayName = 'OxiButton';

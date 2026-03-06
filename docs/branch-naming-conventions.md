@@ -1,6 +1,9 @@
 # Branch Naming Conventions
 
-Here’s a quick‑reference guide to the naming conventions you’ll see most often when teams organize their Git branches. The goal of any convention is to make it obvious at a glance **what the purpose of the branch is**, **where it fits in the workflow**, and **how it relates to work‑tracking tools** (Jira, Azure DevOps, GitHub Issues, etc.).
+Here’s a quick‑reference guide to the naming conventions you’ll see most often when teams organize
+their Git branches. The goal of any convention is to make it obvious at a glance **what the purpose
+of the branch is**, **where it fits in the workflow**, and **how it relates to work‑tracking tools**
+(Jira, Azure DevOps, GitHub Issues, etc.).
 
 ## 1. High‑level workflow families
 
@@ -11,7 +14,8 @@ Here’s a quick‑reference guide to the naming conventions you’ll see most o
 | **Trunk‑Based Development** (short‑lived branches) | `feat/`, `fix/`, `doc/`, `test/` (often just short‑lived feature toggles) | Teams that merge multiple times per day; branches live only a few hours.               |
 | **Release‑Train / Version‑Branch**                 | `release/vX.Y`, `maintenance/vX.Y`                                        | Regulated release cadence (e.g., quarterly) with maintenance patches.                  |
 
-> **Tip:** Pick one workflow and stick to its prefix set across the whole repo. Mixing styles quickly becomes confusing.
+> **Tip:** Pick one workflow and stick to its prefix set across the whole repo. Mixing styles
+> quickly becomes confusing.
 
 ## 2. Common prefix taxonomy
 
@@ -30,7 +34,8 @@ _You can shorten the prefixes (`feat/`, `fix/`, `hot/`) if the team prefers brev
 
 ## 3. Structural elements of a branch name
 
-A well‑structured name usually contains three parts, separated by a consistent delimiter (most teams use `/` for the prefix and `-` for the rest):
+A well‑structured name usually contains three parts, separated by a consistent delimiter (most teams
+use `/` for the prefix and `-` for the rest):
 
 ```
 <prefix>/<ticket-id>-<short-descriptive-kebab-case>
@@ -76,8 +81,10 @@ doc/README-add-contributing-section
 
    `git push -u origin feature/JIRA-123-add-login-page`
 
-4. **Open a Pull Request** – most platforms auto‑fill the title with the branch name; edit if needed.
-5. **Merge strategy** – typically “Squash and merge” for feature branches, “Rebase and merge” for hotfixes, depending on team policy.
+4. **Open a Pull Request** – most platforms auto‑fill the title with the branch name; edit if
+   needed.
+5. **Merge strategy** – typically “Squash and merge” for feature branches, “Rebase and merge” for
+   hotfixes, depending on team policy.
 
 ## 6. Variations you might encounter
 
@@ -103,4 +110,5 @@ These are optional; adopt only if they solve a real pain point.
 4. **Enforce simple rules** (no spaces, max ~80 chars, consistent delimiters).
 5. **Document the convention** in a `CONTRIBUTING.md` so every contributor can follow it.
 
-Following these conventions keeps the repository tidy, makes CI/CD pipelines smoother, and lets anyone glance at a branch name and instantly understand its purpose. Happy branching!
+Following these conventions keeps the repository tidy, makes CI/CD pipelines smoother, and lets
+anyone glance at a branch name and instantly understand its purpose. Happy branching!

@@ -1,5 +1,5 @@
 {
-  "name": "@oxi-ui/web-components",
+  "name": "@oxi-ui/components",
   "version": "0.0.1",
   "files": [
     "dist"
@@ -67,6 +67,8 @@
   },
   "devDependencies": {
     "@angular/core": "^17.3.0",
+    "@oxi-ui/oxfmt": "workspace:*",
+    "@oxi-ui/oxlint": "workspace:*",
     "@types/bun": "^1.1.0",
     "@types/react": "^18.3.0",
     "happy-dom": "20.7.0",

@@ -18,7 +18,7 @@ export function hasPermission(userPermissions: string[], permissionId: string): 
  */
 export function hasAllPermissions(
   userPermissions: string[],
-  requiredPermissions: string[]
+  requiredPermissions: string[],
 ): boolean {
   return requiredPermissions.every((perm) => userPermissions.includes(perm));
 }
@@ -42,7 +42,7 @@ export function hasAnyPermission(userPermissions: string[], anyPermissions: stri
  */
 export function permissionGrantsAccess(
   permission: Permission,
-  options: PermissionCheckOptions
+  options: PermissionCheckOptions,
 ): boolean {
   if (options.resource && permission.resource !== options.resource) {
     return false;
@@ -61,7 +61,7 @@ export function permissionGrantsAccess(
  */
 export function filterPermissions(
   permissions: Permission[],
-  options: PermissionCheckOptions
+  options: PermissionCheckOptions,
 ): Permission[] {
   return permissions.filter((perm) => permissionGrantsAccess(perm, options));
 }

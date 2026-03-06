@@ -20,7 +20,7 @@ export function isSessionExpired(session: UserSession): boolean {
 export function hasRequiredRoles(
   userRoles: string[],
   requiredRoles: string[],
-  requireAll = false
+  requireAll = false,
 ): boolean {
   if (requiredRoles.length === 0) return true;
 
@@ -39,7 +39,7 @@ export function hasRequiredRoles(
  */
 export function hasRequiredPermissions(
   userPermissions: string[],
-  requiredPermissions: string[]
+  requiredPermissions: string[],
 ): boolean {
   if (requiredPermissions.length === 0) return true;
   return requiredPermissions.every((perm) => userPermissions.includes(perm));
@@ -73,7 +73,7 @@ export function hasRequiredPermissions(
  */
 export function isAuthorized(
   session: UserSession | null | undefined,
-  options: AuthorizationOptions = {}
+  options: AuthorizationOptions = {},
 ): AuthorizationResult {
   // Check for valid session
   if (!session) {
@@ -100,7 +100,7 @@ export function isAuthorized(
   // Check permissions if specified
   if (!hasRequiredPermissions(session.permissions || [], requiredPermissions)) {
     const missingPerms = requiredPermissions.filter(
-      (p) => !(session.permissions || []).includes(p)
+      (p) => !(session.permissions || []).includes(p),
     );
     return {
       authorized: false,

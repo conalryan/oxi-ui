@@ -1,7 +1,7 @@
 ---
 # Front‑matter
 
-title: "Some title"
+title: 'Some title'
 category: git | lit | front-end workspace ...
 version: 0.0.1
 ---
@@ -14,12 +14,12 @@ Elevator pitch
 
 # 🧩 Requirements
 
-- 
+-
 
 # 🎯 Scope
 
-- 
+-
 
 # ✅ Acceptance criteria
 
-1. 
+1.

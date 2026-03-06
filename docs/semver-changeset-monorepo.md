@@ -13,12 +13,15 @@
 ### 2. Typical workflow
 
 1. **Make a change** in one or more packages.
-2. **Add a changeset** (`yarn changeset` / `pnpm changeset` / `npm exec changeset`). The CLI prompts for:
+2. **Add a changeset** (`yarn changeset` / `pnpm changeset` / `npm exec changeset`). The CLI prompts
+   for:
    - Which packages are affected?
    - What kind of bump (major/minor/patch) each needs?
    - An optional description (used in changelogs).
 3. Commit the generated changeset file (e.g., `.changeset/abc123.md`).
-4. When you’re ready to release, run the version command (`yarn changeset version` or `pnpm changeset version`). The tool reads all pending changesets, calculates the new versions according to SemVer rules, updates `package.json`s, and writes a consolidated changelog.
+4. When you’re ready to release, run the version command (`yarn changeset version` or
+   `pnpm changeset version`). The tool reads all pending changesets, calculates the new versions
+   according to SemVer rules, updates `package.json`s, and writes a consolidated changelog.
 5. Publish the updated packages (`yarn changeset publish` …).
 
 ### 3. Changeset file format
@@ -52,13 +55,16 @@ _Result_: `data-fetcher` version goes from `0.9.7` → `0.9.8`.
 
 #### d) **No version bump required** – documentation‑only or internal change
 
-If a change does **not** affect the runtime behavior (e.g., README updates, lint rule tweaks), you can still create a changeset but mark the bump as `none`. Some setups also allow omitting the package entry entirely.
+If a change does **not** affect the runtime behavior (e.g., README updates, lint rule tweaks), you
+can still create a changeset but mark the bump as `none`. Some setups also allow omitting the
+package entry entirely.
 
 `--- "docs": none --- Updated the contribution guide to reflect the new CI workflow.`
 
 _Result_: No version number changes; the changeset is recorded solely for changelog completeness.
 
-_(If your monorepo’s configuration disallows `none`, simply skip creating a changeset for pure docs changes.)_
+_(If your monorepo’s configuration disallows `none`, simply skip creating a changeset for pure docs
+changes.)_
 
 ### 5. Tips for a smooth experience
 
@@ -74,4 +80,7 @@ _(If your monorepo’s configuration disallows `none`, simply skip creating a ch
 
 `# Add a new changeset (interactive) yarn changeset          # or pnpm changeset, npm exec changeset # Preview pending bumps yarn changeset status # Apply version bumps and generate changelog yarn changeset version # Publish to npm registry (requires npm token) yarn changeset publish`
 
-**Bottom line:** In a monorepo, Changesets give you a lightweight, source‑controlled way to declare _how_ each package should evolve according to SemVer 2.0. By writing a tiny markdown file per change and letting the CLI compute the new versions, you keep releases predictable, traceable, and aligned across all packages.
+**Bottom line:** In a monorepo, Changesets give you a lightweight, source‑controlled way to declare
+_how_ each package should evolve according to SemVer 2.0. By writing a tiny markdown file per change
+and letting the CLI compute the new versions, you keep releases predictable, traceable, and aligned
+across all packages.

@@ -1,6 +1,9 @@
 # Commit Message Conventions
 
-Below is a practical, battle‑tested cheat‑sheet for writing commit messages that work well for **individual contributors, senior engineers, and whole teams**. It follows the conventions that most open‑source projects and modern CI/CD pipelines expect, and it’s ready to copy‑paste into a `CONTRIBUTING.md` or a team style guide.
+Below is a practical, battle‑tested cheat‑sheet for writing commit messages that work well for
+**individual contributors, senior engineers, and whole teams**. It follows the conventions that most
+open‑source projects and modern CI/CD pipelines expect, and it’s ready to copy‑paste into a
+`CONTRIBUTING.md` or a team style guide.
 
 ## 1. The “Seven‑Box” Conventional Commit Format
 
@@ -65,7 +68,8 @@ If the subject exceeds 50 chars, split the extra detail into the body.
 
 ## 5. Linking Commits to Issues / PRs
 
-- **GitHub / GitLab**: `Closes #123`, `Fixes #456`, `Resolves #789` automatically close the referenced issue when the commit lands on the default branch.
+- **GitHub / GitLab**: `Closes #123`, `Fixes #456`, `Resolves #789` automatically close the
+  referenced issue when the commit lands on the default branch.
 - **Multiple issues**: `Closes #12, #34, #56`.
 - **Cross‑repo references**: `Closes org/repo#99`.
 
@@ -73,9 +77,11 @@ If you don’t want the issue closed automatically, use `Refs #123` instead.
 
 ## 6. Breaking Changes
 
-When a commit introduces a **breaking change** (API change, DB schema alteration, config format change, etc.):
+When a commit introduces a **breaking change** (API change, DB schema alteration, config format
+change, etc.):
 
-1. Add a `BREAKING CHANGE:` line in the **footer** (or start the body with it if you have no footer).
+1. Add a `BREAKING CHANGE:` line in the **footer** (or start the body with it if you have no
+   footer).
 2. Describe **what** broke and **how** to migrate.
 
 ```
@@ -88,7 +94,8 @@ BREAKING CHANGE: The response format changed from {id, name}
 to {userId, fullName}. Update consuming code.
 ```
 
-Automated changelog generators (e.g., `standard-version`, `semantic-release`) will bump the major version.
+Automated changelog generators (e.g., `standard-version`, `semantic-release`) will bump the major
+version.
 
 ## 7. Practical Tips for Senior Engineers & Reviewers
 

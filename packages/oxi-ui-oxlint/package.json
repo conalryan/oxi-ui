@@ -1,0 +1,19 @@
+{
+  "name": "@oxi-ui/oxlint",
+  "version": "0.1.0",
+  "description": "Oxlint config for Oxi UI",
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./lib/oxlintrc.json",
+    "./react": "./lib/oxlintrc.react.json"
+  },
+  "devDependencies": {
+    "oxlint": "^1.16.0"
+  },
+  "peerDependencies": {
+    "oxlint": ">=1.0.0"
+  }
+}
