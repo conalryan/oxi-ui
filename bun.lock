@@ -13,8 +13,8 @@
         "typescript": "^5.5.0",
       },
     },
-    "packages/oxi-ui-components": {
-      "name": "@oxi-ui/components",
+    "packages/oxi-ui-components-org": {
+      "name": "@oxi-ui/components-org",
       "version": "0.0.1",
       "dependencies": {
         "lit": "^3.1.0",
@@ -45,6 +45,8 @@
       "name": "@oxi-ui/core",
       "version": "0.0.1",
       "devDependencies": {
+        "@oxi-ui/oxfmt": "workspace:*",
+        "@oxi-ui/oxlint": "workspace:*",
         "@types/bun": "^1.1.0",
         "oxfmt": "0.36.0",
         "oxlint": "1.51.0",
@@ -241,7 +243,7 @@
 
     "@oxfmt/binding-win32-x64-msvc": ["@oxfmt/binding-win32-x64-msvc@0.34.0", "", { "os": "win32", "cpu": "x64" }, "sha512-CXKQM/VaF+yuvGru8ktleHLJoBdjBtTFmAsLGePiESiTN0NjCI/PiaiOCfHMJ1HdP1LykvARUwMvgaN3tDhcrg=="],
 
-    "@oxi-ui/components": ["@oxi-ui/components@workspace:packages/oxi-ui-components"],
+    "@oxi-ui/components-org": ["@oxi-ui/components-org@workspace:packages/oxi-ui-components-org"],
 
     "@oxi-ui/core": ["@oxi-ui/core@workspace:packages/oxi-ui-core"],
 
