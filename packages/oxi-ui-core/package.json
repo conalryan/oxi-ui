@@ -47,6 +47,8 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@oxi-ui/oxlint": "workspace:*",
+    "@oxi-ui/oxfmt": "workspace:*",
     "@types/bun": "^1.1.0",
     "oxfmt": "0.36.0",
     "oxlint": "1.51.0",
